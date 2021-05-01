@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 確率変数と確率分布 | 統計概論再考: 理論と実践</title>
+  <meta name="description" content="3 確率変数と確率分布 | 統計概論再考: 理論と実践" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 確率変数と確率分布 | 統計概論再考: 理論と実践" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 確率変数と確率分布 | 統計概論再考: 理論と実践" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="プログラミングの姿勢と技術.html"/>
+<link rel="next" href="典型的分布と大標本定理.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件つき確率と意思決定.html"><a href="条件つき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件つき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="推定方法1最尤法.html"><a href="推定方法1最尤法.html"><i class="fa fa-check"></i><b>6</b> 推定方法(1)最尤法</a></li>
+<li class="chapter" data-level="7" data-path="推定方法2最小二乗法.html"><a href="推定方法2最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 推定方法(2)最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="推定の目的と基準1予測.html"><a href="推定の目的と基準1予測.html"><i class="fa fa-check"></i><b>8</b> 推定の目的と基準(1)予測</a></li>
+<li class="chapter" data-level="9" data-path="推定の目的と基準2仮説検定.html"><a href="推定の目的と基準2仮説検定.html"><i class="fa fa-check"></i><b>9</b> 推定の目的と基準(2)仮説検定</a></li>
+<li class="part"><span><b>IV 実践的手法</b></span></li>
+<li class="chapter" data-level="10" data-path="標本抽出.html"><a href="標本抽出.html"><i class="fa fa-check"></i><b>10</b> 標本抽出</a></li>
+<li class="chapter" data-level="11" data-path="相関と因果実験研究.html"><a href="相関と因果実験研究.html"><i class="fa fa-check"></i><b>11</b> 相関と因果…『実験研究』</a></li>
+<li class="chapter" data-level="12" data-path="相関と因果観察研究.html"><a href="相関と因果観察研究.html"><i class="fa fa-check"></i><b>12</b> 相関と因果…『観察研究』</a></li>
+<li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
+<li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
+<li class="part"><span><b>V むすびに</b></span></li>
+<li class="chapter" data-level="15" data-path="複数の研究の統合.html"><a href="複数の研究の統合.html"><i class="fa fa-check"></i><b>15</b> 複数の研究の統合</a></li>
+<li class="chapter" data-level="16" data-path="実際のデータ分析における工夫.html"><a href="実際のデータ分析における工夫.html"><i class="fa fa-check"></i><b>16</b> 実際のデータ分析における工夫</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計概論再考: 理論と実践</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="確率変数と確率分布" class="section level1">
+<h1><span class="header-section-number">3</span> 確率変数と確率分布</h1>
+<p>確率分布は、すべての統計分析の基盤となる「概念装置」である。この「装置」は極めて抽象的であり、具体的にどう役立つかまだ見えづらいかもしれない。講義全体で最も分かりづらいと覚悟して、ここではまずその「装置」に触れてほしい。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>確率変数と確率分布</li>
+<li>確率変数のばらつき</li>
+<li>連続型と離散型の確率分布</li>
+<li>モンテ・カルロ法と逆関数法</li>
+</ol>
+<ul>
+<li>プログラミングに便利なコツ</li>
+</ul>
+</blockquote>
+<hr />
+<p><strong>1. 確率変数と確率分布</strong></p>
+<iframe src="https://player.vimeo.com/video/541290826?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Random variables.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>確率変数とは、事象空間から実数空間への「関数」である</p></li>
+<li><p><span class="math inline">\(F(x)\)</span> が分布関数となる条件とは、分位関数($F^{-1}(q)$分布関数の「逆関数」)が存在することである</p></li>
+<li><p>全ての分布の中心的傾向を表す代表値である期待値<span class="math inline">\(\mu\)</span>と中央値<span class="math inline">\(m\)</span>を、分位関数を用いて定義できる
+<span class="math display">\[
+\mu = \mathbb{E}[X] \equiv \int ^1_0 F^{-1}(q)dq \\
+m \equiv F^{-1}(\frac{1}{2})
+\]</span></p></li>
+<li><p>確率変数<span class="math inline">\(Y = aX + b\)</span> の期待値について、以下の関係が成り立つ
+<span class="math display">\[
+\mathbb{E}[Y] = a\mu + b
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>2. 確率変数のばらつき</strong></p>
+<iframe src="https://player.vimeo.com/video/541292271?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Variance of random variables.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>確率変数のばらつきを表現するために、分散<span class="math inline">\(V\)</span>や絶対偏差<span class="math inline">\(AD\)</span> を用いる
+<span class="math display">\[
+\sigma^2 = V(X) \equiv \mathbb{E} [(X - \mu)^2]\\
+AD(X) \equiv \mathbb{E} |X - \mu|
+\]</span></p></li>
+<li><p>平均二乗誤差(MSE = Mean Squared Error)は、系統誤差Bias <span class="math inline">\(= \mathbb{E}[\hat{\mu} - \mu]\)</span> の二乗と偶発誤差Variance <span class="math inline">\(= V(\hat{\mu})\)</span> に分解できる
+<span class="math display">\[
+MSE \equiv V(\hat{\mu} - \mu ) = \mathbb{E}[\hat{\mu} - \mu]^2 +  V(\hat{\mu})
+\]</span></p></li>
+<li><p>確率変数<span class="math inline">\(Y = aX + b\)</span> の分散について、以下の関係が成り立つ
+<span class="math display">\[
+V (Y) = a^2 \sigma^2
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>3. 連続型と離散型の確率分布</strong></p>
+<iframe src="https://player.vimeo.com/video/541287081?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="連続型と離散型の確率分布">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>分布関数の増加の度合を表現するために、連続型については微分可能なときに確率密度関数(probability density function)を用い、離散型については確率質量関数(probability mass function)を用いる</li>
+<li>計測するとき・コンピュータにおいては、実際に連続的であっても離散的に扱う. 概念的に議論するときにおいては、厳密には離散的であっても連続的に考える</li>
+<li>「連続型かつ離散型である」分布や、「連続型でも離散型でもない」分布も存在する</li>
+</ul>
+<hr />
+<p><strong>4. モンテ・カルロ法と逆関数法</strong></p>
+<iframe src="https://player.vimeo.com/video/542925842?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="モンテ・カルロ法と逆関数法">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>コンピュータでは、確定的である「疑似乱数」を用いて確率変数をシミュレーションする</li>
+<li>逆関数法を用いて、(分位関数を近似できる一次元の)あらゆる分布のシミュレーションを行うことができる</li>
+</ul>
+<hr />
+<p><strong>プログラミングに便利なコツ</strong></p>
+<ul>
+<li><code>function()</code>をコマンドのブロックのタイトルとして活用することによって、可読性に優れ、また分割可能なコードを書くことができる
+<ul>
+<li><code>function()</code>がコマンドの意味を示しているの、コメントを書く必要がほとんどない！これが、「自己文書化」である</li>
+</ul></li>
+<li>頻繁に使う操作について、ショートカットキーを活用しよう</li>
+</ul>
+<blockquote>
+<p>RStudio以外にも共通するもの</p>
+</blockquote>
+<ul>
+<li><code>Ctrl + Z</code> -&gt; 戻る</li>
+<li><code>Ctrl + X</code> -&gt; 切り取り</li>
+<li><code>Ctrl + C</code> -&gt; コピー</li>
+<li><code>Ctrl + V</code> -&gt; 貼り付け</li>
+<li><code>Windows + 右・左</code> -&gt; 画面の分割</li>
+<li>コマンドとしてはギリシャ文字をアルファベットで使用する(e.g. <span class="math inline">\(\varepsilon \rightarrow\)</span> <code>epsilon</code>)</li>
+</ul>
+<blockquote>
+<p>RStudioにおける便利なコマンド</p>
+</blockquote>
+<ul>
+<li><code>Ctrl + Enter</code> -&gt; ハイライトしたセクション・もしくはカーソルのある行の実行</li>
+<li><code>Ctrl + Shift + Enter</code> -&gt; Rスクリプトの全体の実行</li>
+<li><code>Ctrl + Shift + C</code> -&gt; ハイライトしたセクションをコメント・アウトもしくはコメント・アウトのキャンセル</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="プログラミングの姿勢と技術.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="典型的分布と大標本定理.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
