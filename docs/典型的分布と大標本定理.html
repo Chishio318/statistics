@@ -106,6 +106,95 @@
             <section class="normal" id="section-">
 <div id="典型的分布と大標本定理" class="section level1">
 <h1><span class="header-section-number">4</span> 典型的分布と大標本定理</h1>
+<p>複雑な自然・社会現象を、いくつかの典型的な確率分布でモデルできる。ここでは、経済学分析においてもっとも重要な確率分布について、形成過程性質やその性質を具体的に考えていく。この確率論が、大数の法則や中心極限定理など、今後の統計推論のために欠かせない大標本定理につながっていく。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>典型的確率分布について*</li>
+<li>指数分布…待機問題の分布</li>
+<li>正規分布…組み合わせ問題の分布</li>
+<li>標本平均の大標本定理 … 大数の法則と中心極限定理*</li>
+<li>べき分布 … 分散が無限大となりうる分布</li>
+</ol>
+</blockquote>
+<ul>
+<li>この講義では、正規分布を導出する確率過程やべき分布など、難易度の高いテーマも考えていく。これらの数式の詳細を、深く理解しなくても大丈夫。ただ、なぜ結論が成り立っているかの概観を把握してもらいたい。</li>
+</ul>
+<hr />
+<p><strong>1. 典型的確率分布について</strong></p>
+<iframe src="https://player.vimeo.com/video/545459340?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="典型的確率分布について">
+</iframe>
+<blockquote>
+<p>要点:</p>
+</blockquote>
+<ul>
+<li><p>確率過程によって形成される分布によって、多くの社会・自然現象を理解できる</p></li>
+<li><p>「並列的な」和もしくは「直列的な」積の過程によって形成される</p>
+<ul>
+<li>社会現象は積の過程によって形成されることが多い</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>2. 指数分布…待機問題の分布</strong></p>
+<iframe src="https://player.vimeo.com/video/545447444?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="指数分布...待機問題の分布">
+</iframe>
+<blockquote>
+<p>要点:</p>
+</blockquote>
+<ul>
+<li><p>独立した事象の待ち時間は指数分布に従い、<span class="math inline">\(f(t) \propto \exp\{-\lambda t\}\)</span> で定義される</p></li>
+<li><p>指数分布では、密度の減少率が一定である
+<span class="math display">\[
+\frac{\partial \ln f(t)}{\partial t} = - \lambda .
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>3. 正規分布…組み合わせ問題の分布</strong></p>
+<iframe src="https://player.vimeo.com/video/545451226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="正規分布...組み合わせ問題の分布">
+</iframe>
+<blockquote>
+<p>要点:</p>
+</blockquote>
+<ul>
+<li><p>独立した確率変数の総和は正規分布で近似され、<span class="math inline">\(f(t) \propto \exp\{- t^2/2\}\)</span> で定義される</p></li>
+<li><p>正規分布では、対数密度が放物線となる。すなわち、密度の減少率が、中心からの距離に比例して増加する
+<span class="math display">\[
+\frac{\partial \ln f(t)}{\partial t} = - t .
+\]</span>
+よって、中心から離れた値を取る確率が極めて低い</p></li>
+<li><p>正規分布は、パスカルの三角形を用いて、組み合わせの「場合の数」から導出できる</p></li>
+</ul>
+<hr />
+<p><strong>4. 標本平均の大標本定理 … 大数の法則と中心極限定理</strong></p>
+<iframe src="https://player.vimeo.com/video/545463033?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="標本平均の大標本定理 ... 大数の法則と中心極限定理">
+</iframe>
+<blockquote>
+<p>要点:</p>
+</blockquote>
+<ul>
+<li><p>ある分布から独立した<span class="math inline">\(n\)</span>個の観察<span class="math inline">\(X_{t}\)</span>の標本平均を以下のように定義する
+<span class="math display">\[
+\overline{X}_{n} \equiv \sum^{n}_{t=1} X_{t}/n
+\]</span></p></li>
+<li><p>大数の法則: 標本数が増えるにしたがって、標本平均が、分布の期待値に収束する
+<span class="math display">\[
+\text{As} \:\:  n \rightarrow \infty,　\overline{X}_{n} \rightarrow \mu
+\]</span></p></li>
+<li><p>(古典的)中心極限定理: 分布の分散が有限 <span class="math inline">\(\sigma^2 &lt; \infty\)</span> のとき、標本数が増えるにしたがって、標本平均の分布が正規分布に従う
+<span class="math display">\[
+\text{As} \:\:  n \rightarrow \infty, \overline{X}_{n} \rightarrow \cal{N} \:(\mu,\frac{\sigma^2}{n})
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>5. べき分布 … 分散が無限大となりうる分布</strong></p>
+<iframe src="https://player.vimeo.com/video/545466764?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="べき分布 ... 分散が無限大となりうる分布">
+</iframe>
+<blockquote>
+<p>要点:</p>
+</blockquote>
+<ul>
+<li><p>べき分布は、中心から離れた値を取る確率が極めて高くなることがある。このようなとき、分布の分散が無限大となり(もしくは非常に大きくなり)、標本平均が、分布の期待値に収束するために膨大な標本数が必要となることがある</p></li>
+<li><p>例: 地震のエネルギー、富の分布、企業規模など</p></li>
+</ul>
 
 </div>
             </section>
