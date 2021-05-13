@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>15 複数の研究の統合 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="15 複数の研究の統合 | 統計推論再考 – 理論と実践 –" />
+  <title>5 条件づき確率と意思決定 | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="5 条件づき確率と意思決定 | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="15 複数の研究の統合 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="5 条件づき確率と意思決定 | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="15 複数の研究の統合 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="5 条件づき確率と意思決定 | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="交差検証.html"/>
-<link rel="next" href="実際のデータ分析における工夫.html"/>
+<link rel="prev" href="典型的分布と大標本定理.html"/>
+<link rel="next" href="推定方法1最尤法.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -104,17 +104,79 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="複数の研究の統合" class="section level1">
-<h1><span class="header-section-number">15</span> 複数の研究の統合</h1>
+<div id="条件づき確率と意思決定" class="section level1">
+<h1><span class="header-section-number">5</span> 条件づき確率と意思決定</h1>
+<p>ここまで、確率分布の定義やその形成過程について考えてきました。ここでは、個々人の「考え」や「知識」を確率分布として表す枠組みを説明します。これから、データの比較分析に基づく統計手法について学んでいきます。しかし、日常生活は貧弱なデータしかなく、不確実性の残る下で意思決定を迫られることばかりです。ミクロ経済学の期待効用理論に基づいて、統計分析と日常的観察による知識を結び付けて考える方法を、まずここで考えたいと思います。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>条件づき確率とベイズの定理*</li>
+<li>正規分布とベイズの定理</li>
+<li>期待効用理論と情報の価値*</li>
+</ol>
+</blockquote>
+<p>この講義は、統計手法の「実践」よりも、その解釈のための「教養」を重視した内容となっています。すぐには役に立たなくても、今後いつか、自分の考えを整理する一助となると思い、学んでください。</p>
+<hr />
+<p><strong>1.　条件づき確率とベイズの定理</strong></p>
+<iframe src="https://player.vimeo.com/video/548711054?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="条件づき確率とベイズの定理">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>条件づき確率<span class="math inline">\(\mathbb{P}(A|B)\)</span>は、以下のように定義される
+<span class="math display">\[
+\mathbb{P}(A|B) = \frac{\mathbb{P}(AB)}{\mathbb{P}(B)}
+\]</span></p></li>
+<li><p>ベイズの定理: 条件づき確率には「内部対称性」があり、定義から以下のように書き換えることができる
+<span class="math display">\[
+\mathbb{P}(A|B) = \frac{\mathbb{P}(A)\mathbb{P}(B|A)}{\mathbb{P}(B)}
+\]</span></p></li>
+<li><p>よって、「原因に条件づけて、結果の確率を推察できる」ことと同じように、「観察された結果に条件づけて、原因の確率を推察できる」(!)</p></li>
+</ul>
+<hr />
+<p><strong>2.　正規分布とベイズの定理</strong></p>
+<iframe src="https://player.vimeo.com/video/548716591?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="正規分布とベイズの定理">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>ベイズの定理は、事後分布(posterior distribution)は、事前確率(prior distribution)と信号(signal)を組み合わせたものだと捉えることができる</p></li>
+<li><p>正規分布の事前分布 <span class="math inline">\(\theta\sim{\cal N}\left(\theta_{0},1/\psi_{0}\right)\)</span> と信号 <span class="math inline">\(s\sim{\cal N}\left(\theta,1/\psi_{\varepsilon}\right)\)</span> を組み合わせるとき、事後分布は正規分布<span class="math inline">\(\theta\sim{\cal N}\left(\theta_{1},1/\psi_{1}\right)\)</span>に従う。ただし、
+<span class="math display">\[
+\begin{align*}
+\theta_{1} &amp; =\frac{\psi_{0}}{\psi_{0}+\psi_{s}}\theta_{0}+\frac{\psi_{s}}{\psi_{0}+\psi_{s}} s\\
+\psi_{1} &amp; =\psi_{0}+\psi_{s}
+\end{align*}
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>3.　期待効用理論と情報の価値</strong></p>
+<iframe src="https://player.vimeo.com/video/548718711?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="期待効用理論と情報の価値">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>情報の欠如を、期待効用最大化問題の「予算制約」のように捉えることができる</li>
+<li>ブラックウェルの定理: より役に立つ情報とは、この制約を緩和するものである
+<ul>
+<li>情報の中には、どちらがより役に立つか立たないか順序づけることはできないものもある(例えば、インターネットの上で画像データが蓄積されることにより保存されている「情報量」は増えるかもしれないが、社会的に重要な意思決定をより正しくする重要な情報が増えているとは限らない)</li>
+</ul></li>
+<li>より役に立つ情報とは、意思決定に重要な状態に関して、異なる状況をより正確に「分別」できるようにするものである</li>
+</ul>
 
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="交差検証.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="実際のデータ分析における工夫.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="典型的分布と大標本定理.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="推定方法1最尤法.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
