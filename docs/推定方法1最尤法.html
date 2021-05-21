@@ -106,6 +106,79 @@
             <section class="normal" id="section-">
 <div id="推定方法1最尤法" class="section level1">
 <h1><span class="header-section-number">6</span> 推定方法(1)最尤法</h1>
+<p>「確率」という概念に基づき、個人の知識を確率分布として捉える考え方を学びました。事前分布は置いておいて、標本分布から母集団分布についてどう学べるかという推定法について、これから学んでいきます。多くある推定法の中でも一般的である「最尤法」と、その根拠となる「尤度」の概念について考えます。その後、具体的に最尤推定量を得るための「数値的アプローチ」について紹介します。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>推定の概要*</li>
+<li>最尤法*</li>
+<li>解析的・数値的アプローチについて</li>
+<li>最適化アルゴリズム</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>1.　推定の概要</strong></p>
+<iframe src="https://player.vimeo.com/video/552988278?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="推定の概論">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>現実に観察されるデータを「標本」とし、「仮説的無限母集団」や「潜在的結果」を想定し、その母集団分布について推測をする</p></li>
+<li><p>推測の目的には、複数の異なるものがある</p>
+<ol style="list-style-type: decimal">
+<li><p>パラメトリック法: データの縮約 … いくつかの母数(パラメータ)によって母集団分布をモデルし、その母数を推定する</p></li>
+<li><p>ノン・パラメトリック法: 結果の近似 … 特定のモデルを想定せず、母集団分布の近似・予測を目的として、多次元のモデルを推定する</p></li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>2.　最尤法</strong></p>
+<iframe src="https://player.vimeo.com/video/552991553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="最尤法">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>特定の標本<span class="math inline">\(x\)</span>を所与として、あるパラメータ<span class="math inline">\(\theta\)</span>を想定する「もっともらしさ」の指標を尤度(likelihood)と呼び、その関数である尤度関数<span class="math inline">\(\cal{L}(\theta|x)\)</span> は、
+<span class="math display">\[
+\cal{L}(\theta|x) = k f(x|\theta)
+\]</span>
+を満たす. ここで、<span class="math inline">\(f(x|\theta)\)</span>は分布の密度関数もしくは質量関数であり、<span class="math inline">\(k&gt;0\)</span>は任意の定数である.</p></li>
+<li><p>尤度原則(likelihood principle) … データから推測できる全ての情報は、尤度<span class="math inline">\(\cal{L}(\theta|x)\)</span> にまとめられている</p></li>
+<li><p>最尤原理(maximum likelihood principle) … 標本は『尤度』が最大のものが実現したと仮定する</p></li>
+<li><p>対数尤度を最大化し、最尤法を解く
+<span class="math display">\[
+ \max_\theta \ln \cal{L}(\theta|x)  = \sum_{i=1}^{n} \ln f(x_i|\theta) + \ln k
+\]</span></p></li>
+<li><p>ベイズの定理における事前分布の情報を(ある特定の意味で)消去したものが最尤法だと解釈できる. 推定の段階で事前分布は使われていないが、解釈するときに、先験知=事前分布を組み合わせることができる.</p></li>
+</ul>
+<hr />
+<p><strong>3. 解析的・数値的アプローチについて</strong></p>
+<iframe src="https://player.vimeo.com/video/552994419?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="解析的・数値的アプローチについて">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<p>最適化問題の解法には、解析的アプローチと数値的アプローチがあり、</p>
+<ul>
+<li>解析的アプローチは厳密であり証明を用いて命題を示すが、数値的アプローチは近似的でありアルゴリズムを用いてシミュレーションの事例を示す</li>
+<li>解析的アプローチで扱える分布などは限定的だが、数値的アプローチは汎用的でありほぼどのような問題でも解ける</li>
+</ul>
+<hr />
+<p><strong>4. 最適化アルゴリズム</strong></p>
+<iframe src="https://player.vimeo.com/video/552995011?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="最適化アルゴリズム">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<p>最適化問題を解くために、様々なアルゴリズムから効率がよく精度が高いものを選びたい</p>
+<ul>
+<li>最適化アルゴリズムでは、初期値や許容誤差などを設定しなければいけない場合があり、これらが適切に設定されなければ、最適解に到達しないことがある
+<ul>
+<li>局所解に収束し、全体解に到達しない場合</li>
+<li>最適化問題がとても平らであるため、許容誤差が十分に狭くない場合</li>
+</ul></li>
+<li>変数の次元が増えると探索しなければいけない次元が指数関数的に増える</li>
+</ul>
 
 </div>
             </section>
