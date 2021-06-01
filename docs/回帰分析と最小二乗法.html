@@ -106,15 +106,16 @@
             <section class="normal" id="section-">
 <div id="回帰分析と最小二乗法" class="section level1">
 <h1><span class="header-section-number">7</span> 回帰分析と最小二乗法</h1>
-<p>「ベイズの定理」と「最尤法」を用いて、観察から母数についてどう学べるか、という推定の問題を考えてきました。ここでは、2つの確率変数の関係性を分析するための回帰分析とその最も実用的な推定方法である最小二乗法について、2回を通じて学んでいきます。まず、ここでは二つの確率変数の関係について考察し、最小二乗法の概要を説明します。</p>
+<p>「ベイズの定理」と「最尤法」を用いて、観察から母数についてどう学べるか、という推定の問題を考えてきました。ここでは、2つの確率変数の関係性を分析するための回帰分析とその最も実用的な推定方法である最小二乗法について、2回を通じて学んでいきます。まず、ここでは2つの確率変数の関係について考察し、最小二乗法の概要を説明します。</p>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>相関関係と回帰分析の概要</li>
-<li>2つの確率変数の確率分布</li>
-<li>最小二乗法</li>
-<li>なぜ最小二乗法を使うのか</li>
+<li>相関関係と回帰分析の概要*</li>
+<li>2つの確率変数の確率分布*</li>
+<li>最小二乗法*</li>
+<li>なぜ「二乗」なのか</li>
 </ol>
 </blockquote>
+<p>*講義内容が多いため、1.5回分の講義だと考えてください。</p>
 <hr />
 <p><strong>1.　相関関係と回帰分析の概要</strong></p>
 <iframe src="https://player.vimeo.com/video/557436694?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="相関関係と回帰分析の概要">
@@ -143,19 +144,23 @@
 <p>要点</p>
 </blockquote>
 <ul>
-<li><p>あらゆる2つの確率変数の和について、以下の関係が成り立つ
-$$
-= _X + _Y\</p>
-<p>V (X + Y ) = ^2_X + ^2_Y + 2 Cov(X,Y)
-$$
-ここで、$Cov(X,Y) = $を共分散と呼ぶ。</p></li>
+<li><p>あらゆる2つの確率変数<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>の和について、以下の関係が成り立つ</p>
+<p><span class="math display">\[
+\mathbb{E}\left[X + Y \right] = \mu_X + \mu_Y
+\]</span>
+<span class="math display">\[
+V \left(X + Y \right) = \sigma^2_X + \sigma^2_Y + 2 Cov\left(X,Y\right)\]</span></p>
+<p>ここで、
+<span class="math inline">\(Cov\left(X,Y\right)\ = \mathbb{E}\left[\left(X-\mu_{X}\right)\left(Y-\mu_{Y}\right)\right]\)</span>
+を共分散と呼ぶ。</p></li>
 <li><p>確率変数の値から期待値を差し引き、標準偏差で割ることを、標準化と呼ぶ (すなわち、 <span class="math inline">\(X^{\ast}\equiv\frac{X-\mu_{X}}{\sigma_{X}}\)</span>, <span class="math inline">\(Y^{\ast}\equiv\frac{Y-\mu_{Y}}{\sigma_{Y}}\)</span>)。標準化された確率変数の共分散を、相関係数と呼ぶ
 <span class="math display">\[
 \rho \equiv \mathbb{E}\left[X^\ast Y^\ast\right] 
 \]</span>
 また、<span class="math inline">\(-1 \leq \rho \leq 1\)</span> を満たし、相関の強さを表す</p></li>
 <li><p>2つの確率変数について、独立<span class="math inline">\(\Rightarrow\)</span>無相関であるが、無相関<span class="math inline">\(\Rightarrow\)</span>独立ではない</p></li>
-<li><p>2つの確率変数の分布を同時確率分布と呼び、うち1つの確率変数の特定の値に条件づけた分布を条件つき確率分布と呼ぶ。これらのうち、特に重要なものが二次元正規分布であり、その分散を「分散共分散行列」を用いて表す。(正規分布は分布の形状が特定されているので、二次元正規分布について独立と無相関は同値である。)</p></li>
+<li><p>2つの確率変数の分布を同時確率分布と呼び、うち1つの確率変数の特定の値に条件づけた分布を条件つき確率分布と呼ぶ。(それぞれ、密度関数についても同時密度、条件つき密度と呼ぶ。)</p></li>
+<li><p>これらのうち、特に重要なものが二次元正規分布であり、その分散を「分散共分散行列」を用いて表す。(正規分布は分布の形状が特定されているので、二次元正規分布においては、独立と無相関は同値である。)</p></li>
 </ul>
 <hr />
 <p><strong>3. 最小二乗法</strong></p>
@@ -185,7 +190,7 @@ Y_{i}=\underset{=\hat{Y}_{i}...予測値・理論値}{\underbrace{\hat{\beta}_{0
 R^{2}=\frac{\sum_{i}\left(\hat{Y}_{i}-\overline{Y}\right)^{2}}{\sum_{i}\left(Y_{i}-\overline{Y}\right)^{2}}=\frac{理論モデルで説明されるYの変動}{データにおけるYの変動}= \hat{\rho}^2
 \]</span></p>
 <hr />
-<p><strong>4. なぜ最小二乗法を使うのか</strong></p>
+<p><strong>4. なぜ「二乗」なのか</strong></p>
 <iframe src="https://player.vimeo.com/video/557441428?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="なぜ最小二乗法を使うのか">
 </iframe>
 <blockquote>
