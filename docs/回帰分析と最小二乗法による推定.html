@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 回帰分析と最小二乗法による推定 | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="7 回帰分析と最小二乗法による推定 | 統計推論再考 – 理論と実践 –" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 回帰分析と最小二乗法による推定 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 回帰分析と最小二乗法による推定 | 統計推論再考 – 理論と実践 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="最尤法と数値的最適化.html"/>
+<link rel="next" href="重回帰分析とその条件.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法による推定.html"><a href="回帰分析と最小二乗法による推定.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法による推定</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 実践的手法</b></span></li>
+<li class="chapter" data-level="10" data-path="標本抽出.html"><a href="標本抽出.html"><i class="fa fa-check"></i><b>10</b> 標本抽出</a></li>
+<li class="chapter" data-level="11" data-path="相関と因果実験研究.html"><a href="相関と因果実験研究.html"><i class="fa fa-check"></i><b>11</b> 相関と因果…『実験研究』</a></li>
+<li class="chapter" data-level="12" data-path="相関と因果観察研究.html"><a href="相関と因果観察研究.html"><i class="fa fa-check"></i><b>12</b> 相関と因果…『観察研究』</a></li>
+<li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
+<li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
+<li class="part"><span><b>V むすびに</b></span></li>
+<li class="chapter" data-level="15" data-path="複数の研究の統合.html"><a href="複数の研究の統合.html"><i class="fa fa-check"></i><b>15</b> 複数の研究の統合</a></li>
+<li class="chapter" data-level="16" data-path="実際のデータ分析における工夫.html"><a href="実際のデータ分析における工夫.html"><i class="fa fa-check"></i><b>16</b> 実際のデータ分析における工夫</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 理論と実践 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="回帰分析と最小二乗法による推定" class="section level1">
+<h1><span class="header-section-number">7</span> 回帰分析と最小二乗法による推定</h1>
+<p>「ベイズの定理」と「最尤法」を用いて、観察から母数についてどう学べるか、という推定の問題を考えてきました。ここでは、2つの確率変数の関係性を分析するための回帰分析とその最も実用的な推定方法である最小二乗法について、2回を通じて学んでいきます。まず、ここでは2つの確率変数の関係について考察し、最小二乗法の概要を説明します。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>相関関係と回帰分析の概要*</li>
+<li>2つの確率変数の確率分布*</li>
+<li>最小二乗法*</li>
+<li>なぜ「二乗」なのか</li>
+</ol>
+</blockquote>
+<p>*講義内容が多いため、1.5回分の講義だと考えてください。</p>
+<hr />
+<p><strong>1.　相関関係と回帰分析の概要</strong></p>
+<iframe src="https://player.vimeo.com/video/557436694?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="相関関係と回帰分析の概要">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>多くの事象は、お互いにペアとなって変動する。これらの事象を反映する2つの確率変数<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>の間に「相関関係がある」と言う</li>
+<li>2つの確率変数の観察に相関が見られる理由は、4つある
+<ol style="list-style-type: decimal">
+<li>偶然</li>
+<li><span class="math inline">\(X\)</span>から<span class="math inline">\(Y\)</span>への因果</li>
+<li><span class="math inline">\(Y\)</span>から<span class="math inline">\(X\)</span>への逆因果</li>
+<li>交絡因子<span class="math inline">\(Z\)</span>から<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>への因果</li>
+</ol></li>
+<li>よって、相関は必ずしも因果を示唆しない。しかし、多くの場合、相関は因果を反映している。</li>
+<li><span class="math inline">\(X\)</span>によって<span class="math inline">\(Y\)</span>を説明する関係式を推定することを「回帰分析」と呼ぶ。このとき、<span class="math inline">\(X\)</span>を説明変数もしくは独立変数と呼び、<span class="math inline">\(Y\)</span>を被説明変数もしくは従属変数と呼ぶ</li>
+<li>計測した<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>の関係式に<span class="math inline">\(X\)</span>を代入し、<span class="math inline">\(Y\)</span>の理論値を計算することを「予測」と言う</li>
+</ul>
+<hr />
+<p><strong>2.　2つの確率変数の確率分布</strong></p>
+<iframe src="https://player.vimeo.com/video/557438968?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="2つの確率変数の確率分布">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>あらゆる2つの確率変数<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>の和について、以下の関係が成り立つ</p>
+<p><span class="math display">\[
+\mathbb{E}\left[X + Y \right] = \mu_X + \mu_Y
+\]</span>
+<span class="math display">\[
+V \left(X + Y \right) = \sigma^2_X + \sigma^2_Y + 2 Cov\left(X,Y\right)\]</span></p>
+<p>ここで、
+<span class="math inline">\(Cov\left(X,Y\right)\ = \mathbb{E}\left[\left(X-\mu_{X}\right)\left(Y-\mu_{Y}\right)\right]\)</span>
+を共分散と呼ぶ。</p></li>
+<li><p>確率変数の値から期待値を差し引き、標準偏差で割ることを、標準化と呼ぶ (すなわち、 <span class="math inline">\(X^{\ast}\equiv\frac{X-\mu_{X}}{\sigma_{X}}\)</span>, <span class="math inline">\(Y^{\ast}\equiv\frac{Y-\mu_{Y}}{\sigma_{Y}}\)</span>)。標準化された確率変数の共分散を、相関係数と呼ぶ
+<span class="math display">\[
+\rho \equiv \mathbb{E}\left[X^\ast Y^\ast\right] 
+\]</span>
+また、<span class="math inline">\(-1 \leq \rho \leq 1\)</span> を満たし、相関の強さを表す</p></li>
+<li><p>2つの確率変数について、独立<span class="math inline">\(\Rightarrow\)</span>無相関であるが、無相関<span class="math inline">\(\Rightarrow\)</span>独立ではない</p></li>
+<li><p>2つの確率変数の分布を同時確率分布と呼び、うち1つの確率変数の特定の値に条件づけた分布を条件つき確率分布と呼ぶ。(それぞれ、密度関数についても同時密度、条件つき密度と呼ぶ。)</p></li>
+<li><p>これらのうち、特に重要なものが二次元正規分布であり、その分散を「分散共分散行列」を用いて表す。(正規分布は分布の形状が特定されているので、二次元正規分布においては、独立と無相関は同値である。)</p></li>
+</ul>
+<hr />
+<p><strong>3. 最小二乗法</strong></p>
+<iframe src="https://player.vimeo.com/video/557440152?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="最小二乗法">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<p>単回帰モデル
+<span class="math display">\[
+Y=\underset{定数項・切片}{\underbrace{\beta_{0}}}+\underset{傾斜・勾配}{\underbrace{\beta_{1}}}X+\underset{誤差項・錯乱項}{\underbrace{\varepsilon}}​
+\]</span>
+単回帰モデルの推定
+<span class="math display">\[
+Y_{i}=\underset{=\hat{Y}_{i}...予測値・理論値}{\underbrace{\hat{\beta}_{0}+\hat{\beta}_{1}X_{i}}}+\underset{残差}{\hat{\varepsilon_{i}}}
+\]</span></p>
+<ul>
+<li>最小二乗法は、残差の二乗の総和<span class="math inline">\(\sum_i \hat{\varepsilon_{i}}^2\)</span> を最小化することによって、推定量<span class="math inline">\(\hat{\beta}_{0}, \hat{\beta}_{1}\)</span>を得る</li>
+</ul>
+<p>勾配<span class="math inline">\(\beta_1\)</span>が重要なパラメータとなる場合が多く、
+<span class="math display">\[
+\beta_{1}=\frac{Cov\left(X,Y\right)}{Var\left(X\right)}=\rho \frac{\sigma_Y}{\sigma_X}
+\]</span>
+である。</p>
+<p>データに対する理論モデルの適合度を決定係数<span class="math inline">\(R^2\)</span>で測り、
+<span class="math display">\[
+R^{2}=\frac{\sum_{i}\left(\hat{Y}_{i}-\overline{Y}\right)^{2}}{\sum_{i}\left(Y_{i}-\overline{Y}\right)^{2}}=\frac{理論モデルで説明されるYの変動}{データにおけるYの変動}= \hat{\rho}^2
+\]</span></p>
+<hr />
+<p><strong>4. なぜ「二乗」なのか</strong></p>
+<iframe src="https://player.vimeo.com/video/559818906?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="なぜ「二乗」なのか">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>どの推定方法が適切かは、推定の目的に応じて変わる。しかし、多くの場合、最小二乗法が適切だと考えられる理由がある。</p>
+<ul>
+<li>外れ値などがある場合が例外である。</li>
+</ul></li>
+<li><p>様々な理由から、最小二乗法が望ましい</p>
+<ol style="list-style-type: lower-roman">
+<li><p>予測値を「条件つき期待値」として解釈できる</p></li>
+<li><p>誤差が正規分布をするときの最尤法である</p></li>
+<li><p>誤差の2次損失関数の期待値を最小化している</p></li>
+</ol>
+<p><strong>補足説明:</strong> 2次のテイラー近似は、近似している値(ここでは真の<span class="math inline">\(Y_i\)</span>)の近傍のみにおいて適切である。予測値<span class="math inline">\(\hat{Y}_i\)</span>が大きく乖離するときは、2次の損失関数と、人間の直観的基準が合致しないことがある。</p></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="最尤法と数値的最適化.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="重回帰分析とその条件.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

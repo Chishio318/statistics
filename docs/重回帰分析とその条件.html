@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="回帰分析と最小二乗法.html"/>
-<link rel="next" href="推定の目的と基準2仮説検定.html"/>
+<link rel="prev" href="回帰分析と最小二乗法による推定.html"/>
+<link rel="next" href="統計的検定.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -74,10 +74,10 @@
 <li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
 <li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
 <li class="part"><span><b>III 最適化</b></span></li>
-<li class="chapter" data-level="6" data-path="推定方法1最尤法.html"><a href="推定方法1最尤法.html"><i class="fa fa-check"></i><b>6</b> 推定方法(1)最尤法</a></li>
-<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法による推定.html"><a href="回帰分析と最小二乗法による推定.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法による推定</a></li>
 <li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
-<li class="chapter" data-level="9" data-path="推定の目的と基準2仮説検定.html"><a href="推定の目的と基準2仮説検定.html"><i class="fa fa-check"></i><b>9</b> 推定の目的と基準(2)仮説検定</a></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
 <li class="part"><span><b>IV 実践的手法</b></span></li>
 <li class="chapter" data-level="10" data-path="標本抽出.html"><a href="標本抽出.html"><i class="fa fa-check"></i><b>10</b> 標本抽出</a></li>
 <li class="chapter" data-level="11" data-path="相関と因果実験研究.html"><a href="相関と因果実験研究.html"><i class="fa fa-check"></i><b>11</b> 相関と因果…『実験研究』</a></li>
@@ -154,7 +154,7 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 <p><strong>補足:</strong> 推定量の標準偏差(standard deviation)<span class="math inline">\(\sqrt{Var\left(\hat{\theta}\right)}\)</span>を標準誤差(standard error)と呼ぶ</p>
 <hr />
 <p><strong>3. 重回帰分析の最小二乗法(OLS)によって望ましい推定をするための条件</strong></p>
-<iframe src="https://player.vimeo.com/video/558769100?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="重回帰分析によって望ましい推定をする条件">
+<iframe src="https://player.vimeo.com/video/558769100?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="重回帰分析によって望ましい推定をする条件">
 </iframe>
 <blockquote>
 <p>要点</p>
@@ -166,7 +166,7 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 </ul>
 <hr />
 <p><strong>4. 外生性条件が満たされないとき</strong></p>
-<iframe src="https://player.vimeo.com/video/558783636?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="外生性条件が満たされないとき">
+<iframe src="https://player.vimeo.com/video/558783636?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="外生性条件が満たされないとき">
 </iframe>
 <blockquote>
 <p>要点</p>
@@ -182,7 +182,7 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 </ul>
 <hr />
 <p><strong>5. 独立同一分布条件が満たされないとき</strong></p>
-<iframe src="https://player.vimeo.com/video/558776198?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="独立同一分布条件が満たされないとき">
+<iframe src="https://player.vimeo.com/video/558776198?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="独立同一分布条件が満たされないとき">
 </iframe>
 <blockquote>
 <p>要点</p>
@@ -202,8 +202,8 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
           </div>
         </div>
       </div>
-<a href="回帰分析と最小二乗法.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="推定の目的と基準2仮説検定.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="回帰分析と最小二乗法による推定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="統計的検定.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
