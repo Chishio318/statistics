@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <title>15 統計分析活用の実際と工夫 | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="15 統計分析活用の実際と工夫 | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="15 統計分析活用の実際と工夫 | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="15 統計分析活用の実際と工夫 | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="プログラミングの姿勢と技術.html"/>
+<link rel="prev" href="交差検証.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -103,70 +103,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="主要な8の統計的考え方" class="section level1">
-<h1><span class="header-section-number">1</span> 主要な8の統計的考え方</h1>
-<p>統計的手法は、多数の層から成る論理が積み重なっている山のようである。基礎から一歩一歩理解を進めていくためにも、まず、何を目指しているのか、その主要な考え方を見渡そう。</p>
-<blockquote>
-<ol start="0" style="list-style-type: decimal">
-<li>統計的思考への社会の要請</li>
-<li>主要な考え方(1)確率分布</li>
-<li>主要な考え方(2)最適化</li>
-<li>主要な考え方(3)人間的制約</li>
-</ol>
-</blockquote>
-<hr />
-<p><strong>0. 統計的思考への社会の要請</strong></p>
-<iframe src="https://player.vimeo.com/video/537256170?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="統計的思考への社会の要請">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li><p>『データ・サイエンス』とは、①数理統計学、②コンピュータ・サイエンス、③対象の専門知識から成る学際的な手法群である</p></li>
-<li><p>よくある誤解</p>
-<ol style="list-style-type: lower-roman">
-<li>ビッグ・データがあれば、何でも分かる</li>
-<li>統計学は専門家が理解していれば十分である</li>
-</ol></li>
-</ul>
-<hr />
-<p><strong>1. 主要な考え方(1)確率分布</strong></p>
-<iframe src="https://player.vimeo.com/video/537259983?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(1) 確率分布">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>統計学 = 体系的に観察から理解を導出する概念装置</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li>多くの自然・社会現象は、確率分布に従う</li>
-<li>標本(現象の観察)と仮定を組み合わせて、確率分布を推測する</li>
-<li>意思決定に役立つ情報とは、確率分布について分別できるものだ</li>
-</ol>
-<hr />
-<p><strong>2. 主要な考え方(2)最適化</strong></p>
-<iframe src="https://player.vimeo.com/video/537265419?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(2) 最適化">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ol start="4" style="list-style-type: decimal">
-<li>誤差の総和を、偶発誤差と系統誤差に分解できる</li>
-<li>標本を大量に観察することで、偶発誤差を回避できる</li>
-<li>標本を無作為に観察することで、系統誤差を回避できる</li>
-</ol>
-<hr />
-<p><strong>3. 主要な考え方(3)人間的制約</strong></p>
-<iframe src="https://player.vimeo.com/video/537267994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(3) 人間的制約">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ol start="7" style="list-style-type: decimal">
-<li>強い仮定を置けば、脆弱だけれど明確な理解が得られる</li>
-<li>複雑な仮定を置けば、解釈できないが精緻な理解が得られる</li>
-</ol>
+<div id="統計分析活用の実際と工夫" class="section level1">
+<h1><span class="header-section-number">15</span> 統計分析活用の実際と工夫</h1>
 
 </div>
             </section>
@@ -174,8 +112,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="プログラミングの姿勢と技術.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="交差検証.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
