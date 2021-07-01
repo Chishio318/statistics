@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <title>10 標本調査について | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="10 標本調査について | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="10 標本調査について | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="10 標本調査について | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="主要な8の統計的考え方.html"/>
-<link rel="next" href="確率変数と確率分布.html"/>
+<link rel="prev" href="統計的検定.html"/>
+<link rel="next" href="相関と因果実験研究.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -103,104 +103,71 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="プログラミングの姿勢と技術" class="section level1">
-<h1><span class="header-section-number">2</span> プログラミングの姿勢と技術</h1>
-<p>実証研究とは、つまるところ、データを「インプット」とし、解析結果を「アウトプット」とするプログラムを書くことである。再現可能なプログラムを書くための心得を習慣づけよう。</p>
+<div id="標本調査について" class="section level1">
+<h1><span class="header-section-number">10</span> 標本調査について</h1>
+<p>ここまで、確率の概念的基礎づけや統計的推論について考えてきました。ここで、そもそもデータをどう収集するか、という統計分析の第一歩に立ち返りたいと思います。実際の社会経済現象を把握するためには、このデータ収集こそが肝要であり、地道な・地味な作業が求められます。調査から得られる数字を「追う」のではなく、その背後にある統計の標本の定義、標本数、回収率、質問の詳細などを「読んで」こそ、その数字を適切に解釈できると言えるでしょう。</p>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>プログラムの再現可能性*</li>
-<li>Rの特徴と初期設定</li>
-<li>変数と関数の概念*</li>
-<li>Rプログラムの事始</li>
-<li>RMarkdownの事始</li>
+<li>調査統計の色々*</li>
+<li>欠測値をどう扱うか*</li>
+<li>答えづらい質問への正直な答えをどう引き出すか</li>
 </ol>
-<ul>
-<li>便利なcheat sheet</li>
-</ul>
 </blockquote>
-<hr />
-<p><strong>1. プログラムの再現可能性</strong></p>
-<iframe src="https://player.vimeo.com/video/540367625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Replicability.mp4">
+<p>*今回の講義内容は、「歴史」や「雑談」の要素が多くなっていますが、「なるほど」と聞き流してくれていれば大丈夫です。</p>
+<p><strong>1. 調査統計の色々</strong></p>
+<iframe src="https://player.vimeo.com/video/569399740?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="調査統計の色々">
 </iframe>
 <blockquote>
 <p>要点</p>
 </blockquote>
 <ul>
-<li>再現可能性を向上し、信頼性と拡張可能性を改善するために、データ分析のためにスクリプトを用いてプログラミングをする</li>
-<li>データ分析プロジェクトの規模が大きくなると、たとえ時間をかけても、小さなミスを絶対に避けるための努力が要求される</li>
+<li><p>調査統計には「全数調査」と「標本調査」があり、「全数調査」にかかる費用が大きくなりすぎるとき、その対象母集団の「縮図」となるような「標本調査」を行う</p></li>
+<li><p>今日の公的統計においては無作為抽出法が標準的であり、単純無作為法のみでなく、「ばらつき」が大きくなるという弱点を補うために多段抽出法や層別抽出法が用いられる</p></li>
+<li><p>調査にともなう誤差として、標本誤差のみでなく、以下のような非標本誤差がある</p>
+<ol style="list-style-type: decimal">
+<li><p>単純ミス</p></li>
+<li><p>無回答</p></li>
+<li><p>回答の偽り</p></li>
+</ol></li>
+<li><p>非標本誤差が時間を通じて一定だと仮定して、「繰り返し横断調査」や「縦断調査」(パネル調査)などを用いて、時系列の変化を使うことが有効である</p></li>
 </ul>
-<hr />
-<p><strong>2. Rの特徴と初期設定</strong></p>
-<iframe src="https://player.vimeo.com/video/540371314?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Why R.mp4">
+<p><strong>2. 欠測値をどう扱うか</strong></p>
+<iframe src="https://player.vimeo.com/video/569394952?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="欠測値をどう扱うか">
 </iframe>
 <blockquote>
 <p>要点</p>
 </blockquote>
 <ul>
-<li>Rの強みは、オープン・ソースだからユーザーベースが広く、再現可能性に優れている点である</li>
-<li>Rの弱みは、計算効率があまり高くないことである</li>
-<li>まず初期設定をしよう</li>
-</ul>
-<hr />
-<p><strong>3. 変数と関数の概念</strong></p>
-<iframe src="https://player.vimeo.com/video/540373131?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Objects and Functions.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
+<li>欠測値のあるデータを削除をしてしまうことがよくあるが、欠測がランダムでない限り、適切な対応ではない</li>
+<li>「ないデータをつくることはできない」が、以下のような対応ができる
 <ul>
-<li>変数とは、「名札」のついた情報を格納できる「箱」である。関数とは、「名札」のついた、引数に特定の操作をする「筒」である。</li>
-<li>自己文書化を目指そう。コメントをせずとも、関数や変数の「名札」を使って、分析内容が分かるようにすることができる。
-<ul>
-<li>「名札」は、他人が読んで分からないほど省略しすぎない</li>
-<li>「名札」のつけ方には、アルファベットと数字、そして「_」や「.」を使う</li>
+<li>妥当だと思える回答を代入する</li>
+<li>変数の変域が有限の場合、その上限・下限を代入し、「一番大きくて…」「一番小さくて…」というような値の取り得る幅を推定できる</li>
 </ul></li>
-<li><strong>訂正:</strong> 「オブジェクト」は「変数」より広い概念で、「関数」を含めることもある</li>
 </ul>
-<hr />
-<p><strong>4. Rプログラムの事始</strong></p>
-<iframe src="https://player.vimeo.com/video/540376237?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R language.mp4">
+<p><strong>3. 答えづらい質問への正直な答えをどう引き出すか</strong></p>
+<iframe src="https://player.vimeo.com/video/569412924?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picらい質問への正直な答えをどう引き出すか">
 </iframe>
 <blockquote>
 <p>要点</p>
 </blockquote>
 <ul>
-<li>頻繁に使うコマンドのためには、<code>Cheat Sheet</code>を印刷して、手引きとしてすぐに使えるようにしよう</li>
-<li>エラー・メッセージなど、インターネットで検索すると、他の人が同じエラーを経験し、掲示板で質疑応答があることが多い</li>
-<li><strong>追加点:</strong> 英語話者のユーザーベースが広いため、<code>Sys.setenv(LANG = "en")</code>でエラーメッセージを英語で表示するように設定し、検索して解決策を見つけやすくしよう</li>
-</ul>
-<hr />
-<p><strong>5. RMarkdownの事始</strong></p>
-<iframe src="https://player.vimeo.com/video/540378049?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R markdown.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
+<li>回答者が他の人から好意的に見られるように答えることを「社会的望ましさバイアス」と言う</li>
+<li>このバイアスを完全に除去できないが、「ノイズを加える」ことによって、軽減できる
 <ul>
-<li>Rmarkdownを使って、コマンド、文書とアウトプットを組み合わせ、再現可能なプログラミングに近づける</li>
-<li>htmlもしくはMS Wordで出力し、PDFに変換して宿題を提出すること</li>
-</ul>
-<hr />
-<p><strong>便利なcheat sheet</strong></p>
-<ul>
-<li><p><code>Cheat Sheet</code>を印刷して、手引きとして適切なコマンドをすぐに見つけられるようにしよう</p>
-<ul>
-<li><a href="https://github.com/Chishio318/statistics/blob/main/Base%20R.pdf">Base R</a></li>
-<li><a href="https://github.com/Chishio318/statistics/blob/main/R%20Markdown.pdf">RMarkdown</a></li>
+<li>本人ではなく、身近な人について聞く</li>
+<li>回答をランダム化する(選択肢のリストのランダム化、回答に乱数を加える、など)</li>
 </ul></li>
 </ul>
 
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="主要な8の統計的考え方.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="確率変数と確率分布.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="統計的検定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="相関と因果実験研究.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
