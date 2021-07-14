@@ -106,6 +106,14 @@
 <div id="統計的因果推論1" class="section level1">
 <h1><span class="header-section-number">11</span> 統計的因果推論(1)</h1>
 <p>ひとは誰しも「よりよい」と信じる方向へ進みたいものですが、現状を認識したら、その現状に対してどのような行動を取ればよいかを考えるでしょう。ここでは、「どのような選択をすればよいか」を考えるプログラム評価のための「統計的因果推論」について考えていきます。この因果推論においても、『未知の確率過程から生ずるデータを用いて、その過程のパラメータを推定する』という基本的考えは同じですが、『比較対象を設定する』という点において、今までの推定と決定的に異なっています。経済学者が長く取り組んできた問題であり、多くの手法・アプローチが考案されてきました。歴史や実例に触れながら、その発想法について2回の講義を通じて考えていきましょう。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>潜在的結果と反実仮想にもとづく因果推論</li>
+<li>選択効果から処置効果を分別するための識別条件</li>
+<li>観測可能な共変量・属性による「マッチング」</li>
+<li>時間を通じて安定した属性を制御する固定効果</li>
+</ol>
+</blockquote>
 <hr />
 <p><strong>1. 潜在的結果と反実仮想にもとづく因果推論</strong></p>
 <iframe src="https://player.vimeo.com/video/573851269?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="潜在的結果と反実仮想にもとづく因果推論">
@@ -139,7 +147,8 @@
 <li><p>処置効果 = 観測される「処置群」と「比較群」の差 - 選択効果
 <span class="math display">\[
 \underset{=\mathbb{E}\left[\tau_{i}|T\right] (処置効果)}{\underbrace{\mathbb{E}\left[Y_{i}^{T}|T\right]-\mathbb{E}\left[Y_{i}^{C}|T\right]}} = \underset{=\text{観察される差}}{\underbrace{\mathbb{E}\left[Y_{i}^{T}|T\right]-\mathbb{E}\left[Y_{i}^{C}|C\right]}}-\underset{=\text{選択効果}}{\underbrace{(\mathbb{E}\left[Y_{i}^{C}|T\right]-\mathbb{E}\left[Y_{i}^{C}|C\right])}}
-\]</span></p></li>
+\]</span>
+<strong>補足:</strong> 処置を受けた人への効果は、Treatment on Treated (ToT)だけでなく、Average Treatment on Treated (ATT)とも呼ばれる。</p></li>
 <li><p>「主観的」… 選択効果を他の情報から吟味する(事例研究など)</p></li>
 <li><p>「より客観的」… 選択効果を除去するような条件(識別条件)を満たすときを見つける</p>
 <ol style="list-style-type: decimal">
@@ -147,8 +156,63 @@
 <li><p>時系列の処置の変化を用いて、安定している交絡因子を制御する</p></li>
 <li><p>処置の可能性が無作為になっているような状況を用いて、ほぼ全ての交絡因子を制御する</p></li>
 </ol>
-<p>識別条件が厳しい状況の方がより信頼できるが、より難しい</p></li>
+<p>識別条件が厳しい状況の方がより信頼できるが、より難しい</p>
+<p><strong>補足:</strong>識別条件の仮定を、データのみから完全に吟味することはできない。</p>
+<hr /></li>
 </ul>
+<p><strong>3. 観測できる共変量・属性による「マッチング」</strong></p>
+<p><iframe src="https://player.vimeo.com/video/574762482?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="観測できる共変量・属性による「マッチング」"></iframe></p>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>「マッチング」＝似ているもの同士でペアを組み、比較をすること</p></li>
+<li><p>重回帰分析で共変量を制御することも、「マッチング」として捉えることができ、制御しきれない交絡因子によって生じる選択効果を欠落変数バイアスとして捉えることができる</p></li>
+<li><p>重回帰分析における識別条件:
+<span class="math display">\[
+\mathbb{E}[Y^C|C,X] = \mathbb{E}[Y^C|T,X]
+\]</span></p></li>
+<li><p>共変量を含めるかどうかの指針</p>
+<ol style="list-style-type: decimal">
+<li><p>交絡因子である場合 … Yes</p></li>
+<li><p>媒介因子である場合 … No</p></li>
+<li><p>測定誤差を減らせる独立因子である場合 … 基本的にYes</p></li>
+<li><p>全く関係のない因子である場合 … No</p></li>
+</ol>
+<p>どの共変量を含めたらよいか、必ずしも分からないため、様々な共変量を入れて試す「感度分析」が大切である</p></li>
+</ul>
+<p><strong>訂正:</strong> 重回帰の3次元の図における<span class="math inline">\(\beta_0\)</span>は、切片ではなく、<span class="math inline">\(D=0\)</span>の平面かつ回帰平面上の<span class="math inline">\(X=0\)</span>となっている点である。</p>
+<hr />
+<p><strong>4. 時間を通じて安定した属性を制御する固定効果</strong></p>
+<p><iframe src="https://player.vimeo.com/video/574760270?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="時間を通じて安定した属性を制御する固定効果"></iframe></p>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>固定効果モデルでは、共変量として、ダミー変数<span class="math inline">\(f_i\)</span>を含める
+<span class="math display">\[
+Y_{it} = \beta_1 D_{it} + f_i + \varepsilon_{it}
+\]</span></p>
+<ul>
+<li>通常のOLSでは<span class="math inline">\(i\)</span>の間のパターンを捉えるのに対し、固定効果モデルでは<span class="math inline">\(i\)</span>の内のパターンを捉えることとなる</li>
+</ul></li>
+<li><p>固定効果分析における識別条件: 全ての時点<span class="math inline">\(t,s\)</span>において</p></li>
+</ul>
+<p><span class="math display">\[
+  \mathbb{E}[Y_{it}^C|C_{is}] = \mathbb{E}[Y_{it}^C|T_{is}]
+  \]</span></p>
+<hr />
+<p><strong>参考図書・文献</strong></p>
+<p>William Shadish, Thomas Cook, and Donald Campbell “Experimental and Quasi-Experimental Designs for Generalized Causal Inference.” Houghton Mifflin Company. 2002.</p>
+<p>Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, Princeton University Press, 2009</p>
+<p>Guido Imbens and Donald Rubin “Causal Inference for Statistics, Social, and Biomedical Sciences: An Introduction”, Cambridge University Press, 2015</p>
+<p>Judea Pearl and Dana MacKenzie “The Book of Why: The New Science of Cause and Effect” Penguine Books, 2019</p>
+<p>西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年</p>
+<p>伊藤公一朗 『データ分析の力　因果関係に迫る思考法』光文社新書、2017年</p>
+<p>中室牧子、津川友介 『「原因と結果」の経済学　データから真実を見抜く思考法』ダイヤモンド社、2017年</p>
+<p>安井翔太・株式会社ホクソエム 『効果検証入門　正しい比較のための因果推論/計量経済学の基礎』 技術評論社、2020年</p>
+<p>佐藤俊樹 『社会科学と因果分析　ウェーバーの方法論から知の現在へ』岩波書店、2019年</p>
+<p>Esther Duflo, Rachel Glennester, Michael Kremer　『政策評価のための因果関係の見つけ方　ランダム化比較試験入門』小林庸平監訳、日本評論社、2019年</p>
 
 </div>
             </section>
