@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 統計的因果推論(2) | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="12 統計的因果推論(2) | 統計推論再考 – 理論と実践 –" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 統計的因果推論(2) | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 統計的因果推論(2) | 統計推論再考 – 理論と実践 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="統計的因果推論1.html"/>
+<link rel="next" href="感度分析と縮小推定量.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法による推定.html"><a href="回帰分析と最小二乗法による推定.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法による推定</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 実践的手法</b></span></li>
+<li class="chapter" data-level="10" data-path="標本調査について.html"><a href="標本調査について.html"><i class="fa fa-check"></i><b>10</b> 標本調査について</a></li>
+<li class="chapter" data-level="11" data-path="統計的因果推論1.html"><a href="統計的因果推論1.html"><i class="fa fa-check"></i><b>11</b> 統計的因果推論(1)</a></li>
+<li class="chapter" data-level="12" data-path="統計的因果推論2.html"><a href="統計的因果推論2.html"><i class="fa fa-check"></i><b>12</b> 統計的因果推論(2)</a></li>
+<li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
+<li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
+<li class="part"><span><b>V むすびに</b></span></li>
+<li class="chapter" data-level="15" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>15</b> 統計分析活用の実際と工夫</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 理論と実践 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="統計的因果推論2" class="section level1">
+<h1><span class="header-section-number">12</span> 統計的因果推論(2)</h1>
+<p>因果効果の推定のために観測できる変数などで制御する方法を考えました。しかし、このようなアプローチでは「重要な共変量を制御しきれない」という「答え合わせ」の結果をきっかけに、選択効果を除去するような研究デザインにフォーカスをする「実験的アプローチ」が普及していきました。今日、経済学において広く受け入れられている因果関係は、この「実験的アプローチ」に基づくと言ってよいと考えています。ここでは、この「実験的アプローチ」の考え方を紹介し、決して平たんではなかったその成り立ちと、今も論争となっている点についても考えていきます。</p>
+<blockquote>
+<p>1「研究デザイン」にもとづく実験的アプローチ
+2 時系列の中の介入を用いる「差の差」推定
+3 外生的な第3の変数を用いる「操作変数法」
+4 境界の恣意性を用いる方法
+5 政策介入を無作為割り付けする「ランダム化比較実験」
+6 実験的アプローチの「局所性」と「脱理論性」</p>
+</blockquote>
+<p>講義ビデオを作成していますが、まず要約のメモをアップロードします。</p>
+<hr />
+<p><strong>1「研究デザイン」にもとづく実験的アプローチ</strong></p>
+<ul>
+<li><p>1960年代末アメリカで福祉政策のランダム化比較実験が試みられるようになり、従来十分だと考えられてきた「変数を制御する・統計手法で補正するアプローチ」が不十分ではないか、という1980年代末以降の経済学者の経験的共通認識につながった</p></li>
+<li><p>「実験的アプローチ」 … 「選択効果」が生じない外生的な変動を用いることができる状況 = 研究デザインによって識別条件を満たすような状況に着目</p>
+<ol style="list-style-type: lower-roman">
+<li><p>自然実験・疑似実験</p></li>
+<li><p>フィールド実験</p></li>
+</ol></li>
+<li><p>「選択効果」をできる限り小さくしたいということは、すなわち、被験者の(主観的)厚生・自由を犠牲にしている側面がある</p></li>
+</ul>
+<hr />
+<p><strong>2 時系列の中の介入を用いる「差の差」推定</strong></p>
+<ul>
+<li><p>処置群と比較群の間における前後の間の差を考えることで、両群特性の違いを排除する推定方法が「差の差」(difference-in-difference)であり、event studiesとも呼ばれる</p></li>
+<li><p>識別条件: 並行トレンドの仮定
+<span class="math display">\[
+\mathbb{E}\left[Y_{i1}^{C}-Y_{i0}^{C}|T\right]=\mathbb{E}\left[Y_{i1}^{C}-Y_{i0}^{C}|C\right]
+\]</span></p></li>
+<li><p>並行トレンドが満たされないとき</p>
+<ol style="list-style-type: decimal">
+<li><p>処置の前のトレンドが異なるパターンであるとき</p></li>
+<li><p>同時に他の政策介入などがあるとき</p></li>
+<li><p>傾向そのものが逆因果を引き起こすとき</p></li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>3 外生的な第3の変数を用いる「操作変数法」</strong></p>
+<ul>
+<li><p>操作変数(Instrumental Variable, Z) = 結果Yに直接影響を与えないが、説明変数Xを通じて間接的に影響を与える変数</p></li>
+<li><p>2段階の最小二乗法: 真のモデルが<span class="math inline">\(Y_i = \beta_0 + \beta_1 D_i + \beta_2 X_i + \varepsilon_i\)</span>のとき、以下の2段階の回帰分析をし、
+<span class="math display">\[
+Y_{i}=\alpha_{0}+\alpha_{1}Z_{i}+\nu_{i}\:(\text{Reduced form})\\
+D_{i}=\gamma_{0}+\gamma_{1}Z_{i}+\eta_{i}\:(\text{First stage})
+\]</span>
+その係数を組み合わせて</p></li>
+</ul>
+<p><span class="math display">\[
+  \hat{\beta_1}^{IV} = \hat{\alpha_1}/\hat{\gamma_1}
+\]</span></p>
+<p>として捉えることができる</p>
+<ul>
+<li><p>識別条件: (i) 関連性、(ii)除外性、(iii)独立性、(iv)単調性を満たすとき、<span class="math inline">\(\hat{\beta_1}^{IV}\)</span>を局所的な平均処置効果(Local Average Treatment Effect)として捉えることができる</p></li>
+<li><p>外生性を用いることにより、内生性による推定の問題(欠落変数バイアス、減衰バイアス、同時性バイアス)に対処できる</p></li>
+</ul>
+<hr />
+<p><strong>4 境界の恣意性を用いる方法</strong></p>
+<ul>
+<li><p>多くの属性はなだらかに変化することがほとんどであるが、制度が非連続的に変化する近傍において、ほぼ政策のみが変化するような状況がある</p></li>
+<li><p>識別条件: ランニング変数<span class="math inline">\(Z\)</span>における非連続な点<span class="math inline">\(Z^\ast\)</span>(カットオフ)の近傍における連続性 … 微小な<span class="math inline">\(\varepsilon &gt;0\)</span>において、
+<span class="math display">\[
+\mathbb{E}\left[Y_{i}^{C}|C,Z\in(Z^{\ast}-\varepsilon,Z^{\ast})\right]=\mathbb{E}\left[Y_{i}^{C}|T,Z\in(Z^{\ast},Z^{\ast}+\varepsilon)\right]
+\]</span></p></li>
+<li><p>回帰非連続(regression discontinuity) … 処置効果を知るために、カットオフの右と左を比較</p></li>
+<li><p>集積分析(bunching analysis) … 選択効果を知るために、カットオフにおける密度を測定</p></li>
+<li><p>連続的な変化をどの関数形で近似し、その変化を制御するか、論争となることが多い</p></li>
+</ul>
+<hr />
+<p><strong>5 政策介入を無作為割り付けする「ランダム化比較実験」</strong></p>
+<ul>
+<li><p>理想的には、処置群と比較群の平均を比較するのみという極めてシンプルで透明な方法である</p></li>
+<li><p>識別条件: 「潜在的結果からランダム抽出をできていること」
+<span class="math display">\[
+\mathbb{E}\left[Y_{i}^{C}|C\right]=\mathbb{E}\left[Y_{i}^{C}|T\right]
+\]</span></p></li>
+<li><p>たとえ「ランダム割付」をしていても、この識別条件を満たさず「内的妥当性」を保障できないことがある</p>
+<ol style="list-style-type: decimal">
+<li>比較群の調整的行動 (プラセボの欠如)</li>
+<li>波及効果・研究に参加することの効果</li>
+<li>ランダムではない脱落・欠測</li>
+</ol></li>
+<li><p>「前向き」(prospective)な研究であるからこそ、「後ろ向き」(retrospective)な研究にはないようなステップがある</p>
+<ol style="list-style-type: decimal">
+<li><p>パイロット実験の実施・標本サイズの決定</p></li>
+<li><p>研究プロトコルの登録・倫理委員会審査の審査 (被験者の厚生を保障するために、時間を遅らせて処置を与えたり、もし悪効果があると分かったら、途中で中止をする)</p></li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>6 実験的アプローチの「局所性」と「脱理論性」</strong></p>
+<ul>
+<li><p>批判の内容: 実験的アプローチによる選択バイアスの克服は重要だが、まだ解決できていない問題がある(強調する側面の違い)</p>
+<ol style="list-style-type: lower-roman">
+<li><p>実験は局所的である</p></li>
+<li><p>実験は脱理論的である</p></li>
+</ol></li>
+<li><p>実験的アプローチを用いる対応</p>
+<ol style="list-style-type: lower-roman">
+<li><p>異なる環境における実験を数多く実施して統合する</p></li>
+<li><p>異なるデザインの実験を組み合わせて、理論を検証できる (理論が正しいことを想定しなくてよい)</p></li>
+</ol></li>
+<li><p>構造的アプローチを用いる対応</p>
+<ol style="list-style-type: decimal">
+<li>経済理論モデルを設定</li>
+<li>モデル・パラメータを推定・カリブレーション</li>
+<li>政策変更シミュレーション</li>
+</ol></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="統計的因果推論1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="感度分析と縮小推定量.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
