@@ -111,7 +111,7 @@
 <li>「研究デザイン」にもとづく実験的アプローチ</li>
 <li>時系列の中の介入を用いる「差の差」推定</li>
 <li>外生的な第3の変数を用いる「操作変数法」</li>
-<li>境界の恣意性を用いる「回帰非連続法」「集積分析法」</li>
+<li>境界を用いる「回帰非連続法」</li>
 <li>政策介入を無作為割り付けする「ランダム化比較実験」</li>
 <li>実験的アプローチの「局所性」と「脱理論性」</li>
 </ol>
@@ -189,6 +189,11 @@ D_{i}=\gamma_{0}+\gamma_{1}Z_{i}+\eta_{i}\:(\text{First stage})
 </ul>
 <hr />
 <p><strong>4 境界を用いる「回帰非連続法」</strong></p>
+<iframe src="https://player.vimeo.com/video/578853901?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="境界を用いる「回帰非連続法」">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
 <ul>
 <li><p>多くの属性はなだらかに変化することがほとんどであるが、制度が非連続的に変化する近傍において、ほぼ政策のみが変化するような状況がある</p></li>
 <li><p>最も基本的推定式: フレクシブルな関数<span class="math inline">\(f\left(Z_{i}\right)\)</span>を用いて、
@@ -197,12 +202,13 @@ Y_{i}=\beta_{0}+\beta_{1}D_{i}+f\left(Z_{i}\right)+\varepsilon_{i}
 \]</span></p></li>
 <li><p>識別条件: ランニング変数<span class="math inline">\(Z\)</span>における非連続な点<span class="math inline">\(Z^\ast\)</span>(カットオフ)の近傍における連続性 … 微小な<span class="math inline">\(\varepsilon &gt;0\)</span>において、
 <span class="math display">\[
-\mathbb{E}\left[Y_{i}^{C}|C,Z\in(Z^{\ast}-\varepsilon,Z^{\ast})\right]=\mathbb{E}\left[Y_{i}^{C}|T,Z\in(Z^{\ast},Z^{\ast}+\varepsilon)\right]
+\mathbb{E}\left[Y_{i}^{C}|C,Z\in(Z^{\ast}-\varepsilon,Z^{\ast}+\varepsilon)\right]=\mathbb{E}\left[Y_{i}^{C}|T,Z\in(Z^{\ast}-\varepsilon,Z^{\ast}+\varepsilon)\right]
 \]</span></p></li>
 <li><p>回帰非連続(regression discontinuity) … 処置効果を知るために、カットオフの右と左を比較</p></li>
 <li><p>集積分析(bunching analysis) … 選択効果を知るために、カットオフにおける密度を測定</p></li>
 <li><p>連続的な変化をどの関数形で近似し、その変化を制御するか、論争となることが多い</p></li>
 </ul>
+<p><strong>補足:</strong> Lee, Moretti, Butler (2014)の研究のアウトカムの「投票」は、市民の投票ではなく、選出された議員が衆議院の議題の賛否について投票するときにリベラルである傾向のスコアである。</p>
 <hr />
 <p><strong>5 政策介入を無作為割り付けする「ランダム化比較実験」</strong></p>
 <iframe src="https://player.vimeo.com/video/578765556?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="政策介入を無作為割り付けする「ランダム化比較実験」">
