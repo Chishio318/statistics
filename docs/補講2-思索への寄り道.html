@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <title>17 補講(2) 思索への寄り道 | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="17 補講(2) 思索への寄り道 | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="17 補講(2) 思索への寄り道 | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="17 補講(2) 思索への寄り道 | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="主要な8の統計的考え方.html"/>
-<link rel="next" href="確率変数と確率分布.html"/>
+<link rel="prev" href="補講1-数学.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -106,104 +106,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="プログラミングの姿勢と技術" class="section level1">
-<h1><span class="header-section-number">2</span> プログラミングの姿勢と技術</h1>
-<p>実証研究とは、つまるところ、データを「インプット」とし、解析結果を「アウトプット」とするプログラムを書くことである。再現可能なプログラムを書くための心得を習慣づけよう。</p>
+<div id="補講2-思索への寄り道" class="section level1">
+<h1><span class="header-section-number">17</span> 補講(2) 思索への寄り道</h1>
+<p>主要な講義は、統計学分析手法の理論・実践について説明をしてきました。しかし、統計学が独立の手法群として確率される以前から、その基盤としての哲学的思索がありました。この内容は授業の必須ではありませんが、統計学・経済学の授業では扱われることがあまりない哲学的・思索的背景について説明をしたいと思います。統計学を活用していくためには、その内容とともに、その限界・適用範囲の限定性にも思いを馳せることが重要だからです。(この講義は、答えを伝えるのではなく、問いを示すことを目的としているので、「要点」も書きません。)</p>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>プログラムの再現可能性*</li>
-<li>Rの特徴と初期設定</li>
-<li>変数と関数の概念*</li>
-<li>Rプログラムの事始</li>
-<li>RMarkdownの事始</li>
+<li>測定できないもの――観察と意識</li>
+<li>因果律と「選択の自由」</li>
 </ol>
-<ul>
-<li>便利なcheat sheet</li>
-</ul>
 </blockquote>
 <hr />
-<p><strong>1. プログラムの再現可能性</strong></p>
-<iframe src="https://player.vimeo.com/video/540367625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Replicability.mp4">
+<p><strong>1. 測定できないもの――観察と意識</strong></p>
+<iframe src="https://player.vimeo.com/video/583277339?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="測定できないもの――観察と意識">
 </iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>再現可能性を向上し、信頼性と拡張可能性を改善するために、データ分析のためにスクリプトを用いてプログラミングをする</li>
-<li>データ分析プロジェクトの規模が大きくなると、たとえ時間をかけても、小さなミスを絶対に避けるための努力が要求される</li>
-</ul>
 <hr />
-<p><strong>2. Rの特徴と初期設定</strong></p>
-<iframe src="https://player.vimeo.com/video/540371314?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Why R.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>Rの強みは、オープン・ソースだからユーザーベースが広く、再現可能性に優れている点である</li>
-<li>Rの弱みは、計算効率があまり高くないことである</li>
-<li>まず初期設定をしよう</li>
-</ul>
-<hr />
-<p><strong>3. 変数と関数の概念</strong></p>
-<iframe src="https://player.vimeo.com/video/540373131?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Objects and Functions.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>変数とは、「名札」のついた情報を格納できる「箱」である。関数とは、「名札」のついた、引数に特定の操作をする「筒」である。</li>
-<li>自己文書化を目指そう。コメントをせずとも、関数や変数の「名札」を使って、分析内容が分かるようにすることができる。
-<ul>
-<li>「名札」は、他人が読んで分からないほど省略しすぎない</li>
-<li>「名札」のつけ方には、アルファベットと数字、そして「_」や「.」を使う</li>
-</ul></li>
-<li><strong>訂正:</strong> 「オブジェクト」は「変数」より広い概念で、「関数」を含めることもある</li>
-</ul>
-<hr />
-<p><strong>4. Rプログラムの事始</strong></p>
-<iframe src="https://player.vimeo.com/video/540376237?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R language.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>頻繁に使うコマンドのためには、<code>Cheat Sheet</code>を印刷して、手引きとしてすぐに使えるようにしよう</li>
-<li>エラー・メッセージなど、インターネットで検索すると、他の人が同じエラーを経験し、掲示板で質疑応答があることが多い</li>
-<li><strong>追加点:</strong> 英語話者のユーザーベースが広いため、<code>Sys.setenv(LANG = "en")</code>でエラーメッセージを英語で表示するように設定し、検索して解決策を見つけやすくしよう</li>
-</ul>
-<hr />
-<p><strong>5. RMarkdownの事始</strong></p>
-<iframe src="https://player.vimeo.com/video/540378049?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R markdown.mp4">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>Rmarkdownを使って、コマンド、文書とアウトプットを組み合わせ、再現可能なプログラミングに近づける</li>
-<li>htmlもしくはMS Wordで出力し、PDFに変換して宿題を提出すること</li>
-</ul>
-<hr />
-<p><strong>便利なcheat sheet</strong></p>
-<ul>
-<li><p><code>Cheat Sheet</code>を印刷して、手引きとして適切なコマンドをすぐに見つけられるようにしよう</p>
-<ul>
-<li><a href="https://github.com/Chishio318/statistics/blob/main/Base%20R.pdf">Base R</a></li>
-<li><a href="https://github.com/Chishio318/statistics/blob/main/R%20Markdown.pdf">RMarkdown</a></li>
-</ul></li>
-</ul>
+<p><strong>参考図書・文献</strong></p>
+<p>ジェリー・ミュラー『測りすぎ　なぜパフォーマンス評価は失敗するのか』(The Tyranny of Metrics)　松本裕訳、みすず書房、2019年</p>
+<p>土居健郎 『表と裏』 弘文堂、1985年</p>
+<p>遠山啓　『数学の学び方・教え方』　岩波新書、1972年</p>
+<p>William Shadish, Thomas Cook, and Donald Campbell “Experimental and Quasi-Experimental Designs for Generalized Causal Inference.” Houghton Mifflin Company. 2002.</p>
 
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="主要な8の統計的考え方.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="確率変数と確率分布.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="補講1-数学.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
