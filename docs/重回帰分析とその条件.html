@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="回帰分析と最小二乗法による推定.html"/>
+<link rel="prev" href="回帰分析と最小二乗法.html"/>
 <link rel="next" href="統計的検定.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -75,20 +75,21 @@
 <li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
 <li class="part"><span><b>III 最適化</b></span></li>
 <li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
-<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法による推定.html"><a href="回帰分析と最小二乗法による推定.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法による推定</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
 <li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
 <li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
-<li class="part"><span><b>IV 実践的手法</b></span></li>
-<li class="chapter" data-level="10" data-path="標本調査について.html"><a href="標本調査について.html"><i class="fa fa-check"></i><b>10</b> 標本調査について</a></li>
-<li class="chapter" data-level="11" data-path="統計的因果推論1.html"><a href="統計的因果推論1.html"><i class="fa fa-check"></i><b>11</b> 統計的因果推論(1)</a></li>
-<li class="chapter" data-level="12" data-path="統計的因果推論2.html"><a href="統計的因果推論2.html"><i class="fa fa-check"></i><b>12</b> 統計的因果推論(2)</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
 <li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
 <li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
 <li class="part"><span><b>V むすびに</b></span></li>
 <li class="chapter" data-level="15" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>15</b> 統計分析活用の実際と工夫</a></li>
 <li class="part"><span><b>VI 付録</b></span></li>
-<li class="chapter" data-level="16" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>16</b> 補講(1) 数学</a></li>
-<li class="chapter" data-level="17" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>17</b> 補講(2) 思索への寄り道</a></li>
+<li class="chapter" data-level="16" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>16</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="17" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>17</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="18" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>18</b> 補講(2) 思索への寄り道</a></li>
 </ul>
 
       </nav>
@@ -194,9 +195,16 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 <ul>
 <li>どれぐらいその推定量に自信を持ったらよいかを誤ってしまう</li>
 </ul></li>
-<li>不均一分散である(<span class="math inline">\(\mathbb{E}\left[\varepsilon^{2}|X\right] = \sigma_X^{2}\)</span>)可能性が多いので、『不均一分散に対して頑健な標準誤差』をプログラムで常に使うことが望ましい</li>
+<li>不均一分散である(<span class="math inline">\(\mathbb{E}\left[\varepsilon^{2}|X\right] \neq \sigma^{2}\)</span>)可能性が多いので、『不均一分散に対して頑健な標準誤差』をプログラムで常に使うことが望ましい</li>
 <li>系列相関・自己相関がある(<span class="math inline">\(\mathbb{E}\left[\varepsilon_{i}\varepsilon_{j}|X\right]\neq0\)</span>)ことが多いので、『クラスター構造に対して頑健な標準誤差』をプログラムで常に使うことが望ましい</li>
 </ul>
+<hr />
+<p><strong>参考図書・文献</strong></p>
+<p>Jeffrey Wooldridge ``Econometric Analysis of Cross Section and Panel Data’’ <em>The MIT Press</em>, 2010</p>
+<p>Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, <em>Princeton University Press</em>, 2009</p>
+<p>James Stock and Mark Watson “Introduction to Econometrics.” <em>Pearson Education Inc.</em> 2007</p>
+<p>東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年</p>
+<p>西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年</p>
 
 </div>
             </section>
@@ -204,7 +212,7 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
           </div>
         </div>
       </div>
-<a href="回帰分析と最小二乗法による推定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="回帰分析と最小二乗法.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="統計的検定.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

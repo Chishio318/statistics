@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>17 補講(1) 数学 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="17 補講(1) 数学 | 統計推論再考 – 理論と実践 –" />
+  <title>10 社会調査 | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="10 社会調査 | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="17 補講(1) 数学 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="10 社会調査 | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="17 補講(1) 数学 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="10 社会調査 | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="授業の形式と内容.html"/>
-<link rel="next" href="補講2-思索への寄り道.html"/>
+<link rel="prev" href="統計的検定.html"/>
+<link rel="next" href="因果推論の概要と共変量制御のアプローチ.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -107,8 +107,72 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="補講1-数学" class="section level1">
-<h1><span class="header-section-number">17</span> 補講(1) 数学</h1>
+<div id="社会調査" class="section level1">
+<h1><span class="header-section-number">10</span> 社会調査</h1>
+<p>ここまで、確率の概念的基礎づけや統計的推論について考えてきました。ここで、そもそもデータをどう収集するか、という統計分析の第一歩に立ち返りたいと思います。実際の社会経済現象を把握するためには、このデータ収集こそが肝要であり、地道な・地味な作業が求められます。調査から得られる数字を「追う」のではなく、その背後にある統計の標本の定義、標本数、回収率、質問の詳細などを「読んで」こそ、その数字を適切に解釈できると言えるでしょう。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>調査統計の色々*</li>
+<li>欠測値をどう扱うか*</li>
+<li>答えづらい質問への正直な答えをどう引き出すか</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>1. 調査統計の色々</strong></p>
+<iframe src="https://player.vimeo.com/video/569399740?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="調査統計の色々">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>調査統計には「全数調査」と「標本調査」があり、「全数調査」にかかる費用が大きくなりすぎるとき、その対象母集団の「縮図」となるような「標本調査」を行う</p></li>
+<li><p>今日の公的統計においては無作為抽出法が標準的であり、単純無作為法のみでなく、「ばらつき」が大きくなるという弱点を補うために多段抽出法や層別抽出法が用いられる</p></li>
+<li><p>調査にともなう誤差として、標本誤差のみでなく、以下のような非標本誤差がある</p>
+<ol style="list-style-type: decimal">
+<li><p>単純ミス</p></li>
+<li><p>無回答</p></li>
+<li><p>回答の偽り</p></li>
+</ol></li>
+<li><p>非標本誤差が時間を通じて一定だと仮定して、「繰り返し横断調査」や「縦断調査」(パネル調査)などを用いて、時系列の変化を使うことが有効である</p></li>
+</ul>
+<hr />
+<p><strong>2. 欠測値をどう扱うか</strong></p>
+<iframe src="https://player.vimeo.com/video/569394952?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="欠測値をどう扱うか">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>欠測値のあるデータを削除をしてしまうことがよくあるが、欠測がランダムでない限り、適切な対応ではない</li>
+<li>「ないデータをつくることはできない」が、以下のような対応ができる
+<ul>
+<li>妥当だと思える回答を代入する</li>
+<li>変数の変域が有限の場合、その上限・下限を代入し、「一番大きくて…」「一番小さくて…」というような値の取り得る幅を推定できる</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>3. 答えづらい質問への正直な答えをどう引き出すか</strong></p>
+<iframe src="https://player.vimeo.com/video/569412924?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picらい質問への正直な答えをどう引き出すか">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>回答者が他の人から好意的に見られるように答えることを「社会的望ましさバイアス」と言う</li>
+<li>このバイアスを完全に除去できないが、「ノイズを加える」ことによって、軽減できる
+<ul>
+<li>本人ではなく、身近な人について聞く</li>
+<li>回答をランダム化する(選択肢のリストのランダム化、回答に乱数を加える、など)</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>参考図書・文献</strong></p>
+<p>佐藤明彦 『数字を追うな 統計を読め データを読み解く力をつける』 日本経済新聞出版社、2013年</p>
+<p>東京大学教養学部統計学教室 『基礎統計学II 人文・社会科学の統計学』東京大学出版会、1994年</p>
+<p>高井啓二、星野崇宏、野間久史 『欠測データの統計科学 医学と社会科学への応用 調査観察データ解析の実際１』岩波書店、2016年</p>
+<p>宮川公男 『統計学の日本史 治国経世への願い』東京大学出版会、2017年</p>
+<p>ゲアリー・スミス 『データは騙る 改竄・捏造・不正を見抜く統計学』川添節子訳、早川書房、2019年</p>
+<p>Julian C. Jamison, Dean Karlan and Pia Raffler, “Mixed-Method Evaluation of a Passive mHealth Sexual Information Texting Service in Uganda” 2013. <em>Information Technologies and International Development</em></p>
 
 </div>
             </section>
@@ -116,8 +180,8 @@
           </div>
         </div>
       </div>
-<a href="授業の形式と内容.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="補講2-思索への寄り道.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="統計的検定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="因果推論の概要と共変量制御のアプローチ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
