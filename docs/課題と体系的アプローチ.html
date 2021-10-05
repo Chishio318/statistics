@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –</title>
-  <meta name="description" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <title>15 課題と体系的アプローチ | 統計推論再考 – 理論と実践 –</title>
+  <meta name="description" content="15 課題と体系的アプローチ | 統計推論再考 – 理論と実践 –" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <meta property="og:title" content="15 課題と体系的アプローチ | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 主要な8の統計的考え方 | 統計推論再考 – 理論と実践 –" />
+  <meta name="twitter:title" content="15 課題と体系的アプローチ | 統計推論再考 – 理論と実践 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="プログラミングの姿勢と技術.html"/>
+<link rel="prev" href="交差検証.html"/>
+<link rel="next" href="統計分析活用の実際と工夫.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -113,85 +113,105 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="主要な8の統計的考え方" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> 主要な8の統計的考え方</h1>
-<p>統計的手法は、多数の層から成る論理が積み重なっている山のようである。基礎から一歩一歩理解を進めていくためにも、まず、何を目指しているのか、その主要な考え方を見渡そう。</p>
+<div id="課題と体系的アプローチ" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> 課題と体系的アプローチ</h1>
 <blockquote>
-<ol start="0" style="list-style-type: decimal">
-<li>統計的思考への社会の要請</li>
-<li>主要な考え方(1)確率分布</li>
-<li>主要な考え方(2)最適化</li>
-<li>主要な考え方(3)人間的制約</li>
+<ol style="list-style-type: decimal">
+<li>プログラミングのよくある誤謬とよくある誤解</li>
+<li>プログラミングと意思伝達問題</li>
+<li>プログラミングへのアプローチとアナロジー</li>
+<li>フローチャートと疑似コード*</li>
 </ol>
 </blockquote>
 <hr />
-<p><strong>0. 統計的思考への社会の要請</strong></p>
-<iframe src="https://player.vimeo.com/video/537256170?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="統計的思考への社会の要請">
+<p><strong>1. プログラミングのよくある誤謬とよくある誤解</strong></p>
+<iframe src="https://player.vimeo.com/video/623045255?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングのよくある誤謬とよくある誤解">
 </iframe>
 <blockquote>
 <p>要点</p>
 </blockquote>
 <ul>
-<li><p>『データ・サイエンス』とは、①数理統計学、②コンピュータ・サイエンス、③対象の専門知識から成る学際的な手法群である</p></li>
-<li><p>よくある誤解</p>
-<ol style="list-style-type: lower-roman">
-<li>ビッグ・データがあれば、何でも分かる</li>
-<li>統計学は専門家が理解していれば十分である</li>
+<li>よくある誤謬
+<ul>
+<li>他人や過去の自分の書いたコードを理解できない・実行できない</li>
+<li>何年もプログラムを書いているのに、どこか「ぐちゃぐちゃ」している</li>
+<li>コードの書き方が分からないところをインターネットで検索してつないだため、一貫性がない</li>
+</ul></li>
+<li>よくある誤解
+<ul>
+<li>プログラミングの仕事は主にコードを書く作業である</li>
+<li>プログラムとして機能していれば十分</li>
+<li>初めて書くコードが読みづらいのは、知識と技術が足りないからである</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>2. 意思伝達問題としてのプログラミング</strong></p>
+<iframe src="https://player.vimeo.com/video/623062853?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングと意思伝達問題">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>プログラミング・プロジェクトとは、『複数の発信者』と『複数の受信者』の意思伝達問題である。</li>
+<li>プログラムの四元徳 (four cardinal virtues)
+<ol style="list-style-type: decimal">
+<li>clear (明瞭性) … 自分は何をお願いしたいのか・指示したいのか</li>
+<li>effective (有効性) … プログラムは、どうお願いをしたら理解してくれるか</li>
+<li>consistent (一貫性) … 読者は、どのようなプログラムであれば理解しやすいか</li>
+<li>flexible (柔軟性) … 共同研究者は、どのようなコードであれば変更を加えやすいか</li>
+</ol></li>
+<li>プログラムのアウトカムに求められることは「徳」である
+<ul>
+<li>日々の心の習慣であって、突然変えようと思ってもできない</li>
+<li>知識や技術ではなく、他者への「配慮」が基盤である</li>
+<li>意識しなければ、満たさないような「衝動」が常にある</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>3. プログラミングへのアプローチとアナロジー</strong></p>
+<iframe src="https://player.vimeo.com/video/623033804?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングへのアプローチとアナロジー">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>複雑な意思決定問題に取り組むには、以下の二つが根本的要素となる</p>
+<ol style="list-style-type: decimal">
+<li><u>長い工程を複雑な区切る:</u> コードは数百～数千の内容があるのに、人間のワーキングメモリーは同時に５～７つ以上の内容を整理できない</li>
+<li><u>読者を熟知する:</u> 表現が分かりやすいかは、読者の「内的世界の文化」による</li>
+</ol></li>
+<li><p>『複数の発信者と複数の受信者の意思伝達問題』の事例</p>
+<ul>
+<li>学術論文</li>
+<li>新聞</li>
+</ul></li>
+<li><p>『複数の発信者と複数の受信者の意思伝達問題』に必要な体系的アプローチ</p>
+<ol style="list-style-type: decimal">
+<li>７つほどのセクションに分かれたフォーマットがある</li>
+<li>体系的レビューのプロセスがある</li>
+<li>一貫した内部のルールがある</li>
+<li>4回書き直す</li>
 </ol></li>
 </ul>
 <hr />
-<p><strong>1. 主要な考え方(1)確率分布</strong></p>
-<iframe src="https://player.vimeo.com/video/537259983?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(1) 確率分布">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ul>
-<li>統計学 = 体系的に観察から理解を導出する概念装置</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li>多くの自然・社会現象は、確率分布に従う</li>
-<li>標本(現象の観察)と仮定を組み合わせて、確率分布を推測する</li>
-<li>意思決定に役立つ情報とは、確率分布について分別できるものだ</li>
-</ol>
-<hr />
-<p><strong>2. 主要な考え方(2)最適化</strong></p>
-<iframe src="https://player.vimeo.com/video/537265419?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(2) 最適化">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ol start="4" style="list-style-type: decimal">
-<li>誤差の総和を、偶発誤差と系統誤差に分解できる</li>
-<li>標本を大量に観察することで、偶発誤差を回避できる</li>
-<li>標本を無作為に観察することで、系統誤差を回避できる</li>
-</ol>
-<hr />
-<p><strong>3. 主要な考え方(3)人間的制約</strong></p>
-<iframe src="https://player.vimeo.com/video/537267994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(3) 人間的制約">
-</iframe>
-<blockquote>
-<p>要点</p>
-</blockquote>
-<ol start="7" style="list-style-type: decimal">
-<li>強い仮定を置けば、脆弱だけれど明確な理解が得られる</li>
-<li>複雑な仮定を置けば、解釈できないが精緻な理解が得られる</li>
-</ol>
-<hr />
 <p><strong>参考図書・文献</strong></p>
-<p>鳥居泰彦『はじめての統計学』、日本経済新聞出版、1994年</p>
-<p>東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年</p>
-<p>竹村彰通『データサイエンス入門』、岩波新書、2018年</p>
-<p>濵田悦生・狩野裕『データサイエンス入門シリーズ　データサイエンスの基礎』講談社、2019年</p>
+<p>Matthew Gentzkow and Jesse M. Shapiro. ``Code and Data for the Social Sciences: A Practitioner’s Guide.’’ 2014. <em>University of Chicago Booth Memo.</em></p>
+<p>Dustin Boswell and Trevor Foucher. 『リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック (Theory in practice) 』 角征典 (翻訳) オライリー・ジャパン 2012年</p>
+<p>縣俊貴『良いコードを書く技術 ── 読みやすく保守しやすいプログラミング作法』 技術評論社　2021年</p>
+<p>David Thomas and Andrew Hunt 『達人プログラマー ―熟達に向けたあなたの旅― 第2版』 村上雅章 (翻訳) オーム社 2020年</p>
+<p>Robert Martin. “Clean Code: A Handbook of Agile Software Craftsmanship” 2008. Prentice Hall.</p>
 
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="プログラミングの姿勢と技術.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="交差検証.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="統計分析活用の実際と工夫.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
