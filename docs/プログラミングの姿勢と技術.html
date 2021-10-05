@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –</title>
   <meta name="description" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 プログラミングの姿勢と技術 | 統計推論再考 – 理論と実践 –" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,9 @@
   
 <link rel="prev" href="主要な8の統計的考え方.html"/>
 <link rel="next" href="確率変数と確率分布.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,8 +50,9 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -82,14 +85,17 @@
 <li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
 <li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
 <li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合</b></span></li>
 <li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
 <li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
-<li class="part"><span><b>V むすびに</b></span></li>
-<li class="chapter" data-level="15" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>15</b> 統計分析活用の実際と工夫</a></li>
-<li class="part"><span><b>VI 付録</b></span></li>
-<li class="chapter" data-level="16" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>16</b> 授業の形式と内容</a></li>
-<li class="chapter" data-level="17" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>17</b> 補講(1) 数学</a></li>
-<li class="chapter" data-level="18" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>18</b> 補講(2) 思索への寄り道</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="15" data-path="課題と体系的アプローチ.html"><a href="課題と体系的アプローチ.html"><i class="fa fa-check"></i><b>15</b> 課題と体系的アプローチ</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="16" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>16</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="17" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>17</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="18" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>18</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="19" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>19</b> 補講(2) 思索への寄り道</a></li>
 </ul>
 
       </nav>
@@ -107,7 +113,7 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="プログラミングの姿勢と技術" class="section level1">
+<div id="プログラミングの姿勢と技術" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> プログラミングの姿勢と技術</h1>
 <p>実証研究とは、つまるところ、データを「インプット」とし、解析結果を「アウトプット」とするプログラムを書くことである。再現可能なプログラムを書くための心得を習慣づけよう。</p>
 <blockquote>
@@ -202,7 +208,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -221,6 +226,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": false,
@@ -234,6 +240,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -241,7 +251,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": true,
 "info": false
 });
 });
