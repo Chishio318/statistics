@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 交差検証 | 統計推論再考 – 概念と技法 –</title>
-  <meta name="description" content="14 交差検証 | 統計推論再考 – 概念と技法 –" />
+  <title>16 プログラミングの環境管理 | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="16 プログラミングの環境管理 | 統計推論再考 – 概念と技法 –" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 交差検証 | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:title" content="16 プログラミングの環境管理 | 統計推論再考 – 概念と技法 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 交差検証 | 統計推論再考 – 概念と技法 –" />
+  <meta name="twitter:title" content="16 プログラミングの環境管理 | 統計推論再考 – 概念と技法 –" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="感度分析と縮小推定量.html"/>
-<link rel="next" href="コミュニケーションの課題.html"/>
+<link rel="prev" href="コミュニケーションの課題.html"/>
+<link rel="next" href="統計分析活用の実際と工夫.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -114,8 +114,92 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="交差検証" class="section level1" number="14">
-<h1><span class="header-section-number">14</span> 交差検証</h1>
+<div id="プログラミングの環境管理" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> プログラミングの環境管理</h1>
+<p>快適にプログラミングの作業を続けるためには、コードを書くだけではなく、その環境であるフォルダーとファイルを管理することが欠かせない。この講義では、「環境管理」についての考え方と具体的なツールについて説明をする。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>分類と順序</li>
+<li>フォルダー構造の整理</li>
+<li>バージョン管理</li>
+<li>GitとGitHubの準備</li>
+<li>RMarkdownからのGitHubの利用</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>1. 分類と順序</strong></p>
+<iframe src="https://player.vimeo.com/video/635924828?h=2c45c1e4e7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="分類と順序">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>世界には膨大な要素があるが、人が同時に操作できる対象は<span class="math inline">\(7 \pm 2\)</span> までである</li>
+<li>膨大な数の対象を分かりやすく示すには、
+1.「近いもの」をグループにして分類し、ピラミッド型にして、各層における対象の数を<span class="math inline">\(\sim 7\)</span>ほどにすること
+<ul>
+<li>分類には、“Mutually Exclusive and Collectively Exhaustive” (MECE = ダブりなくモレなし)を心がける</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>それぞれの順序を論理的に並べること</li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>2. フォルダー構造の整理</strong></p>
+<iframe src="https://player.vimeo.com/video/635915123?h=ff06769404&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="フォルダー構造の整理">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>フォルダーの分類には3つのタイプがあり、それらを組み合わせて使うことが多い
+<ul>
+<li>by topic: プロジェクトや授業ごと … 一般に、幹に近い枝により適切</li>
+<li>by time: 日付や学期ごと</li>
+<li>by type: ワードファイルやRファイルなど … 一般に、枝葉の先により適切</li>
+</ul></li>
+<li>フォルダーの順序は、デフォルトで「アルファベット順」になっており、頭に”01_…“などの番号をふることにより、論理的な順序に並び替えることができる
+<ul>
+<li>by importance: 重要度順</li>
+<li>by time: 時系列順</li>
+<li>by structure: 構造順</li>
+</ul></li>
+<li>Windowsで「フォルダーツリー」を印刷するには、以下のステップを踏む</li>
+<li><strong>補足:</strong> 検索機能やショートカットを使うこともできる</li>
+<li><strong>補足:</strong> 1階層のフォルダーの多さと、階層の深さの間にトレードオフがある</li>
+</ul>
+<hr />
+<p><strong>2. バージョン管理</strong></p>
+<ul>
+<li>ファイルの状態のことを「バージョン」と呼ぶ</li>
+<li><ol style="list-style-type: lower-roman">
+<li>現在のバージョンを明確に区別し、(ii) 過去のバージョンを回復できるようにする必要がある</li>
+</ol></li>
+<li>自分なりのアプローチ: ファイルを異なる時点で「ファイル名」を変更して保存する
+<ul>
+<li>問題点(1) … ファイル名を考えることが大変で、実際と一貫性がないことがある</li>
+<li>問題点(2) … 何が最新ファイルか分からなくなることがある</li>
+<li>問題点(3) … データが膨大になる</li>
+<li>問題点(4) … いつ保存すればよいか分かりづらい</li>
+</ul></li>
+<li>Gitによるアプローチ: 変更歴を<code>.git</code>ファイルに保存する<code>repository</code> (レポジトリ)を用いる
+<ul>
+<li>アプローチ(1) … ファイル名ではなく、変更内容をコメントとして「コミット」する (ファイル名はハッシュが自動で生成される)</li>
+<li>アプローチ(2) … 変更歴は「隠れファイル」として封印する</li>
+<li>アプローチ(3) … テキストファイルについて、<code>diff</code> (変更点)のみを保存する</li>
+<li>アプローチ(4) … 自分でルールを定めなければならない</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>3. リモートフォルダーの共有</strong></p>
+<ul>
+<li>ローカルとリモートフォルダー(レポジトリ)を用いることによって、データの安全性を高める</li>
+<li>プログラムの共有を可能にする</li>
+</ul>
+<hr />
+<p><strong>参考文献</strong></p>
+<p>Minto, Barbara. “The Pyramid Principle: Logic in Writing and Thinking”. 2009 (originally, 1987.) Financial Times Prentice Hall</p>
+<p>佐藤可士和 『佐藤可士和の超整理術』 日経ビジネス人文庫 2011.</p>
 
 </div>
 
@@ -126,8 +210,8 @@
           </div>
         </div>
       </div>
-<a href="感度分析と縮小推定量.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="コミュニケーションの課題.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="コミュニケーションの課題.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="統計分析活用の実際と工夫.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
