@@ -121,9 +121,9 @@
 <ol style="list-style-type: decimal">
 <li>分類と順序</li>
 <li>フォルダー構造の整理</li>
-<li>バージョン管理</li>
-<li>GitとGitHubの準備</li>
-<li>RMarkdownからのGitHubの利用</li>
+<li>バージョン管理とGit</li>
+<li>クラウド保存とGitHub</li>
+<li>GitHubとRStudioによるGitの活用</li>
 </ol>
 </blockquote>
 <hr />
@@ -169,37 +169,101 @@
 <li><strong>補足:</strong> 1階層のフォルダーの多さと、階層の深さの間にトレードオフがある</li>
 </ul>
 <hr />
-<p><strong>2. バージョン管理</strong></p>
+<p><strong>3. バージョン管理とGit</strong></p>
+<iframe src="https://player.vimeo.com/video/638338949?h=bb8c40ceda&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="バージョン管理とGit">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
 <ul>
-<li>ファイルの状態のことを「バージョン」と呼ぶ</li>
-<li><ol style="list-style-type: lower-roman">
-<li>現在のバージョンを明確に区別し、(ii) 過去のバージョンを回復できるようにする必要がある</li>
+<li><p>バージョン管理 = 複数のバージョン (ファイルの状態) を保存しておくこと</p>
+<ol style="list-style-type: decimal">
+<li>過去のバージョンを回復できるようしつつ</li>
+<li>現在のバージョンを明確に区別する必要がある</li>
 </ol></li>
-<li>自分なりのアプローチ: ファイルを異なる時点で「ファイル名」を変更して保存する
+<li><p>自分なりのアプローチ: ファイルを異なる時点で「ファイル名」を変更して保存する</p>
 <ul>
 <li>問題点(1) … ファイル名を考えることが大変で、実際と一貫性がないことがある</li>
 <li>問題点(2) … 何が最新ファイルか分からなくなることがある</li>
 <li>問題点(3) … データが膨大になる</li>
 <li>問題点(4) … いつ保存すればよいか分かりづらい</li>
 </ul></li>
-<li>Gitによるアプローチ: 変更歴を<code>.git</code>ファイルに保存する<code>repository</code> (レポジトリ)を用いる
+<li><p>Gitによるアプローチ: 変更歴を<code>.git</code>ファイルに保存する<code>repository</code> を用いる</p>
 <ul>
-<li>アプローチ(1) … ファイル名ではなく、変更内容をコメントとして「コミット」する (ファイル名はハッシュが自動で生成される)</li>
+<li>アプローチ(1) … ファイル名ではなく、変更内容をコメントとして「コミット」する (ファイル名はハッシュを使う)</li>
 <li>アプローチ(2) … 変更歴は「隠れファイル」として封印する</li>
 <li>アプローチ(3) … テキストファイルについて、<code>diff</code> (変更点)のみを保存する</li>
-<li>アプローチ(4) … 自分でルールを定めなければならない</li>
+<li>アプローチ(4) … (あまり本質的な解決策はない)</li>
+</ul></li>
+<li><p>Gitを賢明に活用するコツ</p>
+<ul>
+<li><code>.gitignore</code> を使って、保存したくないファイルを対象から外す</li>
+<li>可能な限り、<code>binary</code> ファイルではなく、<code>text</code>ファイルを使う</li>
 </ul></li>
 </ul>
 <hr />
-<p><strong>3. リモートフォルダーの共有</strong></p>
+<p><strong>4. クラウド保存とGitHub</strong></p>
+<iframe src="https://player.vimeo.com/video/638350906?h=af99f561ed&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="クラウド保存とGitHub">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
 <ul>
-<li>ローカルとリモートフォルダー(レポジトリ)を用いることによって、データの安全性を高める</li>
-<li>プログラムの共有を可能にする</li>
+<li>クラウド保存 = 世界中に散らばっているデータセンターにデータを保存すること
+<ul>
+<li>メリット1. 保管の安全性</li>
+<li>メリット2. 共有の利便性</li>
+<li>メリット3. 利用の柔軟性</li>
+</ul></li>
+<li>GitHub = <code>.git</code>のウェブサービス
+<ul>
+<li>ローカルとリモートのリポジトリを用いることによって、データの安全性を高める</li>
+<li>手順:</li>
 </ul>
+<ol style="list-style-type: decimal">
+<li><code>Clone</code> = リポジトリをダウンロードする</li>
+<li><code>Pull</code> = 変更をダウンロードする</li>
+<li><code>Stage</code> = コミットする準備をする</li>
+<li><code>Commit</code> = 変更を反映させる (<code>Commit message</code> = メールの件名のように)</li>
+<li><code>Push</code> = アップロードをする</li>
+</ol></li>
+<li>GitHubを賢明に活用するコツ
+<ul>
+<li><code>README.md</code> を使って、プロジェクト全体の説明をする</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>5. GitHubとRStudioによるGitの活用</strong></p>
+<iframe src="https://player.vimeo.com/video/638335329?h=ed32592248&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="569" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="GitHubとRStudioによるGitの活用">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><code>RStudio</code> を<code>GitHub</code>のGraphical User Interface (GUI)として利用できる</li>
+<li>Git/ GitHubの設定
+<ol style="list-style-type: decimal">
+<li><p>自分のGitHubアカウントを作成する (<a href="http://github.com/)wnloads" class="uri">http://github.com/)wnloads</a>)</p></li>
+<li><p>Gitをインストールする (<a href="https://git-scm.com/do" class="uri">https://git-scm.com/do</a></p></li>
+<li><p>RStudioのコンソールでアカウントを登録する</p>
+<pre><code>install.packages(&quot;usethis&quot;)
+usethis::use_git_config(user.name = &quot;TaroYNU&quot;,
+               user.email = &quot;YNU_taro@ynumail.com&quot;)</code></pre></li>
+<li><p>リモートリポジトリをクローンする</p></li>
+</ol></li>
+<li>RStudioを賢明に活用するコツ
+<ul>
+<li><code>.Rproj</code>を用いてプロジェクト全体を管理することにより、作業ディレクトリを変更しなくてよくなる</li>
+</ul></li>
+</ul>
+<p>(複数人で作業を進めるためには、ブランチやコンフリクトなどの重要な概念などがあるが、今回はここまでとしよう。)</p>
 <hr />
 <p><strong>参考文献</strong></p>
 <p>Minto, Barbara. “The Pyramid Principle: Logic in Writing and Thinking”. 2009 (originally, 1987.) Financial Times Prentice Hall</p>
-<p>佐藤可士和 『佐藤可士和の超整理術』 日経ビジネス人文庫 2011.</p>
+<p>佐藤可士和 『佐藤可士和の超整理術』 2011. 日経ビジネス人文庫</p>
+<p>株式会社オープングルーヴ, 昌子正俊「よくわかる入門Git」2019. 秀和システム</p>
+<p>大串肇/久保靖資/豊沢泰尚 「Gitが、おもしろいほどわかる基本の使い方33 改訂新版」2019. MdNbooks</p>
+<p>横田紋奈/宇賀神みずき「いちばんやさしいGit&amp;GitHubの教本 人気講師が教えるバージョン管理&amp;共有入門」2018.インプレス</p>
 
 </div>
 
