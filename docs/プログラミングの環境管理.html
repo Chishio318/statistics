@@ -116,7 +116,7 @@
             <section class="normal" id="section-">
 <div id="プログラミングの環境管理" class="section level1" number="16">
 <h1><span class="header-section-number">16</span> プログラミングの環境管理</h1>
-<p>快適にプログラミングの作業を続けるためには、コードを書くだけではなく、その環境であるフォルダーとファイルを管理することが欠かせない。この講義では、「環境管理」についての考え方と具体的なツールについて説明をする。</p>
+<p>快適にプログラミングの作業を続けるためには、コードを書くだけではなく、その「環境」であるフォルダーとファイルを管理することが欠かせない。この講義では、「環境管理」についての考え方と具体的なツールについて説明をする。</p>
 <blockquote>
 <ol style="list-style-type: decimal">
 <li>分類と順序</li>
@@ -126,6 +126,7 @@
 <li>GitHubとRStudioによるGitの活用</li>
 </ol>
 </blockquote>
+<p>(「環境」という言葉で、R、パッケージ、関連プログラムのバージョンのことを指すこともありますが、ここではより広い意味で使っています。)</p>
 <hr />
 <p><strong>1. 分類と順序</strong></p>
 <iframe src="https://player.vimeo.com/video/635924828?h=2c45c1e4e7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="分類と順序">
@@ -134,9 +135,9 @@
 <p>要点</p>
 </blockquote>
 <ul>
-<li>世界には膨大な要素があるが、人が同時に操作できる対象は<span class="math inline">\(7 \pm 2\)</span> までである</li>
-<li>膨大な数の対象を分かりやすく示すには、
-1.「近いもの」をグループにして分類し、ピラミッド型にして、各層における対象の数を<span class="math inline">\(\sim 7\)</span>ほどにすること
+<li><p>世界には膨大な要素があるが、人が同時に操作できる対象は<span class="math inline">\(7 \pm 2\)</span> までである</p></li>
+<li><p>膨大な数の対象を分かりやすく示すには、</p>
+<p>1.「近いもの」をグループにして分類し、ピラミッド型にして、各層における対象の数を<span class="math inline">\(\sim 7\)</span>ほどにすること</p>
 <ul>
 <li>分類には、“Mutually Exclusive and Collectively Exhaustive” (MECE = ダブりなくモレなし)を心がける</li>
 </ul>
@@ -244,11 +245,12 @@
 <li>Git/ GitHubの設定
 <ol style="list-style-type: decimal">
 <li><p>自分のGitHubアカウントを作成する (<a href="http://github.com/)wnloads" class="uri">http://github.com/)wnloads</a>)</p></li>
-<li><p>Gitをインストールする (<a href="https://git-scm.com/do" class="uri">https://git-scm.com/do</a></p></li>
+<li><p>Gitをインストールする (<a href="https://git-scm.com/do" class="uri">https://git-scm.com/do</a>)</p></li>
 <li><p>RStudioのコンソールでアカウントを登録する</p>
 <pre><code>install.packages(&quot;usethis&quot;)
 usethis::use_git_config(user.name = &quot;TaroYNU&quot;,
-               user.email = &quot;YNU_taro@ynumail.com&quot;)</code></pre></li>
+               user.email = &quot;YNU_taro@ynumail.com&quot;)</code></pre>
+<p>(<a href="mailto:このTaroYNUとYNU_taro@ynumail.comを自分のものに変更する" class="email">このTaroYNUとYNU_taro@ynumail.comを自分のものに変更する</a>)</p></li>
 <li><p>リモートリポジトリをクローンする</p></li>
 </ol></li>
 <li>RStudioを賢明に活用するコツ
