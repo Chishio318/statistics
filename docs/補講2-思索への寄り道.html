@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –</title>
-  <meta name="description" content="20 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
+  <title>21 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="21 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="20 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:title" content="21 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="20 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
+  <meta name="twitter:title" content="21 補講(2) 思索への寄り道 | 統計推論再考 – 概念と技法 –" />
   
   
   
@@ -79,7 +79,10 @@
 <li class="part"><span><b>III 最適化</b></span></li>
 <li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
 <li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
-<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
 <li class="part"><span><b>IV 社会科学の手法</b></span></li>
 <li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
@@ -95,8 +98,9 @@
 <li class="chapter" data-level="17" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>17</b> 統計分析活用の実際と工夫</a></li>
 <li class="part"><span><b>VIII 付録</b></span></li>
 <li class="chapter" data-level="18" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>18</b> 授業の形式と内容</a></li>
-<li class="chapter" data-level="19" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>19</b> 補講(1) 数学</a></li>
-<li class="chapter" data-level="20" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>20</b> 補講(2) 思索への寄り道</a></li>
+<li class="chapter" data-level="19" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>19</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="20" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>20</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="21" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>21</b> 補講(2) 思索への寄り道</a></li>
 </ul>
 
       </nav>
@@ -114,8 +118,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="補講2-思索への寄り道" class="section level1" number="20">
-<h1><span class="header-section-number">20</span> 補講(2) 思索への寄り道</h1>
+<div id="補講2-思索への寄り道" class="section level1" number="21">
+<h1><span class="header-section-number">21</span> 補講(2) 思索への寄り道</h1>
 <p>主要な講義は、統計学分析手法の理論・実践について説明をしてきました。しかし、統計学が独立の手法群として確率される以前から、その基盤としての哲学的思索がありました。この内容は授業の必須ではありませんが、統計学・経済学の授業では扱われることがあまりない哲学的・思索的背景について説明をしたいと思います。統計学を活用していくためには、その内容とともに、その限界・適用範囲の限定性にも思いを馳せることが重要だからです。(この講義は、答えを伝えるのではなく、問いを示すことを目的としているので、「要点」も書きません。)</p>
 <blockquote>
 <ol style="list-style-type: decimal">

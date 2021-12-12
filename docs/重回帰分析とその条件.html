@@ -79,7 +79,10 @@
 <li class="part"><span><b>III 最適化</b></span></li>
 <li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
 <li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
-<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
 <li class="part"><span><b>IV 社会科学の手法</b></span></li>
 <li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
@@ -95,8 +98,9 @@
 <li class="chapter" data-level="17" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>17</b> 統計分析活用の実際と工夫</a></li>
 <li class="part"><span><b>VIII 付録</b></span></li>
 <li class="chapter" data-level="18" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>18</b> 授業の形式と内容</a></li>
-<li class="chapter" data-level="19" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>19</b> 補講(1) 数学</a></li>
-<li class="chapter" data-level="20" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>20</b> 補講(2) 思索への寄り道</a></li>
+<li class="chapter" data-level="19" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>19</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="20" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>20</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="21" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>21</b> 補講(2) 思索への寄り道</a></li>
 </ul>
 
       </nav>
@@ -172,9 +176,10 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 <ul>
 <li><p>ガウス・マルコフの定理: (1)外生性(<span class="math inline">\(\mathbb{E}\left[\varepsilon|X\right]=0\)</span>)と(2)誤差項の独立同一分布(<span class="math inline">\(\mathbb{E}\left[\varepsilon^{2}|X\right]=\sigma^{2}\)</span>、<span class="math inline">\(\mathbb{E}\left[\varepsilon_{i}\varepsilon_{j}|X\right]=0\)</span>)の仮定が満たされるとき、OLSは最小分散不偏線形推定量である。</p></li>
 <li><p>「線形」とは、パラメータについて線形なモデルという意味で、<span class="math inline">\(Y\)</span>と<span class="math inline">\(X\)</span>の関係が非線形的であるときにも、(i)それぞれを非線形変換するか(ii)<span class="math inline">\(X\)</span>の多項式で重回帰分析をできる</p></li>
-<li><p>多重共変性に注意しなければならない</p></li>
+<li><p>多重共線性に注意しなければならない</p></li>
 </ul>
-<hr />
+<div id="訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</h2>
 <p><strong>4. 外生性条件が満たされないとき</strong></p>
 <iframe src="https://player.vimeo.com/video/558783636?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="外生性条件が満たされないとき">
 </iframe>
@@ -213,6 +218,7 @@ Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
 <p>東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年</p>
 <p>西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年</p>
 
+</div>
 </div>
             </section>
 
