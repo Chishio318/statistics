@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>20 Rパッケージ活用のエラーへの対処 | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="20 Rパッケージ活用のエラーへの対処 | 統計推論再考 – 概念と技法 –" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="20 Rパッケージ活用のエラーへの対処 | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="20 Rパッケージ活用のエラーへの対処 | 統計推論再考 – 概念と技法 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rを学ぶためのリソース.html"/>
+<link rel="next" href="補講1-数学.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合</b></span></li>
+<li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
+<li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="15" data-path="コミュニケーションの課題.html"><a href="コミュニケーションの課題.html"><i class="fa fa-check"></i><b>15</b> コミュニケーションの課題</a></li>
+<li class="chapter" data-level="16" data-path="プログラミングの環境管理.html"><a href="プログラミングの環境管理.html"><i class="fa fa-check"></i><b>16</b> プログラミングの環境管理</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="17" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>17</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="18" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>18</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="19" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>19</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="20" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html"><i class="fa fa-check"></i><b>20</b> Rパッケージ活用のエラーへの対処</a>
+<ul>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#package-libraryのpathがrstudioに認識されないとき"><i class="fa fa-check"></i>package libraryのpathがRStudioに認識されないとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#packagesがコンフリクトを起こすとき"><i class="fa fa-check"></i>packagesがコンフリクトを起こすとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#別の手法-renvパッケージを用いる"><i class="fa fa-check"></i>別の手法: renvパッケージを用いる</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>21</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="22" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>22</b> 補講(2) 思索への寄り道</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 概念と技法 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rパッケージ活用のエラーへの対処" class="section level1" number="20">
+<h1><span class="header-section-number">20</span> Rパッケージ活用のエラーへの対処</h1>
+<p>あらゆる機械や工具において、「可動性」は不具合の原因となりやすい。オープンソースでつくられるパッケージは、Rコミュニティの「活力源」であると同時に、その「可動性」ゆえに不具合につながってしまうことが多い。</p>
+<div id="package-libraryのpathがrstudioに認識されないとき" class="section level3 unnumbered">
+<h3>package libraryのpathがRStudioに認識されないとき</h3>
+<p>RStudioを最初に設定するとき、パッケージを利用できないことがよくある。(Windowsを使っている学生の25%ほどが、このようなエラーになってしまう。これは、もう、学生のエラーではなく、Windows + RStudioのエラーと言っていいだろう。) 具体的に、<code>install.packages()</code>を実行すると、</p>
+<ul>
+<li><code>... is not writable.</code>として許可が得られない</li>
+<li><code>C:/OneDrive/???/...</code> として日本語のフォルダ名が文字化けしてしまう</li>
+</ul>
+<p>ことがある。パッケージのコードが保存されているファイルを保存するディレクトリをlibraryと呼ぶ。これらのエラーは、libraryのpathがRStudioにしっかり認識されていないということである。</p>
+<p>RStudioを立ち上げるときに、自動でlibrary pathを設定されるように する方法を紹介したい。</p>
+<p><strong>Step 1.</strong> 手動で、日本語がフォルダー・パスに入らないようにlibraryとするフォルダーを作成する。</p>
+<ul>
+<li>OneDriveや、日本語のパスなどがエラーのもととなりやすいようである。</li>
+<li>たとえば、Cドライブに直接<code>"C:/mylib"</code>というフォルダーを作成する。</li>
+</ul>
+<p><strong>Step 2.</strong> 新しいフォルダーにlibrary pathを設定する</p>
+<ul>
+<li><code>.libPaths()</code>の関数を使い、library pathを設定する。</li>
+</ul>
+<pre><code>.libPaths(&quot;C:/mylib&quot;)</code></pre>
+<p><strong>Step 3.</strong> 新しいpathであれば、<code>install.packages()</code>を実行できるかを検証する</p>
+<ul>
+<li>library pathを変更したらパッケージをインストールできるかを検証しよう。例えば、以下のコードを実行してみることができる。このコードは、「１が数値という変数型である」ことを確認するものである。<code>Test passed</code>と表示されればOKである。</li>
+</ul>
+<pre><code>install.packages(&quot;testthat&quot;)
+testthat::test_that(&#39;1 is a number&#39;, {
+  testthat::expect_true(is.numeric(1))
+})</code></pre>
+<p><strong>Step 4.</strong> RStudioを立ち上げるときに、自動でlibrary pathを設定されるようにする</p>
+<p>Rを使うときに毎回<code>.libPaths()</code>のコードを実行するのは大変である。そこで、以下の２つのファイルをフォルダーに加えることによって、RStudioを立ち上げるときに自動で設定できる。</p>
+<ul>
+<li><p><code>.Rproj</code>ファイルを、プロジェクトのフォルダーに加える</p>
+<p>File -&gt; New Project -&gt; Existing Directory -&gt; project working directoryを設定 -&gt; Create Project</p></li>
+<li><p><code>.Rprofile</code>ファイルを、プロジェクトのフォルダーに加える</p>
+<ul>
+<li>「メモ帳」のtext fileを開き、“.Rprofile”という名前で保存する (<code>.txt</code>の拡張子が残らないように注意)</li>
+<li>Step 2の<code>.libPaths("C:/mylib")</code>を内容に書く</li>
+</ul></li>
+</ul>
+<p>RStudioを立ち上げるとき、つねに<code>.Rproj</code>ファイルをクリックして立ち上げるようにすれば、自動でlibrary pathを設定できる。</p>
+<p><strong>library pathのエラーに関するその他のリソース</strong></p>
+<p>パッケージをインストールする際のエラーは、非常に多いようである。以下のリンクの内容も参考になるだろう。</p>
+<ul>
+<li><a href="http://ryotamugiyama.com/2020/08/03/rinstall/" class="uri">http://ryotamugiyama.com/2020/08/03/rinstall/</a></li>
+<li><a href="https://qiita.com/Maki-Daisuke/items/0378626c9bf9971f3822" class="uri">https://qiita.com/Maki-Daisuke/items/0378626c9bf9971f3822</a></li>
+</ul>
+</div>
+<div id="packagesがコンフリクトを起こすとき" class="section level3 unnumbered">
+<h3>packagesがコンフリクトを起こすとき</h3>
+<ul>
+<li>実際のプロジェクトでは、複数のパッケージを使うことがある。このとき、後からインストールしたパッケージとの互換性などの問題で、パッケージを実行できなくなるときがある。</li>
+<li>上記のStep 1 ～ Step 4の方法は、パッケージのコンフリクトに対しても適用できる。新しいライブラリを作成し、そちらに必要なパッケージを全てインストールしなおすというアプローチである。</li>
+</ul>
+</div>
+<div id="別の手法-renvパッケージを用いる" class="section level3 unnumbered">
+<h3>別の手法: renvパッケージを用いる</h3>
+<p>それぞれのプロジェクトごとにlibraryを設定することで、上記のような問題を解決することもできる。バージョン管理との互換性のよいパッケージが<a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>であり、<a href="https://github.com/Chishio318/Peanuts-Data-Project/wiki/%E5%B7%A5%E5%A4%AB(5)-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E6%B4%BB%E7%94%A8">このプロジェクト例</a>にて、実際に活用している。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rを学ぶためのリソース.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="補講1-数学.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

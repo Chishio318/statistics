@@ -1,0 +1,75 @@
+# Rパッケージ活用のエラーへの対処
+
+あらゆる機械や工具において、「可動性」は不具合の原因となりやすい。オープンソースでつくられるパッケージは、Rコミュニティの「活力源」であると同時に、その「可動性」ゆえに不具合につながってしまうことが多い。
+
+### package libraryのpathがRStudioに認識されないとき {-}
+
+RStudioを最初に設定するとき、パッケージを利用できないことがよくある。(Windowsを使っている学生の25%ほどが、このようなエラーになってしまう。これは、もう、学生のエラーではなく、Windows + RStudioのエラーと言っていいだろう。) 具体的に、``install.packages()``を実行すると、
+
+- ``... is not writable.``として許可が得られない
+- ``C:/OneDrive/???/...`` として日本語のフォルダ名が文字化けしてしまう
+
+ことがある。パッケージのコードが保存されているファイルを保存するディレクトリをlibraryと呼ぶ。これらのエラーは、libraryのpathがRStudioにしっかり認識されていないということである。
+
+RStudioを立ち上げるときに、自動でlibrary pathを設定されるように	する方法を紹介したい。
+
+**Step 1.** 手動で、日本語がフォルダー・パスに入らないようにlibraryとするフォルダーを作成する。
+
+- OneDriveや、日本語のパスなどがエラーのもととなりやすいようである。
+- たとえば、Cドライブに直接``"C:/mylib"``というフォルダーを作成する。
+
+**Step 2.** 新しいフォルダーにlibrary pathを設定する
+
+- ``.libPaths()``の関数を使い、library pathを設定する。
+
+```
+.libPaths("C:/mylib")
+```
+
+**Step 3.** 新しいpathであれば、``install.packages()``を実行できるかを検証する
+
+- library pathを変更したらパッケージをインストールできるかを検証しよう。例えば、以下のコードを実行してみることができる。このコードは、「１が数値という変数型である」ことを確認するものである。``Test passed``と表示されればOKである。
+
+```
+install.packages("testthat")
+testthat::test_that('1 is a number', {
+  testthat::expect_true(is.numeric(1))
+})
+```
+
+**Step 4.** RStudioを立ち上げるときに、自動でlibrary pathを設定されるようにする
+
+Rを使うときに毎回``.libPaths()``のコードを実行するのは大変である。そこで、以下の２つのファイルをフォルダーに加えることによって、RStudioを立ち上げるときに自動で設定できる。
+
+- ``.Rproj``ファイルを、プロジェクトのフォルダーに加える
+
+  File -> New Project -> Existing Directory -> project working directoryを設定 -> Create Project
+
+- ``.Rprofile``ファイルを、プロジェクトのフォルダーに加える
+
+  - 「メモ帳」のtext fileを開き、".Rprofile"という名前で保存する (``.txt``の拡張子が残らないように注意)
+  - Step 2の``.libPaths("C:/mylib")``を内容に書く
+
+RStudioを立ち上げるとき、つねに``.Rproj``ファイルをクリックして立ち上げるようにすれば、自動でlibrary pathを設定できる。
+
+
+
+**library pathのエラーに関するその他のリソース**
+
+パッケージをインストールする際のエラーは、非常に多いようである。以下のリンクの内容も参考になるだろう。
+
+-  http://ryotamugiyama.com/2020/08/03/rinstall/
+-  https://qiita.com/Maki-Daisuke/items/0378626c9bf9971f3822
+
+
+
+### packagesがコンフリクトを起こすとき {-}
+
+- 実際のプロジェクトでは、複数のパッケージを使うことがある。このとき、後からインストールしたパッケージとの互換性などの問題で、パッケージを実行できなくなるときがある。
+- 上記のStep 1 ～ Step 4の方法は、パッケージのコンフリクトに対しても適用できる。新しいライブラリを作成し、そちらに必要なパッケージを全てインストールしなおすというアプローチである。
+
+
+
+### 別の手法: renvパッケージを用いる {-}
+
+それぞれのプロジェクトごとにlibraryを設定することで、上記のような問題を解決することもできる。バージョン管理との互換性のよいパッケージが[renv](https://rstudio.github.io/renv/articles/renv.html)であり、[このプロジェクト例](https://github.com/Chishio318/Peanuts-Data-Project/wiki/%E5%B7%A5%E5%A4%AB(5)-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E6%B4%BB%E7%94%A8)にて、実際に活用している。
