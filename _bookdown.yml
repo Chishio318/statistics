@@ -1,0 +1,27 @@
+rmd_files:
+  - index.Rmd
+  - 01-8ways.Rmd
+  - 02-Rbasics.Rmd
+  - 03-probabilities.Rmd
+  - 04-CLT.Rmd
+  - 05-Bayes.Rmd
+  - 06-MLE.Rmd
+  - 07-OLS.Rmd
+  - 08-prediction.Rmd
+  - 09-testing.Rmd
+  - 10-sampling.Rmd
+  - 11-experiment.Rmd
+  - 12-observation.Rmd
+  - 13-varselect.Rmd
+  - 14-CV.Rmd
+  - 30-programming.Rmd
+  - 31-gitgithub.Rmd
+  - 15-meta.Rmd
+  - 19-classform.Rmd
+  - 20-Rstudy.Rmd
+  - 17-math.Rmd
+  - 18-contemplation.Rmd
+  
+output_dir: "docs"  
+delete_merged_file: true
+

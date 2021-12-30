@@ -1,0 +1,124 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={example},
+  pdfauthor={author example Kohei},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{example}
+\author{author example Kohei}
+\date{2021-03-30}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\mainmatter
+\hypertarget{hello-world}{%
+\chapter{Hello World}\label{hello-world}}
+
+Hi.
+
+Bye.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux3055ux3093ux3077ux308b}{%
+\section{さんぷる}\label{ux3055ux3093ux3077ux308b}}
+
+-site:bookdown::bookdown\_site -output: bookdown::gitbook - ほげ - ふが
+
+\begin{figure}
+\centering
+\includegraphics{https://www.youtube.com/watch?v=sy72Z1krP_A}
+\caption{``Title''}
+\end{figure}
+
+\hypertarget{ux3055ux3093ux3077ux308bux3055ux3093ux3077ux308b}{%
+\section{さんぷるさんぷる}\label{ux3055ux3093ux3077ux308bux3055ux3093ux3077ux308b}}
+
+あめんぼあかいなあいうえお。あめんぼあかいなあいうえお。あああああああああああああああああああああああああああああ。
+
+あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
+
+\hypertarget{ux3075ux304cux3075ux304c}{%
+\section{ふがふが}\label{ux3075ux304cux3075ux304c}}
+
+ああああああああああああああああああああああああああああああああああ。あああああああああああああああああああ
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+This chapter is an overview of the methods that we propose to solve an
+\textbf{important problem}.
+
+\hypertarget{literature}{%
+\chapter{Literature}\label{literature}}
+
+Here is a review of existing methods.
+
+\hypertarget{test1}{%
+\chapter{test1}\label{test1}}
+
+\hypertarget{test2}{%
+\section{test2}\label{test2}}
+
+\backmatter
+\end{document}
