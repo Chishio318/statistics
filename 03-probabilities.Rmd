@@ -1,0 +1,89 @@
+# (PART) 確率分布 {-}
+
+# 確率変数と確率分布
+
+確率分布は、すべての統計的推論の基盤となる「概念装置」である。この「装置」は極めて抽象的であり、最初は、具体的にどう役立つか見えづらいかもしれない。講義全体で最も分かりづらいと覚悟して、ここではまずその「装置」に触れてほしい。
+
+> 1. 確率変数と確率分布
+> 2. 確率変数のばらつき
+> 3. 連続型と離散型の確率分布
+> 4. モンテ・カルロ法と逆関数法
+
+***
+
+__1. 確率変数と確率分布__
+
+<iframe src="https://player.vimeo.com/video/541290826?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Random variables.mp4"></iframe>
+
+>要点
+
+- 確率変数とは、事象空間から実数空間への「関数」である
+
+- $F(x)$ が分布関数となる条件とは、分位関数( $F^{-1}(q)\approx$分布関数の「逆関数」)が存在することである
+
+- 確率変数の中心的傾向を表す代表値である期待値$\mu$と中央値$m$を、分位関数を用いて定義できる
+  $$
+  \mu = \mathbb{E}[X] \equiv \int ^1_0 F^{-1}(q)dq \\
+  m \equiv F^{-1}(\frac{1}{2})
+  $$
+
+- 確率変数$Y = aX + b$ の期待値について、以下の関係が成り立つ
+  $$
+  \mathbb{E}[Y] = a\mu + b
+  $$
+
+***
+
+__2. 確率変数のばらつき__
+
+<iframe src="https://player.vimeo.com/video/541292271?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Variance of random variables.mp4"></iframe>
+
+>要点
+
+- 確率変数のばらつきを表現するために、分散$V$や絶対偏差$AD$ を用いる
+  $$
+  \sigma^2 = V(X) \equiv \mathbb{E} [(X - \mu)^2]\\
+  AD(X) \equiv \mathbb{E} |X - \mu|
+  $$
+
+- 平均二乗誤差(MSE = Mean Squared Error)は、系統誤差Bias $= \mathbb{E}[\hat{\mu} - \mu]$ の二乗と偶発誤差Variance $= V(\hat{\mu})$ に分解できる
+  $$
+  MSE \equiv V(\hat{\mu} - \mu ) = \mathbb{E}[\hat{\mu} - \mu]^2 +  V(\hat{\mu})
+  $$
+
+- 確率変数$Y = aX + b$ の分散について、以下の関係が成り立つ
+  $$
+  V (Y) = a^2 \sigma^2
+  $$
+
+***
+
+__3. 連続型と離散型の確率分布__
+
+<iframe src="https://player.vimeo.com/video/541287081?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="連続型と離散型の確率分布"></iframe>
+
+>要点
+
+- 分布関数の増加の度合を表現するために、連続型については微分可能なときに確率密度関数(probability density function)を用い、離散型については確率質量関数(probability mass function)を用いる
+- 計測するとき・コンピュータにおいては、実際に連続的であっても離散的に扱う。 概念的に議論するときにおいては、厳密には離散的であっても連続的に考える
+- 「連続型かつ離散型である」分布や、「連続型でも離散型でもない」分布も存在する
+
+
+***
+
+__4. モンテ・カルロ法と逆関数法__
+
+<iframe src="https://player.vimeo.com/video/542925842?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="モンテ・カルロ法と逆関数法"></iframe>
+
+>要点
+
+- コンピュータでは、確定的である「疑似乱数」を用いて確率変数をシミュレーションする
+- 逆関数法を用いて、(分位関数を近似できる一次元の)あらゆる分布のシミュレーションを行うことができる
+
+---
+
+**参考図書・文献**
+
+東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年
+
+鎌谷研吾・小牧文保『データサイエンス入門シリーズ　モンテカルロ統計計算』講談社、2020年

@@ -1,0 +1,141 @@
+# (PART) プログラミング実践 {-}
+
+# コミュニケーションの課題
+
+社会科学が、正確かつ蓄積可能なプロセスであるためには、「プログラミングはコンピュータ言語でコマンドを書くことだ」というだけでコードを書くことは十分ではありません。プログラミングには、「自分の論理を明瞭化」し、「他者が誤解しえず読みやすい文書化」を目指すプロセスが必要だと考え、どのような工夫が大切かを体系的に考えています。講義２回分とします。
+
+> 1. プログラミングのよくある誤謬とよくある誤解
+> 2. プログラミングと意思伝達問題
+> 3. プログラミングへのアプローチとアナロジー
+> 4. アルゴリズムと疑似コード
+> 5. 変数と関数の名前づけ
+> 6. 関数とパッケージ
+
+
+***
+
+__1. プログラミングのよくある誤謬とよくある誤解__
+
+<iframe src="https://player.vimeo.com/video/623045255?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングのよくある誤謬とよくある誤解"></iframe>
+
+> 要点
+
+- よくある誤謬
+  - 他人や過去の自分の書いたコードを理解できない・実行できない
+  - 何年もプログラムを書いているのに、どこか「ぐちゃぐちゃ」している
+  - コードの書き方が分からないところをインターネットで検索してつないだため、一貫性がない
+
+- よくある誤解
+  - プログラミングの仕事は主にコードを書く作業である
+  - プログラムとして機能していれば十分
+  - 初めて書くコードが読みづらいのは、知識と技術が足りないからである
+  
+***
+
+__2. 意思伝達問題としてのプログラミング__
+
+<iframe src="https://player.vimeo.com/video/623062853?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングと意思伝達問題"></iframe>
+
+> 要点
+
+- プログラミング・プロジェクトとは、『複数の発信者』と『複数の受信者』の意思伝達問題である。
+- プログラムの四元徳 (four cardinal virtues)
+  1. clear (明瞭性) ... 自分は何をお願いしたいのか・指示したいのか
+  2. effective (有効性) ... プログラムは、どうお願いをしたら理解してくれるか
+  3. consistent (一貫性) ... 読者は、どのようなプログラムであれば理解しやすいか
+  4. flexible (柔軟性) ... 共同研究者は、どのようなコードであれば変更を加えやすいか
+- プログラムのアウトカムに求められることは「徳」である
+  - 日々の心の習慣であって、突然変えようと思ってもできない
+  - 知識や技術ではなく、他者への「配慮」が基盤である
+  - 意識しなければ、満たさないような「衝動」が常にある
+
+***
+
+__3. プログラミングへのアプローチとアナロジー__
+
+<iframe src="https://player.vimeo.com/video/623033804?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="プログラミングへのアプローチとアナロジー"></iframe>
+
+> 要点
+
+- 複雑な意思決定問題に取り組むには、以下の二つが根本的要素となる
+
+  1. <u>長い工程を複雑な区切る:</u> コードは数百～数千の内容があるのに、人間のワーキングメモリーは同時に５～７つ以上の内容を整理できない
+  2. <u>読者を熟知する:</u> 表現が分かりやすいかは、読者の「内的世界の文化」による
+
+- 『複数の発信者と複数の受信者の意思伝達問題』の事例
+  - 学術論文
+  - 新聞
+
+- 『複数の発信者と複数の受信者の意思伝達問題』に必要な体系的アプローチ
+
+  1. ７つほどのセクションに分かれたフォーマットがある
+  2. 体系的レビューのプロセスがある
+  3. 一貫した内部のルールがある
+  4. 4回書き直す
+
+
+***
+
+__4. アルゴリズムと疑似コード__
+
+<iframe src="https://player.vimeo.com/video/629566540?h=175c6aa591&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="アルゴリズムと疑似コード"></iframe>
+
+> 要点
+
+- 達人プログラマーも、フローチャート(flow chart)・疑似コード(pseudocode)を書く
+- アルゴリズム: インプットからアウトプットまで、複数のステップで到達するプロセス
+- 疑似コード: 自然言語で書くアルゴリズムの設計図
+  1. コンピュータ言語を調べなくてよいため、アルゴリズムの論理構造に思考を集中できる
+  2. 着想と執筆の間に、時間を空けることができる
+  3. アルゴリズムの全体像を俯瞰できる
+  4. 他人にアルゴリズムを説明するために適切である
+  5. プログラムを書く次のステップが格段に楽になる
+
+- 疑似コードを書いてから、プログラム言語が分かっていないところを集中的に調べる
+
+***
+
+__5. 変数と関数の名前づけ__
+
+<iframe src="https://player.vimeo.com/video/629715584?h=351e56b573&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="変数と関数の名前づけ"></iframe>
+
+> 要約
+
+- 「プログラムではなく、ドキュメントを書く」(自己文書化)
+- よい名前は、機能を表し、コメントを代替する
+  - 悪い名前でもコードは機能するが、読者を混乱させバグのもととなる
+- 世界中の誰もが読めるように英語で書く
+  - 語彙を補強するために、[同義語辞典](https://www.thesaurus.com/) が役立つ 
+- 具体的に気をつけること
+  - 機能が分かるように、VerbとObject (noun)の区別と組み合わせを意識する
+  - すぐに分からない略称を使わない
+  - スタイルを統一する (setParamValues ... ラクダ式, set_param_values ... スネーク式)
+
+***
+
+__6. 関数とパッケージ__
+
+<iframe src="https://player.vimeo.com/video/629719191?h=55049947c8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="関数とパッケージ"></iframe>
+
+> 要点
+
+- 関数(``function``)とは、コマンドをひとまとめにしたものである
+- パッケージ(``package``)とは、「関数集」である
+- パッケージはライブラリに保存され、複雑な依存関係(dependencies)があるため、順序正しくインストールされなければならない
+- オープンソースであるため、アップデートなどによってコンフリクトを起こすことがある。この場合、ライブラリを新しく設定したり、既存のライブラリを２つとも消去して、インストールしなおすと正しい順序でインストールしエラーを解消できることが多い。
+
+***
+
+__参考図書・文献__
+
+Matthew Gentzkow and Jesse M. Shapiro. ``Code and Data for the Social Sciences: A Practitioner's Guide.'' 2014. *University of Chicago Booth Memo.*
+
+Dustin Boswell and Trevor Foucher. 『リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック (Theory in practice) 』  角征典 (翻訳) オライリー・ジャパン 2012年
+
+縣俊貴『良いコードを書く技術 ── 読みやすく保守しやすいプログラミング作法』  技術評論社　2021年
+
+西尾泰和『コーディングを支える技術 ~成り立ちから学ぶプログラミング作法』  技術評論社　2013年
+
+David Thomas and Andrew Hunt 『達人プログラマー ―熟達に向けたあなたの旅― 第2版』 村上雅章 (翻訳) オーム社 2020年
+
+Robert Martin. "Clean Code: A Handbook of Agile Software Craftsmanship" 2008. Prentice Hall.

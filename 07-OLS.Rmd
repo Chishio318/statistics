@@ -1,0 +1,132 @@
+# 回帰分析と最小二乗法
+
+「ベイズの定理」と「最尤法」を用いて、観察から母数についてどう学べるか、という推定の問題を考えてきました。ここでは、2つの確率変数の関係性を分析するための回帰分析とその最も実用的な推定方法である最小二乗法について、2回を通じて学んでいきます。まず、ここでは2つの確率変数の関係について考察し、最小二乗法の概要を説明します。
+
+> 1. 相関関係と回帰分析の概要*
+> 2. 2つの確率変数の確率分布*
+> 3. 最小二乗法*
+> 4. なぜ「二乗」なのか
+
+*講義内容が多いため、1.5回分の講義だと考えてください。
+
+***
+
+__1.　相関関係と回帰分析の概要__
+
+<iframe src="https://player.vimeo.com/video/557436694?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="相関関係と回帰分析の概要"></iframe>
+
+>要点
+
+- 多くの事象は、お互いにペアとなって変動する。これらの事象を反映する2つの確率変数$X$と$Y$の間に「相関関係がある」と言う
+- 2つの確率変数の観察に相関が見られる理由は、4つある
+  (1) 偶然
+  (2) $X$から$Y$への因果
+  (3) $Y$から$X$への逆因果
+  (4) 交絡因子$Z$から$X$と$Y$への因果
+- よって、相関は必ずしも因果を示唆しない。しかし、多くの場合、相関は因果を反映している。
+- $X$によって$Y$を説明する関係式を推定することを「回帰分析」と呼ぶ。このとき、$X$を説明変数もしくは独立変数と呼び、$Y$を被説明変数もしくは従属変数と呼ぶ
+- 計測した$X$と$Y$の関係式に$X$を代入し、$Y$の理論値を計算することを「予測」と言う
+
+
+***
+
+__2.　2つの確率変数の確率分布__
+
+<iframe src="https://player.vimeo.com/video/557438968?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="2つの確率変数の確率分布"></iframe>
+
+>要点
+
+- あらゆる2つの確率変数$X$と$Y$の和について、以下の関係が成り立つ
+
+  $$
+  \mathbb{E}\left[X + Y \right] = \mu_X + \mu_Y
+  $$
+  $$
+  V \left(X + Y \right) = \sigma^2_X + \sigma^2_Y + 2 Cov\left(X,Y\right)$$
+  
+  ここで、
+  $Cov\left(X,Y\right)\ = \mathbb{E}\left[\left(X-\mu_{X}\right)\left(Y-\mu_{Y}\right)\right]$
+  を共分散と呼ぶ。
+
+- 確率変数の値から期待値を差し引き、標準偏差で割ることを、標準化と呼ぶ (すなわち、 $X^{\ast}\equiv\frac{X-\mu_{X}}{\sigma_{X}}$, $Y^{\ast}\equiv\frac{Y-\mu_{Y}}{\sigma_{Y}}$)。標準化された確率変数の共分散を、相関係数と呼ぶ
+  $$
+  \rho \equiv \mathbb{E}\left[X^\ast Y^\ast\right] 
+  $$
+  また、$-1 \leq \rho \leq 1$ を満たし、相関の強さを表す
+
+- 2つの確率変数について、独立$\Rightarrow$無相関であるが、無相関$\Rightarrow$独立ではない
+
+- 2つの確率変数の分布を同時確率分布と呼び、うち1つの確率変数の特定の値に条件づけた分布を条件つき確率分布と呼ぶ。(それぞれ、密度関数についても同時密度、条件つき密度と呼ぶ。)
+
+- これらのうち、特に重要なものが二次元正規分布であり、その分散を「分散共分散行列」を用いて表す。(正規分布は分布の形状が特定されているので、二次元正規分布においては、独立と無相関は同値である。)
+
+
+***
+
+__3. 最小二乗法__
+
+<iframe src="https://player.vimeo.com/video/557440152?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="最小二乗法"></iframe>
+
+
+>要点
+
+単回帰モデル
+$$
+Y=\underset{定数項・切片}{\underbrace{\beta_{0}}}+\underset{傾斜・勾配}{\underbrace{\beta_{1}}}X+\underset{誤差項・錯乱項}{\underbrace{\varepsilon}}​
+$$
+単回帰モデルの推定
+$$
+Y_{i}=\underset{=\hat{Y}_{i}...予測値・理論値}{\underbrace{\hat{\beta}_{0}+\hat{\beta}_{1}X_{i}}}+\underset{残差}{\hat{\varepsilon_{i}}}
+$$
+
+- 最小二乗法は、残差の二乗の総和$\sum_i \hat{\varepsilon_{i}}^2$ を最小化することによって、推定量$\hat{\beta}_{0}, \hat{\beta}_{1}$を得る
+
+勾配$\beta_1$が重要なパラメータとなる場合が多く、
+$$
+\beta_{1}=\frac{Cov\left(X,Y\right)}{Var\left(X\right)}=\rho \frac{\sigma_Y}{\sigma_X}
+$$
+である。
+
+データに対する理論モデルの適合度を決定係数$R^2$で測り、
+$$
+R^{2}=\frac{\sum_{i}\left(\hat{Y}_{i}-\overline{Y}\right)^{2}}{\sum_{i}\left(Y_{i}-\overline{Y}\right)^{2}}=\frac{理論モデルで説明されるYの変動}{データにおけるYの変動}= \hat{\rho}^2
+$$
+
+***
+
+__4. なぜ「二乗」なのか__
+
+<iframe src="https://player.vimeo.com/video/559818906?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="なぜ「二乗」なのか"></iframe>
+
+
+>要点
+
+- どの推定方法が適切かは、推定の目的に応じて変わる。しかし、多くの場合、最小二乗法が適切だと考えられる理由がある。
+  - 外れ値などがある場合が例外である。
+
+- 様々な理由から、最小二乗法が望ましい
+
+  (i) 予測値を「条件つき期待値」として解釈できる
+
+  (ii) 誤差が正規分布をするときの最尤法である
+
+  (iii) 誤差の2次損失関数の期待値を最小化している
+
+  **補足説明:** 2次のテイラー近似は、近似している値(ここでは真の$Y_i$)の近傍のみにおいて適切である。予測値$\hat{Y}_i$が大きく乖離するときは、2次の損失関数と、人間の直観的基準が合致しないことがある。
+
+***
+
+**参考図書・文献**
+
+Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, *Princeton University Press*, 2009
+
+James Stock and Mark Watson "Introduction to Econometrics." *Pearson Education Inc.* 2007
+
+今井耕介 『社会科学のためのデータ分析入門 上・下』 岩波書店、2018年
+
+安藤洋美『最小二乗法の歴史』、現代数学社、1995年
+
+西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年
+
+栗原伸一・丸山敦史 『統計学図鑑』オーム社、2017年
+

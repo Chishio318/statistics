@@ -1,0 +1,50 @@
+# 補講(2) 思索への寄り道
+
+主要な講義は、統計学分析手法の理論・実践について説明をしてきました。しかし、統計学が独立の手法群として確率される以前から、その基盤としての哲学的思索がありました。この内容は授業の必須ではありませんが、統計学・経済学の授業では扱われることがあまりない哲学的・思索的背景について説明をしたいと思います。統計学を活用していくためには、その内容とともに、その限界・適用範囲の限定性にも思いを馳せることが重要だからです。(この講義は、答えを伝えるのではなく、問いを示すことを目的としているので、「要点」も書きません。)
+
+> 1. 測定できないもの――観察と意識
+> 2. 可能世界はただ現実世界のみ
+
+> $\ast$ なぜ教養を学ぶのか
+
+---
+
+__1. 測定できないもの――観察と意識__
+
+<iframe src="https://player.vimeo.com/video/583277339?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="測定できないもの――観察と意識"></iframe>
+
+---
+
+__2. 可能世界はただ現実世界のみ__
+
+<iframe src="https://player.vimeo.com/video/583432293?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="可能世界はただ現実世界のみ"></iframe>
+
+---
+
+__$\ast$ なぜ教養を学ぶのか__
+
+<iframe src="https://player.vimeo.com/video/590286658?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=e4d9ed1dbc" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="なぜ教養を学ぶのか"></iframe>
+
+---
+
+__参考図書・文献__
+
+ジェリー・ミュラー『測りすぎ　なぜパフォーマンス評価は失敗するのか』(The Tyranny of Metrics)　松本裕訳、みすず書房、2019年
+
+土居健郎 『表と裏』 弘文堂、1985年
+
+遠山啓　『数学の学び方・教え方』　岩波新書、1972年
+
+内田義彦 『読書と社会科学』岩波新書、1985年
+
+三浦英之 『五色の虹　満州建国大学卒業生たちの戦後』集英社、2015年
+
+Kenneth Arrowとクジラ ... https://corporatefinancelab.org/2017/02/23/kenneth-arrow-nobel-winning-economist-dies-at-95/
+
+William Shadish, Thomas Cook, and Donald Campbell "Experimental and Quasi-Experimental Designs for Generalized Causal Inference." Houghton Mifflin Company. 2002.
+
+Serrano, Roberto, "Top5itis"  2018. Available at SSRN: https://ssrn.com/abstract=3103083
+
+Irvine, William "A Guide to the Good Life - the Ancient Art of Stoic Joy" Oxford University Press, 2009.
+
+ 

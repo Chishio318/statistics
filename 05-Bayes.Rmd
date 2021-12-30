@@ -1,0 +1,68 @@
+# 条件づき確率と意思決定
+
+ここまで、確率分布の定義やその形成過程について考えてきました。ここでは、個々人の「考え」や「知識」を確率分布として表す枠組みを説明します。これから、データの比較分析に基づく統計手法について学んでいきます。しかし、日常生活は貧弱なデータしかなく、不確実性の残る下で意思決定を迫られることばかりです。ミクロ経済学の期待効用理論に基づいて、統計分析と日常的観察による知識を結び付けて考える方法を、まずここで考えたいと思います。
+
+> 1. 条件づき確率とベイズの定理*
+> 2. 正規分布とベイズの定理
+> 3. 期待効用理論と情報の価値*
+
+この講義は、統計手法の「実践」よりも、その解釈のための「教養」を重視した内容となっています。すぐには役に立たなくても、今後いつか、自分の考えを整理する一助となると思い、学んでください。
+
+***
+
+__1.　条件づき確率とベイズの定理__
+
+<iframe src="https://player.vimeo.com/video/548711054?title=1&amp;byline=1&badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="条件づき確率とベイズの定理"></iframe>
+
+>要点
+
+- 条件づき確率$\mathbb{P}(A|B)$は、以下のように定義される
+  $$
+  \mathbb{P}(A|B) = \frac{\mathbb{P}(AB)}{\mathbb{P}(B)}
+  $$
+
+- ベイズの定理: 条件づき確率には「内部対称性」があり、定義から以下のように書き換えることができる
+  $$
+  \mathbb{P}(A|B) = \frac{\mathbb{P}(A)\mathbb{P}(B|A)}{\mathbb{P}(B)}
+  $$
+
+- よって、「原因に条件づけて、結果の確率を推察できる」ことと同じように、「観察された結果に条件づけて、原因の確率を推察できる」(!)
+
+
+***
+
+__2.　正規分布とベイズの定理__
+
+<iframe src="https://player.vimeo.com/video/548716591?title=1&amp;byline=1&amp;portrait=1&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="正規分布とベイズの定理"></iframe>
+
+
+>要点
+
+- ベイズの定理は、事後分布(posterior distribution)は、事前確率(prior distribution)と信号(signal)を組み合わせたものだと捉えることができる
+
+- 正規分布の事前分布 $\theta\sim{\cal N}\left(\theta_{0},1/\psi_{0}\right)$ と信号 $s\sim{\cal N}\left(\theta,1/\psi_{s}\right)$ を組み合わせるとき、事後分布は正規分布$\theta\sim{\cal N}\left(\theta_{1},1/\psi_{1}\right)$に従う。ただし、
+  $$
+  \begin{align*}
+  \theta_{1} & =\frac{\psi_{0}}{\psi_{0}+\psi_{s}}\theta_{0}+\frac{\psi_{s}}{\psi_{0}+\psi_{s}} s\\
+  \psi_{1} & =\psi_{0}+\psi_{s}
+  \end{align*}
+  $$
+- **訂正:** $\ln \mathbb{P}(\theta|s) = \ln \mathbb{P}(\theta)  + \ln \mathbb{P}(s|\theta) -  \ln \mathbb{P}(s)$ が正しいベイズの定理であり、  $\ln \mathbb{P}(s)$の項の前は負の符号です。
+
+***
+
+__3.　期待効用理論と情報の価値__
+
+<iframe src="https://player.vimeo.com/video/548718711?title=1&amp;byline=1&amp;portrait=1&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="期待効用理論と情報の価値"></iframe>
+
+>要点
+
+- 情報の欠如を、期待効用最大化問題の「予算制約」のように捉えることができる
+- ブラックウェルの定理: より役に立つ情報とは、この制約を緩和するものである
+  - 情報の中には、どちらがより役に立つか立たないか順序づけることはできないものもある(例えば、インターネットの上で画像データが蓄積されることにより保存されている「情報量」は増えるかもしれないが、社会的に重要な意思決定をより正しくする重要な情報が増えているとは限らない)
+- より役に立つ情報とは、意思決定に重要な状態に関して、異なる状況をより正確に「分別」できるようにするものである
+
+***
+
+**参考図書・文献**
+

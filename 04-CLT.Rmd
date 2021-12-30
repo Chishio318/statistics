@@ -1,0 +1,110 @@
+# 典型的分布と大標本定理
+
+複雑な自然・社会現象であっても、いくつかの典型的な確率分布でモデルできる。ここでは、経済学分析においてもっとも重要な確率分布について、形成過程やその性質を具体的に考えていく。この確率論が、大数の法則や中心極限定理など、今後の統計推論のために欠かせない大標本定理につながっていく。
+
+> 1. 典型的確率分布について*
+> 2. 指数分布...待機問題の分布
+> 3. 正規分布...組み合わせ問題の分布
+> 4. 標本平均の大標本定理 ... 大数の法則と中心極限定理*
+> 5. べき分布 ... 分散が無限大となりうる分布
+
+- この講義では、正規分布を導出する確率過程や「べき分布」など、発展的なテーマも考えていく。これらの数式の詳細を、深く理解しなくても大丈夫。なぜ結論が成り立っているか、アプローチを把握してもらいたい。
+
+***
+
+**1. 典型的確率分布について**
+
+<iframe src="https://player.vimeo.com/video/545459340?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="典型的確率分布について"></iframe>
+
+> 要点:
+
+- 確率過程によって形成される分布によって、多くの社会・自然現象を理解できる
+
+- 「並列的な」和もしくは「直列的な」積の過程によって形成される
+  - 社会現象は積の過程によって形成されることが多い
+
+
+***
+
+**2. 指数分布...待機問題の分布**
+
+<iframe src="https://player.vimeo.com/video/545447444?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="指数分布...待機問題の分布"></iframe>
+
+> 要点:
+
+- 独立した事象の待ち時間は指数分布に従い、$f(t) \propto \exp\{-\lambda t\}$ で定義される
+
+- 指数分布では、密度の減少率が一定である
+  $$
+  \frac{\partial \ln f(t)}{\partial t} = - \lambda .
+  $$
+
+***
+
+**3. 正規分布...組み合わせ問題の分布**
+
+<iframe src="https://player.vimeo.com/video/589089250?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=3578b6036e" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="正規分布...組み合わせ問題の分布"></iframe>
+
+> 要点:
+
+- 独立した確率変数の総和は正規分布で近似され、$f(t) \propto \exp\{- t^2/2\}$ で定義される
+
+- 正規分布では、対数密度が放物線となる。すなわち、密度の減少率が、中心からの距離に比例して増加する
+  $$
+  \frac{\partial \ln f(t)}{\partial t} = - t .
+  $$
+  よって、中心から離れた値を取る確率が極めて低い
+
+- 正規分布は、パスカルの三角形を用いて、組み合わせの「場合の数」から導出できる
+
+
+***
+
+**4. 標本平均の大標本定理 ... 大数の法則と中心極限定理**
+
+<iframe src="https://player.vimeo.com/video/545463033?title=1&amp;byline=1&amp;portrait=1&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="標本平均の大標本定理 ... 大数の法則と中心極限定理"></iframe>
+
+> 要点:
+
+- ある分布から独立した$n$個の観察$X_{t}$の標本平均を以下のように定義する
+  $$
+  \overline{X}_{n} \equiv \sum^{n}_{t=1} X_{t}/n
+  $$
+
+- 大数の法則: 標本数が増えるにしたがって、標本平均が、分布の期待値に収束する
+  $$
+  \text{As} \:\:  n \rightarrow \infty,　\overline{X}_{n} \rightarrow \mu
+  $$
+
+- (古典的)中心極限定理: 分布の分散が有限 $\sigma^2 < \infty$ のとき、標本数が増えるにしたがって、標本平均の分布が正規分布に従う
+  $$
+  \text{As} \:\:  n \rightarrow \infty, \overline{X}_{n} \rightarrow \cal{N} \:(\mu,\frac{\sigma^2}{n})
+  $$
+
+**言い間違い.** ド・モアブルによる正規分布の導出は1933年ではなく、1733年です。
+
+***
+
+**5. べき分布 ... 分散が無限大となりうる分布**
+
+<iframe src="https://player.vimeo.com/video/545466764?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="べき分布 ... 分散が無限大となりうる分布"></iframe>
+
+> 要点:
+
+- べき分布は、中心から離れた値を取る確率が極めて高くなることがある。このようなとき、分布の分散が無限大となり(もしくは非常に大きくなり)、標本平均が、分布の期待値に収束するために膨大な標本数が必要となることがある
+
+- 例: 地震のエネルギー、富の分布、企業規模など
+
+***
+
+**参考図書・文献**
+
+松原望『人間と社会を変えた9つの確率・統計学物語』、2015年、SBクリエイティブ
+
+東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年
+
+奥村晴彦 『Wonderful R 1 Rで楽しむ統計』共立出版、2016年
+
+江崎貴裕『データ分析のための数理モデル入門　本質をとらえた分析のために』、2020年、ソシム
+
+松下貢『統計分布を知れば世界が分かる　身長・体調から格差問題まで』中公新書、2019年

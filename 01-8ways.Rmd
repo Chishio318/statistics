@@ -1,0 +1,74 @@
+# (PART) はじめに {-}
+
+# 主要な8の統計的考え方
+
+統計的手法は、多数の層から成る論理が積み重なっている山のようである。基礎から一歩一歩理解を進めていくためにも、まず、何を目指しているのか、その主要な考え方を見渡そう。
+
+> 0. 統計的思考への社会の要請
+> 1. 主要な考え方(1)確率分布
+> 2. 主要な考え方(2)最適化
+> 3. 主要な考え方(3)人間的制約
+
+***
+
+__0. 統計的思考への社会の要請__
+
+<iframe src="https://player.vimeo.com/video/537256170?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="統計的思考への社会の要請"></iframe>
+
+
+>要点
+
+- 『データ・サイエンス』とは、①数理統計学、②コンピュータ・サイエンス、③対象の専門知識から成る学際的な手法群である
+
+- よくある誤解
+  (i) ビッグ・データがあれば、何でも分かる
+  (ii) 統計学は専門家が理解していれば十分である
+
+***
+
+__1. 主要な考え方(1)確率分布__
+
+<iframe src="https://player.vimeo.com/video/537259983?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(1) 確率分布"></iframe>
+
+>要点
+
+- 統計学 = 体系的に観察から理解を導出する概念装置
+
+1. 多くの自然・社会現象は、確率分布に従う
+2. 標本(現象の観察)と仮定を組み合わせて、確率分布を推測する
+3. 意思決定に役立つ情報とは、確率分布について分別できるものだ
+
+***
+
+__2. 主要な考え方(2)最適化__
+
+<iframe src="https://player.vimeo.com/video/537265419?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(2) 最適化"></iframe>
+
+> 要点
+
+4. 誤差の総和を、偶発誤差と系統誤差に分解できる
+5. 標本を大量に観察することで、偶発誤差を回避できる
+6. 標本を無作為に観察することで、系統誤差を回避できる
+
+***
+
+__3. 主要な考え方(3)人間的制約__
+
+<iframe src="https://player.vimeo.com/video/537267994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="(3) 人間的制約"></iframe>
+
+> 要点
+
+7. 強い仮定を置けば、脆弱だけれど明確な理解が得られる
+8. 複雑な仮定を置けば、解釈できないが精緻な理解が得られる
+
+***
+
+__参考図書・文献__
+
+鳥居泰彦『はじめての統計学』、日本経済新聞出版、1994年
+
+東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年
+
+竹村彰通『データサイエンス入門』、岩波新書、2018年
+
+濵田悦生・狩野裕『データサイエンス入門シリーズ　データサイエンスの基礎』講談社、2019年

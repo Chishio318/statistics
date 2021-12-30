@@ -1,0 +1,81 @@
+# プログラミングの姿勢と技術
+
+実証研究とは、つまるところ、データを「インプット」とし、解析結果を「アウトプット」とするプログラムを書くことである。再現可能なプログラムを書くための心得を習慣づけよう。
+
+> 1. プログラムの再現可能性*
+> 2. Rの特徴と初期設定
+> 3. 変数と関数の概念*
+> 4. Rプログラムの事始
+> 5. RMarkdownの事始
+
+***
+
+__1. プログラムの再現可能性__
+
+<iframe src="https://player.vimeo.com/video/540367625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Replicability.mp4"></iframe>
+
+> 要点
+
+- 再現可能性を向上し、信頼性と拡張可能性を改善するために、データ分析のためにスクリプトを用いてプログラミングをする
+- データ分析プロジェクトの規模が大きくなると、たとえ時間をかけても、小さなミスを絶対に避けるための努力が要求される
+
+***
+
+__2. Rの特徴と初期設定__
+
+<iframe src="https://player.vimeo.com/video/540371314?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Why R.mp4"></iframe>
+
+> 要点
+
+- Rの強みは、オープン・ソースだからユーザーベースが広く、再現可能性に優れている点である
+- Rの弱みは、計算効率があまり高くないことである
+- まず初期設定をしよう
+
+***
+
+__3. 変数と関数の概念__
+
+<iframe src="https://player.vimeo.com/video/540373131?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Objects and Functions.mp4"></iframe>
+
+> 要点
+
+- 変数とは、「名札」のついた情報を格納できる「箱」である。関数とは、「名札」のついた、引数に特定の操作をする「筒」である。
+- 自己文書化を目指そう。コメントをせずとも、関数や変数の「名札」を使って、分析内容が分かるようにすることができる。
+  - 「名札」は、他人が読んで分からないほど省略しすぎない
+  - 「名札」のつけ方には、アルファベットと数字、そして「_」や「.」を使う
+- **訂正:** 「オブジェクト」は「変数」より広い概念で、「関数」を含めることもある
+
+***
+
+__4. Rプログラムの事始__
+
+<iframe src="https://player.vimeo.com/video/540376237?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R language.mp4"></iframe>
+
+> 要点
+
+- 頻繁に使うコマンドのためには、``Cheat Sheet``を印刷して、手引きとしてすぐに使えるようにしよう
+- エラー・メッセージなど、インターネットで検索すると、他の人が同じエラーを経験し、掲示板で質疑応答があることが多い
+- **追加点:** 英語話者のユーザーベースが広いため、``Sys.setenv(LANG = "en")``でエラーメッセージを英語で表示するように設定し、検索して解決策を見つけやすくしよう
+
+***
+
+__5. RMarkdownの事始__
+
+<iframe src="https://player.vimeo.com/video/540378049?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="570" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="R markdown.mp4"></iframe>
+
+> 要点
+
+- Rmarkdownを使って、コマンド、文書とアウトプットを組み合わせ、再現可能なプログラミングに近づける
+- htmlもしくはMS Wordで出力し、PDFに変換して宿題を提出すること
+
+***
+  
+__参考図書・文献__
+
+Matthew Gentzkow and Jesse M. Shapiro. ``Code and Data for the Social Sciences: A Practitioner's Guide.'' 2014. *University of Chicago Booth Memo.*
+
+Michael Kremer ``The O-Ring Theory of Economic Development'' 1993. *The Quarterly Journal of Economics.*
+
+高橋康介 『Wonderful R 3 再現可能性のすゝめ RStudioによるデータ解析とレポート作成』共立出版、2018年
+
+舟尾暢男『The R Tipsーデータ解析環境Ｒの基本技・グラフィクス活用集ー』、オーム社、2020年

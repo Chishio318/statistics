@@ -1,0 +1,222 @@
+
+# 因果推論の実験的アプローチ
+
+因果効果の推定のために観測できる変数などで制御する方法を考えました。しかし、このようなアプローチでは「重要な共変量を制御しきれない」という「答え合わせ」の結果をきっかけに、選択効果を除去するような研究デザインにフォーカスをする「実験的アプローチ」が普及していきました。今日、経済学において広く受け入れられている因果関係は、この「実験的アプローチ」に基づくと言ってよいと考えています。ここでは、この「実験的アプローチ」の考え方を紹介し、決して平たんではなかったその成り立ちと、現在解決できていない課題についても考えていきます。 
+
+> 1. 「研究デザイン」にもとづく実験的アプローチ 
+> 2. 時系列の中の介入を用いる「差の差」推定 
+> 3. 外生的な第3の変数を用いる「操作変数法」 
+> 4. 境界を用いる「回帰非連続法」 
+> 5. 政策介入を無作為割り付けする「ランダム化比較実験」 
+> 6. 実験的アプローチの「局所性」と「脱理論性」 
+
+---
+
+__1「研究デザイン」にもとづく実験的アプローチ__
+
+<iframe src="https://player.vimeo.com/video/578293177?speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="「研究デザイン」にもとづく実験的アプローチ"></iframe>
+
+> 要点
+
+- 1960年代からアメリカで救貧・福祉政策のランダム化比較実験が試みられるようになり、従来十分だと考えられてきた「変数を制御する・統計手法で補正するアプローチ」が不十分ではないか、という1980年代末以降の多くの経済学者の経験的認識につながった
+
+- 「実験的アプローチ」 ... 研究デザインによって「選択効果」が生じない外生的な変動を用いることができる状況に着目
+
+  (i) 疑似実験・自然実験 ... 制度や自然現象の外生性を用いて、ランダムかのように処置を考えられる実験
+
+  (ii) ランダム化実験・フィールド実験 ... 研究者がフィールドで実験を設計し、ランダムに処置を割り付ける実験
+
+  - 「選択効果」をできる限り小さくしたいということは、すなわち、被験者の(主観的)厚生・選択の自由を犠牲にしている側面がある
+  - 「実験的アプローチ」によって、研究者が制度を詳しく知り、現場とより近い距離にいるようになった
+
+---
+
+__2 時系列の中の介入を用いる「差の差」推定__
+
+<iframe src="https://player.vimeo.com/video/578297578?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="時系列の中の介入を用いる「差の差」推定"></iframe>
+
+> 要点
+
+- 処置群と比較群の間における前後の間の差を考えることで、両群特性の違いを排除する推定方法が「差の差」(difference-in-difference)であり、event studies/ interrupted time seriesとも呼ばれる
+
+- 推定式: $D_i = 0,1$と書くとき、
+  $$
+  Y_{it}=\beta_{0}+\beta_{1}D_{i}+\beta_{2}t+\beta_{3}D_{i}\times t+\varepsilon_{it}
+  $$
+
+- 識別条件: 並行トレンドの仮定 ... $D_i = C,T$と書くとき、
+  $$
+  \mathbb{E}\left[Y_{i1}^{C}-Y_{i0}^{C}|T\right]=\mathbb{E}\left[Y_{i1}^{C}-Y_{i0}^{C}|C\right]
+  $$
+
+- 並行トレンドが満たされないとき
+
+  (1) 処置の前のトレンドが異なるパターンであるとき
+
+  (2) 同時に他の政策介入などがあるとき
+
+  (3) 傾向そのものが逆因果を引き起こすとき
+
+**追記:** 処置群と比較群の二つのグラフを重複させるときは、y軸は、基準となるt=0を除去した$Y_{it} - Y_{i0}$となる
+
+
+---
+
+__3 外生的な第3の変数を用いる「操作変数法」__
+
+<iframe src="https://player.vimeo.com/video/578299831?speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="507" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="外生的な第3の変数を用いる「操作変数法」"></iframe>
+
+> 要点
+
+- 操作変数(Instrumental Variable, $Z$) = 結果$Y$に直接影響を与えないが、説明変数$D$を通じてのみ間接的に影響を与える変数
+
+  - 雨、地形、災害、子どもの性別など、人為の及ばない自然の予測・制御不可能な事象を用いることが多い
+
+- 2段階の最小二乗法(2-Stage Least Squares): 真のモデルが$Y_i = \beta_0 + \beta_1 D_i + \beta_2 X_i + \varepsilon_i$のとき(ここで$X_i$は観測不能な交絡因子)、以下の2段階の回帰分析をし、
+  $$
+  Y_{i}=\alpha_{0}+\alpha_{1}Z_{i}+\nu_{i}\:(\text{Reduced form})\\
+  D_{i}=\gamma_{0}+\gamma_{1}Z_{i}+\eta_{i}\:(\text{First stage})
+  $$
+   その係数を組み合わせて
+
+$$
+\hat{\beta_1}^{2SLS} = \hat{\alpha_1}/\hat{\gamma_1}
+$$
+
+  として捉えることができる
+
+- 識別条件: (i) 関連性 ... $Cov(D_i, Z_i) \neq 0$ と(ii)除外性 ... $Cov(X_i,Z_i) =0, Cov(\varepsilon_i,Z_i) =0$
+
+- 操作変数の外生性を用いることにより、内生性による推定の問題(欠落変数バイアス、減衰バイアス、同時性バイアス)に対処できる
+
+---
+
+__4 境界を用いる「回帰非連続法」__
+
+<iframe src="https://player.vimeo.com/video/578853901?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="境界を用いる「回帰非連続法」"></iframe>
+
+
+> 要点
+
+- 多くの属性はなだらかに変化することがほとんどであるが、制度が非連続的に変化する近傍において、ほぼ政策のみが変化するような状況がある
+
+- 最も基本的推定式: フレクシブルな関数$f\left(Z_{i}\right)$を用いて、
+  $$
+  Y_{i}=\beta_{0}+\beta_{1}D_{i}+f\left(Z_{i}\right)+\varepsilon_{i}
+  $$
+
+- 識別条件: ランニング変数$Z$における非連続な点$Z^\ast$(カットオフ)の近傍における連続性 ... 微小な$\varepsilon >0$において、
+  $$
+  \mathbb{E}\left[Y_{i}^{C}|C,Z\in(Z^{\ast}-\varepsilon,Z^{\ast}+\varepsilon)\right]=\mathbb{E}\left[Y_{i}^{C}|T,Z\in(Z^{\ast}-\varepsilon,Z^{\ast}+\varepsilon)\right]
+  $$
+
+- 回帰非連続(regression discontinuity) ... 処置効果を知るために、カットオフの右と左を比較
+
+- 集積分析(bunching analysis) ... 選択効果を知るために、カットオフにおける密度を測定
+
+- 連続的な変化をどの関数形で近似し、その変化を制御するか、論争となることが多い
+
+**補足:** Lee, Moretti, Butler (2014)の研究のアウトカムの「投票」は、市民の投票ではなく、選出された議員が衆議院の議題の賛否について投票するときにリベラルである傾向のスコアである。
+
+---
+
+__5 政策介入を無作為割り付けする「ランダム化比較実験」__
+
+<iframe src="https://player.vimeo.com/video/578765556?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="政策介入を無作為割り付けする「ランダム化比較実験」"></iframe>
+
+> 要点
+
+- 理想的には、処置群と比較群の平均を比較するのみという極めてシンプルで透明な方法である
+  $$
+  Y_{i}=\beta_{0}+\beta_{1}D_{i}+\varepsilon_{it}
+  $$
+
+- 識別条件: 「潜在的結果からランダム抽出をできていること」
+  $$
+  \mathbb{E}\left[Y_{i}^{C}|C\right]=\mathbb{E}\left[Y_{i}^{C}|T\right]
+  $$
+
+- たとえ「ランダム割付」をしていても、この識別条件を満たさず「内的妥当性」を保障できないことがある
+
+  1. 比較群の調整的行動 (プラセボの欠如)
+  2. 波及効果・研究に参加することの効果
+  3. ランダムではない脱落・欠測
+
+- 「前向き」(prospective)な研究であるからこそ、「後ろ向き」(retrospective)な研究にはないようなステップがある
+
+  (1) パイロット実験の実施・標本サイズの決定
+
+  (2) 研究プロトコルの登録・倫理委員会審査の審査 (被験者の厚生を保障するために、研究終了時に効果の期待されている処置を与えたり、もし悪効果があると分かったら、途中で中止をする)
+
+---
+
+
+__6 実験的アプローチの「局所性」と「脱理論性」__
+
+<iframe src="https://player.vimeo.com/video/578750012?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="506" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="実験的アプローチの「局所性」と「脱理論性」"></iframe>
+
+> 要点
+
+- 批判の内容: 実験的アプローチによる選択バイアスの克服は重要だが、個々の実験ではまだ解決できていない問題がある
+
+  (i) 実験は局所的である
+
+  (ii) 実験は脱理論的である
+
+- 対応①:「より多くの実験で解決しよう」...実験的アプローチを用いる対応
+
+  (i) 異なる環境における実験を数多く実施して統合する
+
+  (ii) 異なるデザインの実験を組み合わせて、理論を検証できる (理論が正しいことを想定しなくてよい)
+
+- 対応②:「実験以外の方法で解決しよう」...構造的アプローチを用いる対応
+
+  1. 経済理論モデルを設定
+  2. モデル・パラメータを推定・カリブレーション
+  3. 政策変更シミュレーション
+
+---
+
+**参考図書・文献***
+
+William Shadish, Thomas Cook, and Donald Campbell “Experimental and  Quasi-Experimental Designs for Generalized Causal Inference.” *Houghton  Mifflin Company.* 2002.
+
+Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless  Econometrics: An Empiricist’s Companion”, *Princeton University Press*,  2009
+
+Florent Bedecarrats, Isabelle Guerin, and Francois Roubaud "Randomized Controlled Trials in the Field of Development: a critical perspective" *Oxford University Press*, 2020
+
+Judith M. Gueron and Howard Rolston. "Fighting for Reliable Evidence" *Russell Sage Foundation*. 2013
+
+アンドリュー・リー 『RCT大全　ランダム化比較試験は世界をどう変えたのか』(Randamistas: How Radical Researchers Changed Our World) 上原裕美子訳、みすず書房、2020年
+
+チャールズ・ウィーラン 『統計学をまる裸にする データはもう怖くない』 (Naked Statistics - Stripping the Dread from the Data) 山形浩生・守岡桜訳、日本経済新聞出版社、2014年
+
+西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年
+
+伊藤公一朗 『データ分析の力　因果関係に迫る思考法』光文社新書、2017年
+
+中室牧子、津川友介 『「原因と結果」の経済学　データから真実を見抜く思考法』ダイヤモンド社、2017年
+
+安井翔太・株式会社ホクソエム 『効果検証入門　正しい比較のための因果推論/計量経済学の基礎』 技術評論社、2020年
+
+Esther Duflo, Rachel Glennester, Michael Kremer　『政策評価のための因果関係の見つけ方　ランダム化比較試験入門』小林庸平監訳、日本評論社、2019年
+
+**講義ビデオで紹介した学術論文**
+
+LaLonde, Robert J, 1986. "Evaluating the Econometric Evaluations of Training Programs with Experimental Data," *American Economic Review*
+
+Card, David. 1990. "The Impact of the Mariel Boatlift on the Miami Labor Market." *Industrial and Labor Relations Review.*
+
+Angrist, Joshua and William Evans. 1998. "Children and Their Parents' Labor Supply: Evidence from Exogenous Variation in Family Size." *American Economic Review*
+
+Lee, David, Enrico Moretti and Matthew J. Butler. 2004. "Do Voters Affect or Elect Policies? Evidence from the U. S. House" *The Quarterly Journal of Economics.*
+
+Saez, Emmanuel. 2010. "Do Taxpayers Bunch at Kink Points?" *American Economic Journal: Economic Policy*
+
+Bertrand, Marianne, and Emir Kamenica and Jessica Pan, 2015. "Gender Identity and Relative Income within Households," *The Quarterly Journal of Economics*
+
+Furukawa, Chishio. 2014. "Do Solar Lamps Help Children Study? Contrary Evidence from a Pilot Study in Uganda." *Journal of Development Studies.*
+
+Furukawa, Chishio. 2017. "Health Benefits of Replacing Kerosene Candles with Solar Lamps: Evidence from Uganda" *Working paper.*
+
+Banerjee, Abhijit, Rema Hanna, Gabriel E. Kreindler, and Benjamin A. Olken 2017. "Debunking the Stereotype of the Lazy Welfare Recipient: Evidence from Cash Transfer Programs" *World Bank Economic Review.*

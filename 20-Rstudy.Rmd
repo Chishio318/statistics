@@ -1,0 +1,100 @@
+# Rを学ぶためのリソース
+
+プログラミングを学ぶためには、自分でリソースを探し疑問を解決していくことが欠かせない。ただ、インターネットや書店にもRの書籍や情報が膨大にあり、どれを参考にしたらよいか分かりづらい。ここでは、データ分析のプログラミングを学ぶために特に役に立つと考えるリソースを紹介する。
+
+- 指針 ... ``tidyverse R``への準拠: Rには、伝統的に使われてきた``base R``と、2010年代後半から「主流」になっている``tidyverse R``がある。僕は、コードが人間にとって自然に読めるという「可読性」を重要視したいと考えている。よって、``tidyverse R``に準拠したリソースを重点的に紹介し、最後に、``base R``や``data.table``を含むより広いリソースを紹介する。
+- コツ ... インターネットでコードを検索するとき、"tidyverse R"もしくは"dplyr r"などと書き足すと、``base R``ではなく``tidyverse R``の書き方についての情報を見つけやすくなる。
+
+> 1. はじめに
+> 2. オンラインの資料
+> 3. 日本語の書籍
+> 4. 発展的内容
+> 5. tidyverse Rに限定しない発展的内容
+
+---
+
+__1. はじめに__
+
+まず、プログラミング言語の基礎語彙を学び、実際に手を動かしてみることが効果的である。
+
+- R Studio [cheat sheets](https://www.rstudio.com/resources/cheatsheets/): 最重要のコマンドを簡潔にまとめている。ぜひ印刷をして手元に置き、コマンドを調べるために、すぐに手がかりとできるようにしよう。
+  - data wrangling with [dplyr](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf) and [tidyr](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
+  - data visualization with [ggplot2](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+  - [base R](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf) ... tidyverse Rを使うとしても、base Rの書き方も把握しておこう。
+- [RStudio Primers](https://rstudio.cloud/learn/primers): オンライン環境を使って、コードを一歩ずつ書き進めながら勉強することができる。英語ではあるが、コードを書くのに慣れるためにとても効率的である。
+
+
+
+__2. オンラインの資料__
+
+基礎語彙などに加え、多くの概念を体系的に勉強することも役に立つ。Ｒのコミュニティでは、無料で多くの資料が公開されている。
+
+- [Rで計量政治学入門](https://shohei-doi.github.io/quant_polisci/index.html) ... by 土井翔平先生
+- [私たちのR　ベストプラクティスの追求](https://www.jaysong.net/RBook/) ... by 宋財泫先生・矢内勇生先生
+- [Rで学ぶ計量経済学と機械学習](https://michihito-ando.github.io/econome_ml_with_R/) ... by 安藤道人先生
+- [The R Graph Gallery](https://www.r-graph-gallery.com/) ... ``ggplot2``を使ったインスピレーション集
+
+
+
+__3. 日本語の書籍__
+
+時間をかけて勉強するためには、オンラインのリソースのみでなく、ページをめくって付箋を貼って勉強したいときもあるだろう。多くの書籍があるが、僕自身がもっともお世話になったものを紹介する。
+
+- **改訂2版 RユーザのためのRStudio[実践]入門〜tidyverseによるモダンな分析フローの世界 (技術評論社) by 松村優哉、湯谷啓明、紀ノ定保礼、前田和寛** ... ``tidyverse R``の使い方について、具体例をまじえ、丁寧に教えてくれる。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/practice.jpg" width=30% height=30%>
+
+- **データサイエンスのための Rプログラミングスキル by Michael Freeman & Joel Ross (共立出版)** ... ``tidyverse R``の使い方について、考え方や概念なども含め、読みやすく教えてくれる。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/programmingskill.jpg" width=30% height=30%>
+
+- **Rではじめるデータサイエンス (O'Reilly) by Hadley Wickham & Garrett Grolemund** ... ``tidyverse``などをつくった著者たちが、プログラミングの概念などについて厳密に教えてくれる。(この英語の内容は、著者の[ホームページ](https://r4ds.had.co.nz/)に公開している。)
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/R4ds.jpg" width=30% height=30%>
+  
+- **実践Data Scienceシリーズ データ分析のためのデータ可視化入門 (講談社) by キーラン・ヒーリー** ... ``ggplot2``を用いたデータ可視化の考え方を、多くの事例とともに紹介してくれる。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/visualization.jpg" width=30% height=30%>
+
+__4. 発展的内容__
+
+個人のプロジェクトとしてデータを分析するのに加え、グループで分析したり、プログラムを書いたりするために、より発展的な内容を説明しているリソースを紹介する。
+
+- Style guides
+
+  - [tidyverse style guide](https://style.tidyverse.org/functions.html): RStudio社内でのRプログラミング・ルール
+
+  - [Google style guide](https://google.github.io/styleguide/Rguide.html): Google社内でのRプログラミング・ルール
+
+    (関数の戻り値に``return()``のコマンドを明示的に書くべきか、ということについて、２つのstyle guideで考えが異なるようである。)
+
+<!-- - [tidyverse design principles](https://principles.tidyverse.org/): 関数をどのように設計すればよいかの原則を説明してくれる。 -->
+
+- **[Advanced R by Hadley Wickham](https://adv-r.hadley.nz/)** ... プログラミング言語としてＲを考えるときに役立つ情報がたくさん載っている。
+
+  
+
+__5. tidyverse Rに限定しない発展的内容__
+
+R言語の歴史は長く、``tidyverse R``のコミュニティ以外にも優れた書籍が多く存在する。その中でも、プログラミングの考え方や``base R``について特に丁寧に説明しているものを紹介する。
+
+- **Rプログラミング本格入門:達人データサイエンティストへの道 (共立出版) by Kun Ren** ... プログラミング言語としてのRの特徴をおさえながら、丁寧に説明をしてくれる。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/KunRen.jpg" width=30% height=30%>
+
+- **アート・オブ・Rプログラミング (O'Reilly) by Norman Matloff** ... デバッグの考え方を丁寧に説明し、プログラミングのために気をつけたいことを詳細に説明してくれる。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/artof.jpg" width=30% height=30%>
+
+- **The R Tips: データ解析環境Rの基本技・グラフィックス活用集(オーム社) by 舟尾 暢男** ... こつこつ著者が丁寧に時間をかけて調べて勉強したことが伝わってくる良書。
+
+<img src="https://raw.githubusercontent.com/Chishio318/statistics/main/bookcover/RTips.jpg" width=30% height=30%>
+
+---
+
+- 上記の書籍は、値段が高いものも多い。購入する前に中身を確認したい人は、大型書店のプログラミング・コーナーでも確認できるものが多いであろうし、研究室に来てもらえれば、確認をしてもらうことができる。
+- Rプログラムは、日々、ものすごいスピードで進化している。上の資料に加えて、特に便利なリソースを見つけたら、ぜひ教えてほしい。
+
+
+
+**謝辞:** 横浜国大では、多くの学生にプログラミングをサポートしてもらう幸運に恵まれている。上の資料については、近本海瑠さん、坂上幸さん、伊藤弘紀さんからの紹介に感謝を示したい。

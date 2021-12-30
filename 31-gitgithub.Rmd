@@ -1,0 +1,145 @@
+# プログラミングの環境管理
+
+快適にプログラミングの作業を続けるためには、コードを書くだけではなく、その「環境」であるフォルダーとファイルを管理することが欠かせない。この講義では、「環境管理」についての考え方と具体的なツールについて説明をする。
+
+> 1. 分類と順序
+> 2. フォルダー構造の整理
+> 3. バージョン管理とGit
+> 4. クラウド保存とGitHub
+> 5. GitHubとRStudioによるGitの活用
+
+(「環境」という言葉で、R、パッケージ、関連プログラムのバージョンのことを指すこともありますが、ここではより広い意味で使っています。)
+
+***
+
+
+__1. 分類と順序__
+
+<iframe src="https://player.vimeo.com/video/635924828?h=2c45c1e4e7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="分類と順序"></iframe>
+
+
+> 要点
+
+- 世界には膨大な要素があるが、人が同時に操作できる対象は$7 \pm 2$ までである
+- 膨大な数の対象を分かりやすく示すには、
+
+  1.「近いもの」をグループにして分類し、ピラミッド型にして、各層における対象の数を$\sim 7$ほどにすること
+  
+    - 分類には、"Mutually Exclusive and Collectively Exhaustive" (MECE = ダブりなくモレなし)を心がける
+  
+  2. それぞれの順序を論理的に並べること
+
+---
+
+__2. フォルダー構造の整理__
+
+<iframe src="https://player.vimeo.com/video/635915123?h=ff06769404&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="528" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="フォルダー構造の整理"></iframe>
+
+
+> 要点
+
+- フォルダーの分類には3つのタイプがあり、それらを組み合わせて使うことが多い
+  - by topic: プロジェクトや授業ごと ... 一般に、幹に近い枝により適切
+  - by time: 日付や学期ごと
+  - by type: ワードファイルやRファイルなど ... 一般に、枝葉の先により適切
+- フォルダーの順序は、デフォルトで「アルファベット順」になっており、頭に"01_..."などの番号をふることにより、論理的な順序に並び替えることができる
+  - by importance: 重要度順
+  - by time: 時系列順
+  - by structure: 構造順
+- Windowsで「フォルダーツリー」を印刷するには、以下のステップを踏む
+- **補足:** 検索機能やショートカットを使うこともできる
+- **補足:** 1階層のフォルダーの多さと、階層の深さの間にトレードオフがある
+
+---
+
+__3. バージョン管理とGit__
+
+<iframe src="https://player.vimeo.com/video/638338949?h=bb8c40ceda&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="バージョン管理とGit"></iframe>
+
+> 要点
+
+- バージョン管理 = 複数のバージョン (ファイルの状態) を保存しておくこと
+
+  1.  過去のバージョンを回復できるようしつつ
+  2.  現在のバージョンを明確に区別する必要がある
+
+- 自分なりのアプローチ: ファイルを異なる時点で「ファイル名」を変更して保存する
+
+  - 問題点(1) ... ファイル名を考えることが大変で、実際と一貫性がないことがある
+  - 問題点(2) ... 何が最新ファイルか分からなくなることがある
+  - 問題点(3) ... データが膨大になる
+  - 問題点(4) ... いつ保存すればよいか分かりづらい
+
+- Gitによるアプローチ: 変更歴を``.git``ファイルに保存する``repository`` を用いる
+
+  - アプローチ(1) ... ファイル名ではなく、変更内容をコメントとして「コミット」する (ファイル名はハッシュを使う)
+  - アプローチ(2) ... 変更歴は「隠れファイル」として封印する
+  - アプローチ(3) ... テキストファイルについて、``diff`` (変更点)のみを保存する
+  - アプローチ(4) ...  (あまり本質的な解決策はない)
+
+- Gitを賢明に活用するコツ
+
+  - ``.gitignore`` を使って、保存したくないファイルを対象から外す
+  - 可能な限り、``binary`` ファイルではなく、``text``ファイルを使う
+
+---
+
+__4. クラウド保存とGitHub__
+
+<iframe src="https://player.vimeo.com/video/638350906?h=af99f561ed&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="クラウド保存とGitHub"></iframe>
+
+> 要点
+
+- クラウド保存 = 世界中に散らばっているデータセンターにデータを保存すること
+  - メリット1. 保管の安全性
+  - メリット2. 共有の利便性
+  - メリット3. 利用の柔軟性
+- GitHub = ``.git``のウェブサービス
+  - ローカルとリモートのリポジトリを用いることによって、データの安全性を高める
+  - 手順:
+  1. ``Clone`` = リポジトリをダウンロードする
+  2. ``Pull`` = 変更をダウンロードする
+  3. ``Stage`` = コミットする準備をする
+  4. ``Commit`` = 変更を反映させる (``Commit message`` = メールの件名のように)
+  5. ``Push`` = アップロードをする
+- GitHubを賢明に活用するコツ
+  - ``README.md`` を使って、プロジェクト全体の説明をする
+
+---
+
+__5. GitHubとRStudioによるGitの活用__
+
+<iframe src="https://player.vimeo.com/video/638335329?h=ed32592248&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="569" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="GitHubとRStudioによるGitの活用"></iframe>
+
+> 要点
+
+- ``RStudio`` を``GitHub``のGraphical User Interface (GUI)として利用できる
+- Git/ GitHubの設定
+  1. 自分のGitHubアカウントを作成する (http://github.com/)
+  2. Gitをインストールする (https://git-scm.com/downloads/)
+  3. RStudioのコンソールでアカウントを登録する
+     ```
+     install.packages("usethis")
+     usethis::use_git_config(user.name = "TaroYNU",
+                    user.email = "YNU_taro@ynumail.com")
+     ```
+     (このTaroYNUとYNU_taro@ynumail.comを自分のものに変更する)
+  4. リモートリポジトリをクローンする
+- RStudioを賢明に活用するコツ
+  - ``.Rproj``を用いてプロジェクト全体を管理することにより、作業ディレクトリを変更しなくてよくなる
+
+(複数人で作業を進めるためには、ブランチやコンフリクトなどの重要な概念などがあるが、今回はここまでとしよう。)
+
+---
+
+__参考文献__
+
+Minto, Barbara. "The Pyramid Principle: Logic in Writing and Thinking". 2009 (originally, 1987.) Financial Times Prentice Hall
+
+佐藤可士和 『佐藤可士和の超整理術』 2011. 日経ビジネス人文庫 
+
+株式会社オープングルーヴ, 昌子正俊「よくわかる入門Git」2019. 秀和システム
+
+大串肇/久保靖資/豊沢泰尚 「Gitが、おもしろいほどわかる基本の使い方33 改訂新版」2019. MdNbooks
+
+横田紋奈/宇賀神みずき「いちばんやさしいGit&GitHubの教本 人気講師が教えるバージョン管理&共有入門」2018.インプレス

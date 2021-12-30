@@ -1,0 +1,103 @@
+# 重回帰分析とその条件
+
+単回帰分析は2つの確率変数の間の関係性を定量化するものでした。しかし、現実にはより多くの事象が影響し、多くの実際のデータセットには複数の説明変数が含まれています。1つの被説明変数と2つ以上の説明変数の関係を明らかにする方法の中で最も実践的なものが重回帰分析であり、実証分析に欠かせない手法です。重回帰分析が望ましい性質を持つ条件を明らかにし、その条件が満たされないときにどのように問題が生じるか、どう対処できるかについて考えていきます。
+
+
+> 1. 重回帰分析*
+> 2. 推定量の望ましい性質
+> 3. 重回帰分析の最小二乗法(OLS)によって望ましい推定をするための条件*
+> 4. 外生性条件が満たされないとき*
+> 5. 独立同一分布条件が満たされないとき
+
+*講義内容が多いため、1.5回分の講義だと考えてください。
+
+---
+
+__1. 重回帰分析__
+
+<iframe src="https://player.vimeo.com/video/558764604?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="重回帰分析"></iframe>
+
+> 要点
+
+- 因果関係 = Ceteris Paribus (他の諸条件を一定にした上で)の関係
+- 複数の説明変数を取る回帰モデルを考え、最小二乗法で推定する
+
+$$
+Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\varepsilon
+$$
+
+- $X_2$が$X_1$と$Y$の両方に影響がある場合、それらの影響を取り除くことができ、コントロール変数で制御すると言う
+- 説明変数の数が多くても、残差の推定を用いて、2次元の散布図に視覚化することができる
+
+---
+
+
+__2. 推定量の望ましい性質__
+
+<iframe src="https://player.vimeo.com/video/558766538?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="推定量の望ましい性質"></iframe>
+
+> 要点
+
+- 推定量$\hat{\theta}$そのものが確率変数であり、確率分布を持っている。なので、推定量の期待値$\mathbb{E}\hat{\theta}$や分散 $Var\left(\hat{\theta}\right)$を考えられる
+- 有限標本のもとで、不偏性や有効性(最小分散)を満たすことが望ましい
+- 無限標本のもとで、一致性や漸近正規性を満たすことが望ましい
+  - 大標本定理により、最尤推定量は多くの場合一致性や漸近正規性を満たす
+- モデルの不確実性に対する頑健性も重要である
+
+**補足:** 推定量の標準偏差(standard deviation)$\sqrt{Var\left(\hat{\theta}\right)}$を標準誤差(standard error)と呼ぶ
+
+---
+
+__3. 重回帰分析の最小二乗法(OLS)によって望ましい推定をするための条件__
+
+<iframe src="https://player.vimeo.com/video/558769100?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="重回帰分析によって望ましい推定をする条件"></iframe>
+
+> 要点
+
+- ガウス・マルコフの定理: (1)外生性($\mathbb{E}\left[\varepsilon|X\right]=0$)と(2)誤差項の独立同一分布($\mathbb{E}\left[\varepsilon^{2}|X\right]=\sigma^{2}$、$\mathbb{E}\left[\varepsilon_{i}\varepsilon_{j}|X\right]=0$)の仮定が満たされるとき、OLSは最小分散不偏線形推定量である。
+- 「線形」とは、パラメータについて線形なモデルという意味で、$Y$と$X$の関係が非線形的であるときにも、(i)それぞれを非線形変換するか(ii)$X$の多項式で重回帰分析をできる
+
+- 多重共線性に注意しなければならない
+
+**訂正.** 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。
+---
+
+__4. 外生性条件が満たされないとき__
+
+<iframe src="https://player.vimeo.com/video/558783636?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="外生性条件が満たされないとき"></iframe>
+
+> 要点
+
+- データの不完全性によって外生性が満たされないとき、推定量にバイアスが生じる($\mathbb{E}\hat{\beta}_1 \neq \beta_1$)
+- コントロール変数が欠落しているとき、欠落変数バイアス(omitted variable bias)が生じる
+  - 実際には、全ての説明変数を観察することはできないため、欠落変数バイアスが生じることが多い。「因果推論」の手法は、このバイアスを克服するためにある。
+- 説明変数に測定誤差があるとき、減衰バイアス(attenuation bias)が生じる
+- 説明変数に被説明変数の結果となっている要素があるとき、同時性バイアス(simultaneity bias)が生じる
+
+---
+
+__5. 独立同一分布条件が満たされないとき__
+
+<iframe src="https://player.vimeo.com/video/558776198?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="508" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="独立同一分布条件が満たされないとき"></iframe>
+
+> 要点
+
+- 誤差項が独立同一分布ではないとき、推定量の期待値($\mathbb{E}\hat{\beta}_1$)には影響がないが、その分散($Var(\hat{\beta}_1)$)が正しく推定されない
+  - どれぐらいその推定量に自信を持ったらよいかを誤ってしまう
+- 不均一分散である($\mathbb{E}\left[\varepsilon^{2}|X\right] \neq  \sigma^{2}$)可能性が多いので、『不均一分散に対して頑健な標準誤差』をプログラムで常に使うことが望ましい
+- 系列相関・自己相関がある($\mathbb{E}\left[\varepsilon_{i}\varepsilon_{j}|X\right]\neq0$)ことが多いので、『クラスター構造に対して頑健な標準誤差』をプログラムで常に使うことが望ましい
+
+
+---
+  
+__参考図書・文献__
+
+Jeffrey Wooldridge ``Econometric Analysis of Cross Section and Panel Data'' *The MIT Press*, 2010
+
+Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, *Princeton University Press*, 2009
+
+James Stock and Mark Watson "Introduction to Econometrics." *Pearson Education Inc.* 2007
+
+東京大学教養学部統計学教室 『基礎統計学I 統計学入門』東京大学出版会、1991年
+
+西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年
