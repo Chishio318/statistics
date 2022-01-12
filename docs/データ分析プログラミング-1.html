@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>17 データ分析プログラミング (1) | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="17 データ分析プログラミング (1) | 統計推論再考 – 概念と技法 –" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="17 データ分析プログラミング (1) | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="17 データ分析プログラミング (1) | 統計推論再考 – 概念と技法 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="プログラミングの環境管理.html"/>
+<link rel="next" href="データ分析プログラミング-2.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合</b></span></li>
+<li class="chapter" data-level="13" data-path="感度分析と縮小推定量.html"><a href="感度分析と縮小推定量.html"><i class="fa fa-check"></i><b>13</b> 感度分析と縮小推定量</a></li>
+<li class="chapter" data-level="14" data-path="交差検証.html"><a href="交差検証.html"><i class="fa fa-check"></i><b>14</b> 交差検証</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="15" data-path="コミュニケーションの課題.html"><a href="コミュニケーションの課題.html"><i class="fa fa-check"></i><b>15</b> コミュニケーションの課題</a></li>
+<li class="chapter" data-level="16" data-path="プログラミングの環境管理.html"><a href="プログラミングの環境管理.html"><i class="fa fa-check"></i><b>16</b> プログラミングの環境管理</a></li>
+<li class="chapter" data-level="17" data-path="データ分析プログラミング-1.html"><a href="データ分析プログラミング-1.html"><i class="fa fa-check"></i><b>17</b> データ分析プログラミング (1)</a></li>
+<li class="chapter" data-level="18" data-path="データ分析プログラミング-2.html"><a href="データ分析プログラミング-2.html"><i class="fa fa-check"></i><b>18</b> データ分析プログラミング (2)</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="19" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>19</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="20" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>20</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="21" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>21</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="22" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html"><i class="fa fa-check"></i><b>22</b> Rパッケージ活用のエラーへの対処</a>
+<ul>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#package-libraryのpathがrstudioに認識されないとき"><i class="fa fa-check"></i>package libraryのpathがRStudioに認識されないとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#packagesがコンフリクトを起こすとき"><i class="fa fa-check"></i>packagesがコンフリクトを起こすとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#別の手法-renvパッケージを用いる"><i class="fa fa-check"></i>別の手法: renvパッケージを用いる</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>23</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="24" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>24</b> 補講(2) 思索への寄り道</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 概念と技法 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="データ分析プログラミング-1" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> データ分析プログラミング (1)</h1>
+<p>再現可能な実証研究のためには、多大な努力と時間をプログラミングに充てなければならない。この講義では、生データから分析レポートまで作成するためのワークフローについて学んでいく。全てのプロセスのためにプログラムを書くことは最初は大変だけれど、よいプログラムを書くために気をつける心がけなども考えていきたい。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>データ分析のワークフロー</li>
+<li>データの種類</li>
+<li>保存と分析に望ましいデータ形式</li>
+<li>関数の活用</li>
+<li>データの整理・変換のためのtidyverseパッケージ群の関数</li>
+</ol>
+</blockquote>
+<ul>
+<li>プログラミングについて一貫して説明をするために、<a href="https://github.com/Chishio318/Peanuts-Data-Project">Peanuts Data Project</a>を例として作成した。こちらの例を参考にしながら説明をする。</li>
+</ul>
+<hr />
+<p><strong>1. データ分析のワークフロー</strong></p>
+<iframe src="https://player.vimeo.com/video/664493612?h=b2ebd51c98&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データ分析のワークフロー">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>データ分析のワークフロー
+<ol style="list-style-type: decimal">
+<li>raw … データの保存</li>
+<li>build … データの準備 (整理と加工)</li>
+<li>analyze … 統計モデルによる分析と図表作成</li>
+<li>report … 文書作成</li>
+</ol></li>
+<li>データ分析プログラミングは、「料理の指示書づくり」
+<ol style="list-style-type: decimal">
+<li>下準備が努力の８割</li>
+<li>道具を効果的に使おう</li>
+<li>配膳にも気を配ろう</li>
+<li>家庭・地域それぞれのスタイルがある</li>
+<li>安全性と衛生に気を配ろう</li>
+<li>手を動かして、長年かけて技能を磨く</li>
+<li>よい料理は素材を活かす</li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>2. データの種類</strong></p>
+<iframe src="https://player.vimeo.com/video/664493927?h=b2aa7f7fec&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データの種類">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>解釈
+<ol style="list-style-type: decimal">
+<li>量的 (quantitative) … 単位があり、四算できる: 例 … テストの点数</li>
+<li>質的 (categorical) … 分類である: 例 … 朝ごはんに何を食べたか</li>
+</ol></li>
+<li>データ型の分類
+<ol style="list-style-type: decimal">
+<li>数値型 (numeric) … 整数 (integer)と小数点以下を含む実数 (double)</li>
+<li>文字列型 (character) … 引用符”…“もしくは’…’で囲まれる</li>
+<li>論理値型 (logical) … TRUE/FALSE &lt;文字列ではない！&gt;</li>
+<li>因子型 (factor) … 1: MALE, 2: FEMALEなど</li>
+<li>その他 … NULL, NA, NaN, Inf, 日時, 複素数など</li>
+</ol></li>
+<li>データ構造
+<ol style="list-style-type: decimal">
+<li>ベクトル (行列もある)</li>
+<li>リスト</li>
+<li>データフレーム … 同じ長さのベクトルを要素に持つリスト
+(tibble … 適切な動作をできるようにしたデータフレーム)</li>
+</ol></li>
+</ul>
+<hr />
+<p><strong>3. 保存と分析に望ましいデータ形式</strong></p>
+<iframe src="https://player.vimeo.com/video/664495030?h=8ba53980d6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="保存と分析に望ましいデータ形式">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>データ = 一定の形式を持った情報</li>
+<li>テーブル … 表形式に格納したデータ (列: 変数、行: 観察、要素: 値)</li>
+<li>関係データ(relational data)として保存する
+<ul>
+<li>正規化 = 論理構造を反映するようにテーブルを分割して保存する</li>
+<li>キー (主キー、外部キー) = レコードを特定するための列</li>
+</ul></li>
+<li>整然データ(tidy data)に整形する (分析のしやすさ <span class="math inline">\(\neq\)</span>入力のしやすさ、見やすさ)
+<ul>
+<li>それぞれの列が、一つの変数に対応する</li>
+<li>それぞれの行が、一つの観測に対応する</li>
+<li>それぞれのテーブルが、一つのデータに対応する</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>4. 関数の活用</strong></p>
+<iframe src="https://player.vimeo.com/video/664495163?h=0fa3470e32&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="関数の活用">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>自作の関数は、以下の形を取る (argument = 引数、outcome = 戻り値)</p>
+<pre><code>function_name &lt;- function(argument){
+   outcome &lt;- ...(argument) ...
+   return(outcome)
+}</code></pre>
+<p>(補足: <code>outcome</code>は最後の行に書かれていれば、<code>return()</code>と書かなくても戻り値となるため、省略することを好むスタイルもある)</p></li>
+<li><p>関数 = 複数のコマンドをひとまとめにしたもの</p>
+<ol style="list-style-type: decimal">
+<li>コードを分割可能にする (副作用なし、状態なし)</li>
+<li>コードの可読性を向上する
+同じ操作の繰り返しを減らし、エラーを減らすことができる</li>
+</ol></li>
+<li><p>Rの特徴: object-based functional-style program</p>
+<ol style="list-style-type: decimal">
+<li>Rで存在するあらゆるものはオブジェクトである</li>
+<li>Rで起こるあらゆることは関数の呼び出しである</li>
+</ol></li>
+<li><p>関数そのものもオブジェクトであり、関数を引数として受け取る関数を「高階関数」と呼ぶ</p></li>
+</ul>
+<hr />
+<p><strong>5. データフレームの整理と変換</strong></p>
+<iframe src="https://player.vimeo.com/video/664496792?h=40e94fd141&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データの整理・変換のためのtidyverseパッケージ群の関数">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>データフレーム(<code>df</code>)には、列、行、グループの要素があり、データ整理・変換のために以下のような操作をする。
+<ol style="list-style-type: decimal">
+<li>列:
+<ul>
+<li>新しい変数をつくる … <code>dplyr::mutate(df, var_name = ...())</code></li>
+<li>変数を抽出する … <code>dplyr::select(df, var_name)</code></li>
+</ul></li>
+<li>行:
+<ul>
+<li>特定の条件を満たす行を抽出する … <code>dplyr::filter(df, var_name ...)</code></li>
+<li>行の順序を並び替える … <code>dplyr::arrange(df, var_name ...)</code></li>
+</ul></li>
+<li>グループ:
+<ul>
+<li>グループを作成し、解除する … <code>dplyr::group_by(df, var_name)</code>, <code>dplyr::ungroup(df, )</code></li>
+<li>グループごとに統計量を集約する … <code>dplyr::summarize(df, avg = mean(var_name))</code></li>
+</ul></li>
+</ol></li>
+<li>データフレーム(<code>df1, df2</code>)を結合させる
+<ul>
+<li>IDを結合させる … <code>dplyr::left_join(df1, df2, by = "id")</code></li>
+<li>ただ結合させる(行/ 列) … <code>dplyr::bind_rows(df1, df2)</code>, <code>dplyr::bind_cols(df1, df2)</code></li>
+</ul></li>
+<li>複数の連続操作の可読性を上げるために、パイプ演算子<code>%&gt;%</code>を用いることができ、“and then”として読む。以下の二つは同じ操作である。
+<ul>
+<li><p>中間データを用いる場合</p>
+<pre><code>gdp_japan &lt;- dplyr::filter(gdp_world_annual, country == &quot;JPN&quot;)
+gdp_japan2 &lt;- dplyr::group_by(gdp_japan, decade)
+gdp_japan_decade &lt;- dplyr::summarize(gdp_japan2, 
+                                     avg_gdp = mean(gdp))
+gdp_japan_decade2 &lt;- dplyr::ungroup(gdp_japan_decade) </code></pre></li>
+<li><p>パイプ演算子<code>%&gt;%</code>を用いる場合</p>
+<pre><code>gdp_japan_decade &lt;- gdp_world_annual %&gt;%
+               dplyr::filter(country == &quot;JPN&quot;) %&gt;%
+               dplyr::group_by(decade) %&gt;%
+               dplyr::summarize(avg_gdp = mean(gdp)) %&gt;%
+               dplyr::ungroup()</code></pre>
+<p>(なお、パイプ演算子での操作が5~7を越える場合、中間データを表記した方が読みやすい)</p></li>
+</ul></li>
+</ul>
+<p>これらのコードを調べるためには、<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">dplyr cheat sheet</a>と <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf">tidyr cheat sheet</a>が役に立つ。</p>
+<hr />
+<p><strong>参考文献</strong></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="プログラミングの環境管理.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="データ分析プログラミング-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

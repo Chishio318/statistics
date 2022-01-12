@@ -1,0 +1,160 @@
+# データ分析プログラミング (1)
+
+再現可能な実証研究のためには、多大な努力と時間をプログラミングに充てなければならない。この講義では、生データから分析レポートまで作成するためのワークフローについて学んでいく。全てのプロセスのためにプログラムを書くことは最初は大変だけれど、よいプログラムを書くために気をつける心がけなども考えていきたい。
+
+> 1. データ分析のワークフロー
+> 2. データの種類
+> 3. 保存と分析に望ましいデータ形式
+> 4. 関数の活用
+> 5. データの整理・変換のためのtidyverseパッケージ群の関数
+
+- プログラミングについて一貫して説明をするために、[Peanuts Data Project](https://github.com/Chishio318/Peanuts-Data-Project)を例として作成した。こちらの例を参考にしながら説明をする。
+
+---
+
+__1. データ分析のワークフロー__
+
+<iframe src="https://player.vimeo.com/video/664493612?h=b2ebd51c98&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データ分析のワークフロー"></iframe>
+
+>  要点
+
+- データ分析のワークフロー
+  1. raw ... データの保存
+  2. build ... データの準備 (整理と加工)
+  3. analyze ... 統計モデルによる分析と図表作成
+  4. report ... 文書作成
+
+- データ分析プログラミングは、「料理の指示書づくり」
+  (1) 下準備が努力の８割
+  (2) 道具を効果的に使おう
+  (3) 配膳にも気を配ろう
+  (4) 家庭・地域それぞれのスタイルがある
+  (5) 安全性と衛生に気を配ろう
+  (6) 手を動かして、長年かけて技能を磨く
+  (7) よい料理は素材を活かす
+  
+***
+  
+
+__2. データの種類__
+
+<iframe src="https://player.vimeo.com/video/664493927?h=b2aa7f7fec&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データの種類"></iframe>
+
+> 要点
+
+- 解釈
+  1. 量的 (quantitative) ... 単位があり、四算できる: 例 ... テストの点数
+  2. 質的 (categorical) ... 分類である: 例 ... 朝ごはんに何を食べたか
+
+- データ型の分類
+  1. 数値型 (numeric) ... 整数 (integer)と小数点以下を含む実数 (double)
+  2. 文字列型 (character) ... 引用符"..."もしくは'...'で囲まれる
+  3. 論理値型 (logical) ... TRUE/FALSE <文字列ではない！>
+  4. 因子型 (factor) ... 1: MALE, 2: FEMALEなど
+  5. その他 ... NULL, NA, NaN, Inf, 日時, 複素数など
+
+- データ構造
+  1. ベクトル (行列もある)
+  2. リスト
+  3. データフレーム ... 同じ長さのベクトルを要素に持つリスト
+     (tibble ... 適切な動作をできるようにしたデータフレーム)
+
+***
+
+__3. 保存と分析に望ましいデータ形式__
+
+<iframe src="https://player.vimeo.com/video/664495030?h=8ba53980d6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="保存と分析に望ましいデータ形式"></iframe>
+
+> 要点
+
+- データ = 一定の形式を持った情報
+- テーブル ... 表形式に格納したデータ (列: 変数、行: 観察、要素: 値)
+- 関係データ(relational data)として保存する
+  - 正規化 = 論理構造を反映するようにテーブルを分割して保存する
+  - キー (主キー、外部キー) = レコードを特定するための列
+- 整然データ(tidy data)に整形する (分析のしやすさ $\neq$入力のしやすさ、見やすさ)
+  - それぞれの列が、一つの変数に対応する
+  - それぞれの行が、一つの観測に対応する
+  - それぞれのテーブルが、一つのデータに対応する
+
+***
+
+__4. 関数の活用__
+
+<iframe src="https://player.vimeo.com/video/664495163?h=0fa3470e32&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="関数の活用"></iframe>
+
+> 要点
+
+- 自作の関数は、以下の形を取る (argument = 引数、outcome = 戻り値)
+
+  ```
+  function_name <- function(argument){
+     outcome <- ...(argument) ...
+     return(outcome)
+  }
+  ```
+
+  (補足: ``outcome``は最後の行に書かれていれば、``return()``と書かなくても戻り値となるため、省略することを好むスタイルもある)
+
+- 関数 = 複数のコマンドをひとまとめにしたもの
+  (1) コードを分割可能にする (副作用なし、状態なし)
+  (2) コードの可読性を向上する
+  同じ操作の繰り返しを減らし、エラーを減らすことができる
+
+- Rの特徴: object-based functional-style program
+  (1) Rで存在するあらゆるものはオブジェクトである
+  (2) Rで起こるあらゆることは関数の呼び出しである 
+
+- 関数そのものもオブジェクトであり、関数を引数として受け取る関数を「高階関数」と呼ぶ
+
+***
+
+__5. データフレームの整理と変換__
+
+<iframe src="https://player.vimeo.com/video/664496792?h=40e94fd141&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="データの整理・変換のためのtidyverseパッケージ群の関数"></iframe>
+
+> 要点
+
+- データフレーム(``df``)には、列、行、グループの要素があり、データ整理・変換のために以下のような操作をする。
+  1. 列:
+     - 新しい変数をつくる ... ``dplyr::mutate(df, var_name = ...())``
+     - 変数を抽出する ... ``dplyr::select(df, var_name)``
+  2. 行:
+     - 特定の条件を満たす行を抽出する ... ``dplyr::filter(df, var_name ...)``
+     - 行の順序を並び替える ...  ``dplyr::arrange(df, var_name ...)``
+  3. グループ:
+     - グループを作成し、解除する ... ``dplyr::group_by(df, var_name)``, ``dplyr::ungroup(df, )``
+     - グループごとに統計量を集約する ... ``dplyr::summarize(df, avg = mean(var_name))``
+
+- データフレーム(``df1, df2``)を結合させる
+  - IDを結合させる ... ``dplyr::left_join(df1, df2, by = "id")``
+  - ただ結合させる(行/ 列) ... ``dplyr::bind_rows(df1, df2)``, ``dplyr::bind_cols(df1, df2)``
+
+- 複数の連続操作の可読性を上げるために、パイプ演算子``%>%``を用いることができ、"and then"として読む。以下の二つは同じ操作である。
+  - 中間データを用いる場合
+
+    ```
+    gdp_japan <- dplyr::filter(gdp_world_annual, country == "JPN")
+    gdp_japan2 <- dplyr::group_by(gdp_japan, decade)
+    gdp_japan_decade <- dplyr::summarize(gdp_japan2, 
+                                         avg_gdp = mean(gdp))
+    gdp_japan_decade2 <- dplyr::ungroup(gdp_japan_decade) 
+    ```
+
+  - パイプ演算子``%>%``を用いる場合
+
+    ```
+    gdp_japan_decade <- gdp_world_annual %>%
+                   dplyr::filter(country == "JPN") %>%
+                   dplyr::group_by(decade) %>%
+                   dplyr::summarize(avg_gdp = mean(gdp)) %>%
+                   dplyr::ungroup()
+    ```
+
+    (なお、パイプ演算子での操作が5~7を越える場合、中間データを表記した方が読みやすい)
+
+これらのコードを調べるためには、[dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)と [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)が役に立つ。
+
+***
+
+**参考文献**
