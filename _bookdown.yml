@@ -16,6 +16,8 @@ rmd_files:
   - 14-CV.Rmd
   - 30-programming.Rmd
   - 31-gitgithub.Rmd
+  - 32-dataanalysis1.Rmd
+  - 33-dataanalysis2.Rmd
   - 15-meta.Rmd
   - 19-classform.Rmd
   - 20-Rstudy.Rmd
