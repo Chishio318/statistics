@@ -141,20 +141,23 @@
 </blockquote>
 <hr />
 <p><strong>1. 統計モデルの推定</strong></p>
+<iframe src="https://player.vimeo.com/video/665526277?h=f1e511f9bd&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="統計モデルの推定">
+</iframe>
 <blockquote>
 <p>要点</p>
 </blockquote>
 <ul>
-<li>「手法開発者」と「分析実践者」のスペクトラムがある。</li>
+<li>統計モデルは、データを集約するため・モデルを当てはめるために、「最適化問題」を解いて推定する。</li>
+<li>統計モデルを用いるためには、「手法開発者」と「分析実践者」のスペクトラムがある。</li>
 <li>分析実践においては、統計分析アルゴリズムは複雑であっても、プロセスが定式化されているため、“grab-and-go”のパッケージで自動化されていることが多い。</li>
-<li>インプット
-<ol style="list-style-type: decimal">
-<li>データと変数</li>
-<li>チューニング・パラメータ</li>
-</ol></li>
-<li>アウトプット … リストとして推定値が出力される</li>
-<li>統計モデルを十分に理解していないために、誤って用いてしまうことが多い</li>
+<li>インプット: (1) データとモデル変数の対応付け、(2) チューニング・パラメータ
+<ul>
+<li>補足: チューニング・パラメータについては、デフォルトがパッケージに設定されていることが多い</li>
+</ul></li>
+<li>アウトプット: リストとして推定値が出力される</li>
+<li>パッケージの実行は「自動化」されているが、統計モデルを十分に理解していないために、誤って用いてしまうことが多い</li>
 </ul>
+<hr />
 <p><strong>2. 文書の作成</strong></p>
 <iframe src="https://player.vimeo.com/video/664496315?h=2b8d5473ad&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="文書の作成">
 </iframe>
@@ -162,8 +165,8 @@
 <p>要点</p>
 </blockquote>
 <ul>
-<li><p>多くのデータ分析レポートにおいて、文が75%、図表が25%ほどとなる</p></li>
-<li><p>データ可視化の目的</p>
+<li>多くのデータ分析レポートにおいて、文が75%、図表が25%ほどとなる</li>
+<li>データ可視化の目的
 <ol style="list-style-type: decimal">
 <li>視覚的伝達 … 「百聞は一見に如かず」(A Picture is Worth a Thousand Words.)</li>
 </ol>
@@ -174,6 +177,7 @@
 <li>探索的発見 … 推定値のみでは気づかないパターンがある</li>
 </ol></li>
 </ul>
+<hr />
 <p><strong>3. 図の作成</strong></p>
 <iframe src="https://player.vimeo.com/video/664687231?h=36b0a8d1dc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="500" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="図の作成">
 </iframe>
@@ -181,8 +185,8 @@
 <p>要点</p>
 </blockquote>
 <ul>
-<li><p>図の文法 (grammar of graphics) …</p>
-<p>図 = データを視覚的要素に対応づけ、座標軸に「形」として配置し、ラベルなどを加えたもの</p></li>
+<li><p>図の文法 (grammar of graphics) …
+図 = データを視覚的要素に対応づけ、座標軸に「形」として配置し、ラベルなどを加えたもの</p></li>
 <li><p>視覚的要素 = aesthetic mapping</p>
 <ul>
 <li>x軸、y軸の位置</li>
@@ -202,6 +206,7 @@
 </ul></li>
 </ul>
 <p>なお、ggplot2パッケージを使うためには、<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">ggplot2 cheat sheet</a>がとても便利である。</p>
+<hr />
 <p><strong>4. 表の作成</strong></p>
 <blockquote>
 <p>要点</p>
@@ -215,13 +220,17 @@
 <li>数値の桁数を調整すること</li>
 </ul></li>
 </ul>
+<hr />
 <p><strong>5. 衛生・安全性の確保 </strong></p>
 <blockquote>
-<p>要素</p>
+<p>要点</p>
 </blockquote>
+<hr />
 <p><strong>6. エラーへの向き合い方</strong></p>
+<iframe src="https://player.vimeo.com/video/665480394?h=9e3ab3474f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="617" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="エラーへの向き合い方">
+</iframe>
 <blockquote>
-<p>要素</p>
+<p>要点</p>
 </blockquote>
 <ul>
 <li>“if you haven’t seen error messages, you haven’t been programming.” 誰でも、プログラミングの50%の時間は、エラーへの対応に使う。</li>
