@@ -1,1 +1,60 @@
-# 交差検証
+# 分布の推定
+
+統計的手法では正規分布を仮定し、平均と分散のみに着目をすることが多いです。しかし、正規分布とは異なる分布と実際になることも多く、分布をより柔軟に捉えたいこともよくあります。ここでは、経済学の実証研究でもよく用いられる分布・密度を推定する手法を学びます。
+
+> 1. 分位回帰
+> 2. カーネル密度推定
+
+---
+
+__分位回帰__
+
+<iframe src="https://player.vimeo.com/video/678006926?h=3b34782cd6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Distributions.mp4"></iframe>
+
+> 要点
+
+- 平均の「差」のみでなく、分布それぞれの分位点の「差」を推定できる (ただし、特定の個人に対する効果ではないことに注意)
+
+- 分位回帰(quantile regression)では、チェック関数$\rho (\varepsilon)$ の最小化問題を解く
+  $$
+  \min_{\beta_{\tau}}\sum_{i}\rho\left(\varepsilon_{i}\right)
+  $$
+  ここで、
+  $$
+  \begin{aligned}
+  \varepsilon_{i} & =y_{i}-X_{i}\beta_{\tau}\\
+  \rho\left(\varepsilon_{i}\right) & =\tau\varepsilon_{i}1(\varepsilon_{i}>0)+\left(1-\tau\right)\left(-\varepsilon_{i}\right)1(\varepsilon_{i}\leq0)
+  \end{aligned}
+  $$
+
+
+
+---
+
+__カーネル密度推定__
+
+<iframe src="https://player.vimeo.com/video/678007026?h=d17703f719&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Density.mp4"></iframe>
+
+> 要点
+
+- 十分な数の正規分布の混合分布によって、あらゆるスムーズな密度を任意に近似できる
+
+- カーネル関数$K(.)$を用いて、データの測定値$X_1, X_2, ..., X_n$ を所与としたとき、値$x$におけるカーネル密度関数は
+  $$
+  \hat{f}\left(x\right)=\frac{1}{nh}\sum_{i=1}^{n}K\left(\frac{x-X_{i}}{h}\right)
+  $$
+
+- 平滑化パラメータ$h>0$が大きすぎると適合不足となり、小さすぎると過剰適合となる
+
+---
+
+__参考文献__
+
+Roger Koenker and Kevin Hallock, "Quantile Regression." 2001. *Journal of Economic Perspectives.*
+
+Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, 2009. *Princeton University Press*
+
+Qi Li and Jeffrey Racine, "Density Estimation, from Nonparametric Econometrics: Theory and Practice" 2006. *Princeton University Press.*
+
+Bernard Silverman "Density Estimation for Statistics and Data Analysis." 1986 *Chapman and Hall*
+

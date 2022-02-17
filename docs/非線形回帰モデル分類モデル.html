@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>15 非線形回帰モデル・分類モデル | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="15 非線形回帰モデル・分類モデル | 統計推論再考 – 概念と技法 –" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="15 非線形回帰モデル・分類モデル | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15 非線形回帰モデル・分類モデル | 統計推論再考 – 概念と技法 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="分布の推定.html"/>
+<link rel="next" href="コミュニケーションの課題.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合の手法</b></span></li>
+<li class="chapter" data-level="13" data-path="モデルの適合度と複雑性.html"><a href="モデルの適合度と複雑性.html"><i class="fa fa-check"></i><b>13</b> モデルの適合度と複雑性</a></li>
+<li class="chapter" data-level="14" data-path="分布の推定.html"><a href="分布の推定.html"><i class="fa fa-check"></i><b>14</b> 分布の推定</a></li>
+<li class="chapter" data-level="15" data-path="非線形回帰モデル分類モデル.html"><a href="非線形回帰モデル分類モデル.html"><i class="fa fa-check"></i><b>15</b> 非線形回帰モデル・分類モデル</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="16" data-path="コミュニケーションの課題.html"><a href="コミュニケーションの課題.html"><i class="fa fa-check"></i><b>16</b> コミュニケーションの課題</a></li>
+<li class="chapter" data-level="17" data-path="プログラミングの環境管理.html"><a href="プログラミングの環境管理.html"><i class="fa fa-check"></i><b>17</b> プログラミングの環境管理</a></li>
+<li class="chapter" data-level="18" data-path="データ分析プログラミング-1.html"><a href="データ分析プログラミング-1.html"><i class="fa fa-check"></i><b>18</b> データ分析プログラミング (1)</a></li>
+<li class="chapter" data-level="19" data-path="データ分析プログラミング-2.html"><a href="データ分析プログラミング-2.html"><i class="fa fa-check"></i><b>19</b> データ分析プログラミング (2)</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="20" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>20</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="21" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>21</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="22" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>22</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="23" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html"><i class="fa fa-check"></i><b>23</b> Rパッケージ活用のエラーへの対処</a>
+<ul>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#package-libraryのpathがrstudioに認識されないとき"><i class="fa fa-check"></i>package libraryのpathがRStudioに認識されないとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#packagesがコンフリクトを起こすとき"><i class="fa fa-check"></i>packagesがコンフリクトを起こすとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#別の手法-renvパッケージを用いる"><i class="fa fa-check"></i>別の手法: renvパッケージを用いる</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>24</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="25" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>25</b> 補講(2) 思索への寄り道</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 概念と技法 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="非線形回帰モデル分類モデル" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> 非線形回帰モデル・分類モデル</h1>
+<p>重回帰分析では、アウトカムが量的変数である線形回帰モデルを主に考えました。ここでは、アウトカムが量的変数で説明変数に対して非線形の関係を持つ場合、もしくは質的変数である場合のモデルを考えます。</p>
+<p><strong>パラメトリックな非線形モデル</strong></p>
+<ul>
+<li><p>潜在変数<span class="math inline">\(Z_i = \beta_0 + \beta_1 X_i + \varepsilon_i\)</span> が何らかの閾値<span class="math inline">\(\mu\)</span>を越える確率として考えることができ、<span class="math inline">\(\varepsilon_i\)</span>の分布を<span class="math inline">\(F\)</span>と書くと、<span class="math inline">\(Y_i \in \{0,1\}\)</span>に対して、
+<span class="math display">\[
+\mathbb{E}Y_{i}=F\left(\beta_{0}+\beta_{1}X_{i}\right)
+\]</span>
+などとして書ける。</p>
+<ul>
+<li>プロビット(probit) … <span class="math inline">\(F(\varepsilon_i) = \Phi(\varepsilon_i)\)</span>、正規分布を仮定</li>
+<li>ロジット(logit) … <span class="math inline">\(F(\varepsilon_i) = \exp(\varepsilon_i)/[1 + \exp(\varepsilon_i)]\)</span> 、ロジスティック分布を仮定</li>
+</ul></li>
+<li><p>限界効果<span class="math inline">\(\partial \mathbb{E}Y_{i}/ \partial X_i = \beta_i f\left(\beta_{0}+\beta_{1}X_{i}\right)\)</span>に着目して、係数を解釈する</p></li>
+<li><p>被説明変数が離散的で2つ以上の値を取るとき、説明変数が一つ以上のときにも適用できる</p></li>
+<li><p>(確率のためには非線形モデルを用いることが多いが、線形モデルを使うこともある)</p></li>
+</ul>
+<p><strong>多項式と縮小推定量</strong></p>
+<ul>
+<li><p>経済学の実証研究で最もよく用いるフレクシブルな非線形モデルは、多項式(polynomial)モデルと交互作用(interaction effects)モデルである</p>
+<ul>
+<li>多項式モデル … <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{i} + \beta_2 X_{i}^2 +... + \beta_k X_{i}^k + \varepsilon_i\)</span></li>
+<li>交互作用モデル … <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{1i}X_{2i} + \varepsilon_i\)</span></li>
+</ul></li>
+<li><p>テイラー近似 … 十分な数の項を用いれば、(限定的な変域において)スムーズな関数を任意に近似できる</p></li>
+<li><p>変数の間の相関が強いとき(多項式の高次項など)、多重共線性によって推定値の分散がとても大きくなってしまう</p></li>
+<li><p>縮小推定量 … 目的関数に罰則項を加え、推定値にバイアスを含めることでバリアンスを減らすことができる
+<span class="math display">\[
+\sum_i^N \varepsilon_i^2 + \lambda \sum_j^k[\alpha  \beta_j^2 + (1-\alpha) |\beta_j|]
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha = 1\)</span> … リッジ回帰、<span class="math inline">\(\alpha = 0\)</span> … LASSO回帰、<span class="math inline">\(\alpha \in (0,1)\)</span> … elastic net回帰</li>
+<li>推定された係数にはバイアスがかかっているため、解釈には注意が必要</li>
+</ul></li>
+</ul>
+<p><strong>決定木とランダム・フォレスト</strong></p>
+<ul>
+<li>決定木 … 説明変数に応じて条件分岐を繰り返すことで分類・回帰をするモデル</li>
+<li>決定木の「葉ノード」が十分にあれば、任意の関数に完全に適合できる</li>
+<li>しかし、データについて「葉ノード」が多すぎるとき、過剰適合となってしまう</li>
+<li>ランダム・フォレスト … ブートストラップ法で標本サンプルを複製し、それぞれのデータで決定木を推定し、統合する推定方法
+<ul>
+<li>バギング(bootstrap aggregating)とよばれるアンサンブル学習法(ensemble learning)</li>
+<li>それぞれの決定木における低いバイアスを活かしつつ、バリアンスを下げられる</li>
+</ul></li>
+</ul>
+<p><strong>人工ニューラルネットと深層学習</strong></p>
+<ul>
+<li><p>特に画像、音声、テキストなどの非構造データを分析するためにとても有効な手法</p></li>
+<li><p>パーセプトロン … 入力<span class="math inline">\(X\)</span>に重み<span class="math inline">\(w\)</span>をつけ、活性化関数<span class="math inline">\(f()\)</span>を通じて出力<span class="math inline">\(Y\)</span>を決定する関数である
+<span class="math display">\[
+Y_i = f(w_0 + \sum_k w_k X_{ik})
+\]</span></p>
+<ul>
+<li>例: <span class="math inline">\(f(u) = \max(u, 0)\)</span>、<span class="math inline">\(f(u) = \exp(u)/(1+\exp(u))\)</span></li>
+</ul></li>
+<li><p>人工ニューラルネットとは、複数のパーセプトロンをつなぎあわせた「隠れ層」を持つ複合関数である
+<span class="math display">\[
+Y_i = f(z_0 + \sum_j z_jf(w_{0j} + \sum_k w_{kj} X_{ik}))
+\]</span></p></li>
+<li><p>パーセプトロンが十分に多くあり、活性化関数が非線形であれば、(たとえ「隠れ層」が浅くとも) あらゆる関数を任意に近似できる (万能近似定理)</p></li>
+<li><p>深層学習 … 「隠れ層」が複数あり、ニューラルネットが深いとき、(比較的)少ないパラメータで複雑な関数を近似できる</p>
+<ul>
+<li>2012年に画像認識で世界一だったAlexNet … <span class="math inline">\(6 \times 10^8\)</span> のパーセプトロンのつながり</li>
+<li>人間の脳 … <span class="math inline">\(10^{15}\)</span>の脳神経のつながり</li>
+</ul></li>
+<li><p>重要な技術革新を経て、いくつもの障壁を乗り越えてきた</p>
+<ol style="list-style-type: decimal">
+<li>大量のデータ</li>
+<li>逆伝播法と確率的勾配法</li>
+<li>畳み込み層</li>
+<li>ドロップアウト法</li>
+</ol></li>
+</ul>
+<hr />
+<p>Mikhail Belkin, Daniel Hsu, Siyuan Ma, Soumik Mandal “Reconciling modern machine-learning practice and the classical bias–variance trade-off” 2019, PNAS</p>
+<p>今泉允聡『深層学習の原理に迫る　数学の挑戦』岩波書店、2021年</p>
+<p>ショーン・ジェリッシュ 『スマートマシンはこうして思考する』(How Smart Machines Think) 依田光江訳、みすず書房、2020年</p>
+<p>梅津佑太、西井龍映、上田勇祐 『スパース回帰分析とパターン認識』講談社、2020年</p>
+<p>西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年</p>
+<p>立山秀利 『日経ソフトウエアのディープラーニングAIはどのように学習し、推論しているのか』2021. 日経BP.</p>
+<p>Sendhil Mullainathan and Jann Spiess. 2017. ”Machine Learning: An Applied Econometric Approach.” Journal of Economic Perspectives</p>
+<p>Hal Varian. 2014. “Big Data: New Tricks for Econometrics.” Journal of Economic Perspectives.</p>
+<p>Stuart Geman, Elie Bienenstock, Rene Doursat “Neural Networks and the Bias/Variance Dilemma” 1992. Neural Computation.</p>
+<p>Bradley Efron, Trevor Hastie 『大規模計算時代の統計推論―原理と発展― (Computer Age Statistical Inference: Algorithms, Evidence, and Data Science)』藤澤 洋徳・井手 剛監訳・井尻 善久・井手 剛・牛久 祥孝・梅津 佑太・大塚 琢馬・尾林 慶一・川野 秀一・田栗 正隆・竹内 孝・橋本 敦史・藤澤 洋徳・矢野 恵佑訳 2020. 共立出版</p>
+<p>Yann LeCun 『ディープラーニング 学習する機械 – ヤン・ルカン、人工知能を語る』2021. 松尾豊監訳/ 小川浩一訳. 講談社</p>
+<p>富谷昭夫 『これならわかる機械学習入門』 2021. 講談社</p>
+<p>岩沢宏和、平松雄司 『入門 Rによる予測モデリング――機械学習を用いたリスク管理のために』2019. 東京図書</p>
+<p>岡野原大輔 『ディープラーニングを支える技術 ——「正解」を導くメカニズム[技術基礎] 』2022. 技術評論社</p>
+<p>加藤公一、秋庭伸也、杉山阿聖、寺田学 『機械学習図鑑　見て試してわかる機械学習アルゴリズムの仕組み』2019. 翔泳社</p>
+
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="分布の推定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="コミュニケーションの課題.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

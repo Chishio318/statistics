@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>13 モデルの適合度と複雑性 | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="13 モデルの適合度と複雑性 | 統計推論再考 – 概念と技法 –" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="13 モデルの適合度と複雑性 | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="13 モデルの適合度と複雑性 | 統計推論再考 – 概念と技法 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="因果推論の実験的アプローチ.html"/>
+<link rel="next" href="分布の推定.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合の手法</b></span></li>
+<li class="chapter" data-level="13" data-path="モデルの適合度と複雑性.html"><a href="モデルの適合度と複雑性.html"><i class="fa fa-check"></i><b>13</b> モデルの適合度と複雑性</a></li>
+<li class="chapter" data-level="14" data-path="分布の推定.html"><a href="分布の推定.html"><i class="fa fa-check"></i><b>14</b> 分布の推定</a></li>
+<li class="chapter" data-level="15" data-path="非線形回帰モデル分類モデル.html"><a href="非線形回帰モデル分類モデル.html"><i class="fa fa-check"></i><b>15</b> 非線形回帰モデル・分類モデル</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="16" data-path="コミュニケーションの課題.html"><a href="コミュニケーションの課題.html"><i class="fa fa-check"></i><b>16</b> コミュニケーションの課題</a></li>
+<li class="chapter" data-level="17" data-path="プログラミングの環境管理.html"><a href="プログラミングの環境管理.html"><i class="fa fa-check"></i><b>17</b> プログラミングの環境管理</a></li>
+<li class="chapter" data-level="18" data-path="データ分析プログラミング-1.html"><a href="データ分析プログラミング-1.html"><i class="fa fa-check"></i><b>18</b> データ分析プログラミング (1)</a></li>
+<li class="chapter" data-level="19" data-path="データ分析プログラミング-2.html"><a href="データ分析プログラミング-2.html"><i class="fa fa-check"></i><b>19</b> データ分析プログラミング (2)</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="20" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>20</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="21" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>21</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="22" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>22</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="23" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html"><i class="fa fa-check"></i><b>23</b> Rパッケージ活用のエラーへの対処</a>
+<ul>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#package-libraryのpathがrstudioに認識されないとき"><i class="fa fa-check"></i>package libraryのpathがRStudioに認識されないとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#packagesがコンフリクトを起こすとき"><i class="fa fa-check"></i>packagesがコンフリクトを起こすとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#別の手法-renvパッケージを用いる"><i class="fa fa-check"></i>別の手法: renvパッケージを用いる</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>24</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="25" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>25</b> 補講(2) 思索への寄り道</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 概念と技法 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="モデルの適合度と複雑性" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> モデルの適合度と複雑性</h1>
+<p>科学的推論の手法として、データ生成過程についての理論・仮定をおき、確率論にもとづいて望ましい性質を持つパラメータ推定について学んできました。ここでは、分析できるデータの拡充を背景として発展してきた、特定の理論を想定しない手法群を紹介します。これらは、理論に対応するパラメータを推定するのではなく、モデルによってデータを「説明」・「予測」することを目的としていて、具体的なアルゴリズムの発明を通じて、発展してきました。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>モデルの適合と複雑性</li>
+<li>適合度の分解と複雑性の最適化</li>
+<li>情報量とモデル適合度の尺度</li>
+<li>再標本抽出法とモデル適合度の測定</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>モデルの適合と複雑性</strong></p>
+<iframe src="https://player.vimeo.com/video/678002826?h=cdc05147fa" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>データの生成過程のパラメータ推定ではなく、モデルをデータに適合し、予測に役立てることを目的とする実用的手法群がある</p>
+<ol style="list-style-type: decimal">
+<li><p>ノン・パラメトリック推定 … 誤った仮定に依存しないために、特定の分布への仮定に依存しないモデル</p></li>
+<li><p>機械学習 … 画像、音声、テキストなどのデジタル・フットプリント(『ビッグ・データ』)を、計算能力を駆使するアルゴリズム的手法として発展</p></li>
+</ol></li>
+<li><p>理論・慣習によってモデルが与えられないため、「複雑性」と「精度」のバランスを取るように選ぶ</p>
+<ul>
+<li>予測可能性と精度のトレード・オフ… より複雑なモデル群ほど、解釈・説明が難しいが、予測精度が高い。</li>
+</ul></li>
+<li><p>アンサンブル法 … 「全てのモデルは間違っているから、組み合わせる」異なるモデルを組み合わせる「集合知」により、よりよい予測精度を達成できる</p></li>
+</ul>
+<hr />
+<p><strong>適合度の分解と「複雑性」の最適化</strong></p>
+<iframe src="https://player.vimeo.com/video/678004142?h=4e538bf9c1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Overview2.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>データには、「シグナル」と「ノイズ」があり、推定値<span class="math inline">\(\hat{f}(X_i)\)</span>を<span class="math inline">\(f(X_i)\)</span>に近づけたいが、<span class="math inline">\(\varepsilon_i\)</span>には近づけたくない
+<span class="math display">\[
+\underset{観測値}{\underbrace{Y_{i}}}=\underset{シグナル}{\underbrace{f(X_{i})}}+\underset{ノイズ}{\underbrace{\varepsilon_{i}}}
+\]</span></p></li>
+<li><p>予測誤差は、「バイアス」2乗、「バリアンス」、「低減できないエラー」に分解できる
+$$</p>
+<span class="math display">\[\begin{aligned}
+\mathbb{E}(Y-\hat{f}(X))^{2} &amp; =\mathbb{E}(f(X)+\varepsilon-\hat{f}(X))^{2}\\
+
+ &amp; =\underset{=Bias^{2}}{\underbrace{(\mathbb{E}\hat{f}(X)-f(X))^{2}}}+\underset{=Var}{\underbrace{Var(\hat{f}(X))}}+\underset{=IrreducibleError}{\underbrace{Var(\varepsilon)}}
+ \end{aligned}\]</span>
+<p>$$</p></li>
+<li><p>(複雑性が相対的に低いとき) 過剰適合 (overfit)… モデルの「複雑さ」が増えると、バイアスは低いが、「未知のデータ」でのバリアンスが大きくなってしまう。よって、最適な「複雑さ」を選ぶには、適度にバイアスを含めなくてはいけない (!)</p></li>
+<li><p>(複雑性が相対的にとても高いとき) 二重降下 (double descent)… モデルの「複雑さ」が増えると、「ブレ」が少ないモデルに近づく</p></li>
+</ul>
+<p><strong>訂正:</strong> 「複雑性」は「自由度」ではなく、言うなれば、「サンプル数 ー 自由度」である</p>
+<hr />
+<p><strong>情報量とモデル適合度の尺度</strong></p>
+<iframe src="https://player.vimeo.com/video/678005847?h=6e7e6d3b92&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="情報量とモデル適合度の尺度">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>シャノン情報量(<span class="math inline">\(S\)</span>) … 「情報とは、不確実性の解決である」
+<span class="math display">\[
+\mathbb{E}S = - \mathbb{E} \log \mathbb{P}(E)
+\]</span>
+(注意: ただし、これらの尺度が「情報の有用性」を反映しているとは限らない)</p></li>
+<li><p>パラメータの数<span class="math inline">\(k\)</span>のモデル複雑性を考慮した適合度の尺度として、調整済み<span class="math inline">\(R^2\)</span>に加え、情報量規準(Information Criterion)がある
+<span class="math display">\[
+\underset{=未知のデータでの誤差}{\underbrace{-\mathbb{E}^{X}\ln f\left(X\right)}}=\underset{=既知のデータでの誤差}{\underbrace{-\sum_{i=1}^{N}\frac{\ln f\left(X_{i}\right)}{N}}}+\underset{=罰則項}{\underbrace{k\frac{c_{n}}{N}}}
+\]</span>
+赤池情報量規準(Akaike Information Criterion)の場合は、<span class="math inline">\(c_n = 1\)</span>であり、ベイズ情報量規準(Bayes Information Criterion)の場合は、<span class="math inline">\(c_n = \ln N\)</span>である</p>
+<p>(補足訂正: 「情報量基準」は「情報量<u>規準</u>」と書くことが多い)</p></li>
+</ul>
+<hr />
+<p><strong>再標本抽出法とモデル適合度の測定</strong></p>
+<iframe src="https://player.vimeo.com/video/678006605?h=c3f8e11c50&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Resampling.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li>モデル適合度を測定するために、ランダムさを加えることが効果的となりうる(!)</li>
+<li>ブートストラップ法(Bootstrap) … 標本集団から、重複を許して同じ標本数をランダムに再標本抽出し、それらのデータで統計量を推定することで、統計量の分布を推定する方法</li>
+<li>交差検証法(Cross Validation) … 標本データを訓練集合(training set)と検証集合(testing set)にランダムに分割し、訓練集合を用いてパラメータを推定し、検証集合を用いてそのモデルの「未知のデータ」に対する適合度を測定すること</li>
+</ul>
+<hr />
+<p><strong>参考文献</strong></p>
+<p>Sendhil Mullainathan and Jann Spiess. 2017. ”Machine Learning: An Applied Econometric Approach.” <em>Journal of Economic Perspectives.</em></p>
+<p>Hal Varian. 2014. “Big Data: New Tricks for Econometrics.” <em>Journal of Economic Perspectives.</em></p>
+<p>Susan Athey and Guido Imbens. “Machine Learning Methods That Economists Should Know About” 2019. <em>Annual Review of Economics.</em></p>
+<p>Leo Breiman “Statistical Modeling: The Two Cultures (with comments and a rejoinder by the author)” 2001. <em>Statistical Science.</em></p>
+<p>Stuart Geman, Elie Bienenstock, Rene Doursat “Neural Networks and the Bias/Variance Dilemma” 1992. <em>Neural Computation.</em></p>
+<p>Mikhail Belkin, Daniel Hsu, Siyuan Ma, Soumik Mandal “Reconciling modern machine-learning practice and the classical bias–variance trade-off” 2019, <em>PNAS.</em></p>
+<p>Bradley Efron, Trevor Hastie 『大規模計算時代の統計推論―原理と発展― (Computer Age Statistical Inference: Algorithms, Evidence, and Data Science)』藤澤 洋徳・井手 剛監訳・井尻 善久・井手 剛・牛久 祥孝・梅津 佑太・大塚 琢馬・尾林 慶一・川野 秀一・田栗 正隆・竹内 孝・橋本 敦史・藤澤 洋徳・矢野 恵佑訳 2020. 共立出版</p>
+<p>ショーン・ジェリッシュ 『スマートマシンはこうして思考する』(How Smart Machines Think) 依田光江訳、みすず書房、2020年</p>
+<p>大坪直樹、中江俊博、深沢祐太、豊岡祥、坂元哲平、佐藤誠、五十嵐健太、市原大暉、堀内新吾 『XAI (説明可能なAI) そのとき人工知能はどう考えたのか？』リックテレコム、2021年</p>
+<p>加藤公一、秋庭伸也、杉山阿聖、寺田学 『機械学習図鑑　見て試してわかる機械学習アルゴリズムの仕組み』翔泳社、2019年</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="因果推論の実験的アプローチ.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="分布の推定.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

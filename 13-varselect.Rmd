@@ -1,3 +1,116 @@
-# (PART) モデル適合 {-}
+# (PART) モデル適合の手法 {-}
 
-# 感度分析と縮小推定量
+# モデルの適合度と複雑性
+
+科学的推論の手法として、データ生成過程についての理論・仮定をおき、確率論にもとづいて望ましい性質を持つパラメータ推定について学んできました。ここでは、分析できるデータの拡充を背景として発展してきた、特定の理論を想定しない手法群を紹介します。これらは、理論に対応するパラメータを推定するのではなく、モデルによってデータを「説明」・「予測」することを目的としていて、具体的なアルゴリズムの発明を通じて、発展してきました。
+
+> 1. モデルの適合と複雑性
+> 2. 適合度の分解と複雑性の最適化
+> 3. 情報量とモデル適合度の尺度
+> 4. 再標本抽出法とモデル適合度の測定
+
+---
+
+__モデルの適合と複雑性__
+
+<iframe src="https://player.vimeo.com/video/678002826?h=cdc05147fa" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+> 要点
+
+- データの生成過程のパラメータ推定ではなく、モデルをデータに適合し、予測に役立てることを目的とする実用的手法群がある
+
+  (1) ノン・パラメトリック推定 ... 誤った仮定に依存しないために、特定の分布への仮定に依存しないモデル
+
+  (2) 機械学習 ... 画像、音声、テキストなどのデジタル・フットプリント(『ビッグ・データ』)を、計算能力を駆使するアルゴリズム的手法として発展
+
+- 理論・慣習によってモデルが与えられないため、「複雑性」と「精度」のバランスを取るように選ぶ
+
+  - 予測可能性と精度のトレード・オフ... より複雑なモデル群ほど、解釈・説明が難しいが、予測精度が高い。
+
+- アンサンブル法 ... 「全てのモデルは間違っているから、組み合わせる」異なるモデルを組み合わせる「集合知」により、よりよい予測精度を達成できる
+
+---
+
+__適合度の分解と「複雑性」の最適化__
+
+<iframe src="https://player.vimeo.com/video/678004142?h=4e538bf9c1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Overview2.mp4"></iframe>
+
+> 要点
+
+- データには、「シグナル」と「ノイズ」があり、推定値$\hat{f}(X_i)$を$f(X_i)$に近づけたいが、$\varepsilon_i$には近づけたくない
+  $$
+  \underset{観測値}{\underbrace{Y_{i}}}=\underset{シグナル}{\underbrace{f(X_{i})}}+\underset{ノイズ}{\underbrace{\varepsilon_{i}}}
+  $$
+
+- 予測誤差は、「バイアス」2乗、「バリアンス」、「低減できないエラー」に分解できる
+  $$
+  \begin{aligned}
+  \mathbb{E}(Y-\hat{f}(X))^{2} & =\mathbb{E}(f(X)+\varepsilon-\hat{f}(X))^{2}\\
+  
+   & =\underset{=Bias^{2}}{\underbrace{(\mathbb{E}\hat{f}(X)-f(X))^{2}}}+\underset{=Var}{\underbrace{Var(\hat{f}(X))}}+\underset{=IrreducibleError}{\underbrace{Var(\varepsilon)}}
+   \end{aligned}
+$$
+
+- (複雑性が相対的に低いとき) 過剰適合 (overfit)... モデルの「複雑さ」が増えると、バイアスは低いが、「未知のデータ」でのバリアンスが大きくなってしまう。よって、最適な「複雑さ」を選ぶには、適度にバイアスを含めなくてはいけない (!)
+
+- (複雑性が相対的にとても高いとき) 二重降下 (double descent)... モデルの「複雑さ」が増えると、「ブレ」が少ないモデルに近づく
+
+**訂正:** 「複雑性」は「自由度」ではなく、言うなれば、「サンプル数 ー 自由度」である
+
+---
+
+__情報量とモデル適合度の尺度__
+
+<iframe src="https://player.vimeo.com/video/678005847?h=6e7e6d3b92&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="情報量とモデル適合度の尺度"></iframe>
+
+> 要点
+
+- シャノン情報量($S$) ... 「情報とは、不確実性の解決である」
+  $$
+  \mathbb{E}S = - \mathbb{E} \log \mathbb{P}(E)
+  $$
+  (注意: ただし、これらの尺度が「情報の有用性」を反映しているとは限らない)
+
+- パラメータの数$k$のモデル複雑性を考慮した適合度の尺度として、調整済み$R^2$に加え、情報量規準(Information Criterion)がある
+  $$
+  \underset{=未知のデータでの誤差}{\underbrace{-\mathbb{E}^{X}\ln f\left(X\right)}}=\underset{=既知のデータでの誤差}{\underbrace{-\sum_{i=1}^{N}\frac{\ln f\left(X_{i}\right)}{N}}}+\underset{=罰則項}{\underbrace{k\frac{c_{n}}{N}}}
+  $$
+  赤池情報量規準(Akaike Information Criterion)の場合は、$c_n = 1$であり、ベイズ情報量規準(Bayes Information Criterion)の場合は、$c_n = \ln N$である
+
+  (補足訂正: 「情報量基準」は「情報量<u>規準</u>」と書くことが多い)
+
+---
+
+__再標本抽出法とモデル適合度の測定__
+
+<iframe src="https://player.vimeo.com/video/678006605?h=c3f8e11c50&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Resampling.mp4"></iframe>
+
+> 要点
+
+- モデル適合度を測定するために、ランダムさを加えることが効果的となりうる(!)
+- ブートストラップ法(Bootstrap) ... 標本集団から、重複を許して同じ標本数をランダムに再標本抽出し、それらのデータで統計量を推定することで、統計量の分布を推定する方法
+- 交差検証法(Cross Validation) ... 標本データを訓練集合(training set)と検証集合(testing set)にランダムに分割し、訓練集合を用いてパラメータを推定し、検証集合を用いてそのモデルの「未知のデータ」に対する適合度を測定すること
+
+---
+
+__参考文献__
+
+Sendhil Mullainathan and Jann Spiess. 2017. ”Machine Learning: An Applied Econometric Approach." *Journal of Economic Perspectives.*
+
+Hal Varian. 2014. "Big Data: New Tricks for Econometrics." *Journal of Economic Perspectives.*
+
+Susan Athey and Guido Imbens. "Machine Learning Methods That Economists Should Know About" 2019. *Annual Review of Economics.*
+
+Leo Breiman "Statistical Modeling: The Two Cultures (with comments and a rejoinder by the author)" 2001. *Statistical Science.*
+
+Stuart Geman, Elie Bienenstock, Rene Doursat "Neural Networks and the Bias/Variance Dilemma" 1992. *Neural Computation.*
+
+Mikhail Belkin, Daniel Hsu, Siyuan Ma,  Soumik Mandal "Reconciling modern machine-learning practice and the classical bias–variance trade-off" 2019, *PNAS.*
+
+Bradley Efron, Trevor Hastie 『大規模計算時代の統計推論―原理と発展― (Computer Age Statistical Inference: Algorithms, Evidence, and Data Science)』藤澤 洋徳・井手 剛監訳・井尻 善久・井手 剛・牛久 祥孝・梅津 佑太・大塚 琢馬・尾林 慶一・川野 秀一・田栗 正隆・竹内 孝・橋本 敦史・藤澤 洋徳・矢野 恵佑訳 2020. 共立出版
+
+ショーン・ジェリッシュ 『スマートマシンはこうして思考する』(How Smart Machines Think) 依田光江訳、みすず書房、2020年
+
+大坪直樹、中江俊博、深沢祐太、豊岡祥、坂元哲平、佐藤誠、五十嵐健太、市原大暉、堀内新吾 『XAI (説明可能なAI) そのとき人工知能はどう考えたのか？』リックテレコム、2021年
+
+加藤公一、秋庭伸也、杉山阿聖、寺田学 『機械学習図鑑　見て試してわかる機械学習アルゴリズムの仕組み』翔泳社、2019年

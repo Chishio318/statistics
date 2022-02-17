@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 分布の推定 | 統計推論再考 – 概念と技法 –</title>
+  <meta name="description" content="14 分布の推定 | 統計推論再考 – 概念と技法 –" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 分布の推定 | 統計推論再考 – 概念と技法 –" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 分布の推定 | 統計推論再考 – 概念と技法 –" />
+  
+  
+  
+
+<meta name="author" content="By Chishio Furukawa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="モデルの適合度と複雑性.html"/>
+<link rel="next" href="非線形回帰モデル分類モデル.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>目指すもの</a></li>
+<li class="part"><span><b>I はじめに</b></span></li>
+<li class="chapter" data-level="1" data-path="主要な8の統計的考え方.html"><a href="主要な8の統計的考え方.html"><i class="fa fa-check"></i><b>1</b> 主要な8の統計的考え方</a></li>
+<li class="chapter" data-level="2" data-path="プログラミングの姿勢と技術.html"><a href="プログラミングの姿勢と技術.html"><i class="fa fa-check"></i><b>2</b> プログラミングの姿勢と技術</a></li>
+<li class="part"><span><b>II 確率分布</b></span></li>
+<li class="chapter" data-level="3" data-path="確率変数と確率分布.html"><a href="確率変数と確率分布.html"><i class="fa fa-check"></i><b>3</b> 確率変数と確率分布</a></li>
+<li class="chapter" data-level="4" data-path="典型的分布と大標本定理.html"><a href="典型的分布と大標本定理.html"><i class="fa fa-check"></i><b>4</b> 典型的分布と大標本定理</a></li>
+<li class="chapter" data-level="5" data-path="条件づき確率と意思決定.html"><a href="条件づき確率と意思決定.html"><i class="fa fa-check"></i><b>5</b> 条件づき確率と意思決定</a></li>
+<li class="part"><span><b>III 最適化</b></span></li>
+<li class="chapter" data-level="6" data-path="最尤法と数値的最適化.html"><a href="最尤法と数値的最適化.html"><i class="fa fa-check"></i><b>6</b> 最尤法と数値的最適化</a></li>
+<li class="chapter" data-level="7" data-path="回帰分析と最小二乗法.html"><a href="回帰分析と最小二乗法.html"><i class="fa fa-check"></i><b>7</b> 回帰分析と最小二乗法</a></li>
+<li class="chapter" data-level="8" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html"><i class="fa fa-check"></i><b>8</b> 重回帰分析とその条件</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="重回帰分析とその条件.html"><a href="重回帰分析とその条件.html#訂正.-講義ビデオでは多重共変性と書いているが正しくは多重共線性である"><i class="fa fa-check"></i><b>8.1</b> <strong>訂正.</strong> 講義ビデオでは「多重共変性」と書いているが、正しくは「多重共線性」である。</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="統計的検定.html"><a href="統計的検定.html"><i class="fa fa-check"></i><b>9</b> 統計的検定</a></li>
+<li class="part"><span><b>IV 社会科学の手法</b></span></li>
+<li class="chapter" data-level="10" data-path="社会調査.html"><a href="社会調査.html"><i class="fa fa-check"></i><b>10</b> 社会調査</a></li>
+<li class="chapter" data-level="11" data-path="因果推論の概要と共変量制御のアプローチ.html"><a href="因果推論の概要と共変量制御のアプローチ.html"><i class="fa fa-check"></i><b>11</b> 因果推論の概要と共変量制御のアプローチ</a></li>
+<li class="chapter" data-level="12" data-path="因果推論の実験的アプローチ.html"><a href="因果推論の実験的アプローチ.html"><i class="fa fa-check"></i><b>12</b> 因果推論の実験的アプローチ</a></li>
+<li class="part"><span><b>V モデル適合の手法</b></span></li>
+<li class="chapter" data-level="13" data-path="モデルの適合度と複雑性.html"><a href="モデルの適合度と複雑性.html"><i class="fa fa-check"></i><b>13</b> モデルの適合度と複雑性</a></li>
+<li class="chapter" data-level="14" data-path="分布の推定.html"><a href="分布の推定.html"><i class="fa fa-check"></i><b>14</b> 分布の推定</a></li>
+<li class="chapter" data-level="15" data-path="非線形回帰モデル分類モデル.html"><a href="非線形回帰モデル分類モデル.html"><i class="fa fa-check"></i><b>15</b> 非線形回帰モデル・分類モデル</a></li>
+<li class="part"><span><b>VI プログラミング実践</b></span></li>
+<li class="chapter" data-level="16" data-path="コミュニケーションの課題.html"><a href="コミュニケーションの課題.html"><i class="fa fa-check"></i><b>16</b> コミュニケーションの課題</a></li>
+<li class="chapter" data-level="17" data-path="プログラミングの環境管理.html"><a href="プログラミングの環境管理.html"><i class="fa fa-check"></i><b>17</b> プログラミングの環境管理</a></li>
+<li class="chapter" data-level="18" data-path="データ分析プログラミング-1.html"><a href="データ分析プログラミング-1.html"><i class="fa fa-check"></i><b>18</b> データ分析プログラミング (1)</a></li>
+<li class="chapter" data-level="19" data-path="データ分析プログラミング-2.html"><a href="データ分析プログラミング-2.html"><i class="fa fa-check"></i><b>19</b> データ分析プログラミング (2)</a></li>
+<li class="part"><span><b>VII むすびに</b></span></li>
+<li class="chapter" data-level="20" data-path="統計分析活用の実際と工夫.html"><a href="統計分析活用の実際と工夫.html"><i class="fa fa-check"></i><b>20</b> 統計分析活用の実際と工夫</a></li>
+<li class="part"><span><b>VIII 付録</b></span></li>
+<li class="chapter" data-level="21" data-path="授業の形式と内容.html"><a href="授業の形式と内容.html"><i class="fa fa-check"></i><b>21</b> 授業の形式と内容</a></li>
+<li class="chapter" data-level="22" data-path="rを学ぶためのリソース.html"><a href="rを学ぶためのリソース.html"><i class="fa fa-check"></i><b>22</b> Rを学ぶためのリソース</a></li>
+<li class="chapter" data-level="23" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html"><i class="fa fa-check"></i><b>23</b> Rパッケージ活用のエラーへの対処</a>
+<ul>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#package-libraryのpathがrstudioに認識されないとき"><i class="fa fa-check"></i>package libraryのpathがRStudioに認識されないとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#packagesがコンフリクトを起こすとき"><i class="fa fa-check"></i>packagesがコンフリクトを起こすとき</a></li>
+<li class="chapter" data-level="" data-path="rパッケージ活用のエラーへの対処.html"><a href="rパッケージ活用のエラーへの対処.html#別の手法-renvパッケージを用いる"><i class="fa fa-check"></i>別の手法: renvパッケージを用いる</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="補講1-数学.html"><a href="補講1-数学.html"><i class="fa fa-check"></i><b>24</b> 補講(1) 数学</a></li>
+<li class="chapter" data-level="25" data-path="補講2-思索への寄り道.html"><a href="補講2-思索への寄り道.html"><i class="fa fa-check"></i><b>25</b> 補講(2) 思索への寄り道</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">統計推論再考 – 概念と技法 –</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="分布の推定" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> 分布の推定</h1>
+<p>統計的手法では正規分布を仮定し、平均と分散のみに着目をすることが多いです。しかし、正規分布とは異なる分布と実際になることも多く、分布をより柔軟に捉えたいこともよくあります。ここでは、経済学の実証研究でもよく用いられる分布・密度を推定する手法を学びます。</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>分位回帰</li>
+<li>カーネル密度推定</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>分位回帰</strong></p>
+<iframe src="https://player.vimeo.com/video/678006926?h=3b34782cd6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Distributions.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>平均の「差」のみでなく、分布それぞれの分位点の「差」を推定できる (ただし、特定の個人に対する効果ではないことに注意)</p></li>
+<li><p>分位回帰(quantile regression)では、チェック関数<span class="math inline">\(\rho (\varepsilon)\)</span> の最小化問題を解く
+<span class="math display">\[
+\min_{\beta_{\tau}}\sum_{i}\rho\left(\varepsilon_{i}\right)
+\]</span>
+ここで、
+<span class="math display">\[
+\begin{aligned}
+\varepsilon_{i} &amp; =y_{i}-X_{i}\beta_{\tau}\\
+\rho\left(\varepsilon_{i}\right) &amp; =\tau\varepsilon_{i}1(\varepsilon_{i}&gt;0)+\left(1-\tau\right)\left(-\varepsilon_{i}\right)1(\varepsilon_{i}\leq0)
+\end{aligned}
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>カーネル密度推定</strong></p>
+<iframe src="https://player.vimeo.com/video/678007026?h=d17703f719&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Density.mp4">
+</iframe>
+<blockquote>
+<p>要点</p>
+</blockquote>
+<ul>
+<li><p>十分な数の正規分布の混合分布によって、あらゆるスムーズな密度を任意に近似できる</p></li>
+<li><p>カーネル関数<span class="math inline">\(K(.)\)</span>を用いて、データの測定値<span class="math inline">\(X_1, X_2, ..., X_n\)</span> を所与としたとき、値<span class="math inline">\(x\)</span>におけるカーネル密度関数は
+<span class="math display">\[
+\hat{f}\left(x\right)=\frac{1}{nh}\sum_{i=1}^{n}K\left(\frac{x-X_{i}}{h}\right)
+\]</span></p></li>
+<li><p>平滑化パラメータ<span class="math inline">\(h&gt;0\)</span>が大きすぎると適合不足となり、小さすぎると過剰適合となる</p></li>
+</ul>
+<hr />
+<p><strong>参考文献</strong></p>
+<p>Roger Koenker and Kevin Hallock, “Quantile Regression.” 2001. <em>Journal of Economic Perspectives.</em></p>
+<p>Joshua Angrist and Jorn-Steffen Pischke “Mostly Harmless Econometrics: An Empiricist’s Companion”, 2009. <em>Princeton University Press</em></p>
+<p>Qi Li and Jeffrey Racine, “Density Estimation, from Nonparametric Econometrics: Theory and Practice” 2006. <em>Princeton University Press.</em></p>
+<p>Bernard Silverman “Density Estimation for Statistics and Data Analysis.” 1986 <em>Chapman and Hall</em></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="モデルの適合度と複雑性.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="非線形回帰モデル分類モデル.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": false,
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
