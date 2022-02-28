@@ -72,6 +72,8 @@ __3. 図の作成__
 
 __4. 表の作成__
 
+<iframe src="https://player.vimeo.com/video/665918091?h=3553fd17dd&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="表の作成"></iframe>
+
 > 要点
 
 - カテゴリー変数 x (カテゴリー変数 x) アウトカム変数のデータを表すために適切
@@ -79,13 +81,29 @@ __4. 表の作成__
   - 縦線を入れないこと
   - 横線を減らすこと
   - 数値の桁数を調整すること
+- 回帰表において、統計的優位な場合に**をつけるかどうかについては、「出版バイアス」の観点から、賛否両論がある
 
 
 ***
 
 __5. 衛生・安全性の確保 __ 
 
-> 要点
+<iframe src="https://player.vimeo.com/video/665920450?h=3b73f1df8c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="衛生・安全性の確保"></iframe>
+
+> 要素
+
+- 欠測値 (missing values) / 重複値 (duplicates) ... 唯一の正しい対処法はないので、いくつかのパターンで保守的なものを選ぶ
+  - 明示的 (explicit)
+  - 暗示的 (implicit)
+- 外れ値 (outliers) / エントリーミス ... 分布や値の変域を確認する
+- ただ「データを眺める」(browse)する時間も大切である
+
+- プログラムの一貫性の問題
+  - 全体を統括するmasterスクリプトをつくる
+- パッケージの整合性の問題
+  - パッケージの関数のマスキング
+  - パッケージの誤った更新
+  
 
 ***
 

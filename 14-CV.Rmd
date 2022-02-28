@@ -7,7 +7,7 @@
 
 ---
 
-__分位回帰__
+__1. 分位回帰__
 
 <iframe src="https://player.vimeo.com/video/678006926?h=3b34782cd6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Distributions.mp4"></iframe>
 
@@ -31,7 +31,7 @@ __分位回帰__
 
 ---
 
-__カーネル密度推定__
+__2. カーネル密度推定__
 
 <iframe src="https://player.vimeo.com/video/678007026?h=d17703f719&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Density.mp4"></iframe>
 

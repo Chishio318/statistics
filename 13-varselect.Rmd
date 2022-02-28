@@ -11,7 +11,7 @@
 
 ---
 
-__モデルの適合と複雑性__
+__1. モデルの適合と複雑性__
 
 <iframe src="https://player.vimeo.com/video/678002826?h=cdc05147fa" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
@@ -31,7 +31,7 @@ __モデルの適合と複雑性__
 
 ---
 
-__適合度の分解と「複雑性」の最適化__
+__2. 適合度の分解と「複雑性」の最適化__
 
 <iframe src="https://player.vimeo.com/video/678004142?h=4e538bf9c1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Overview2.mp4"></iframe>
 
@@ -59,7 +59,7 @@ $$
 
 ---
 
-__情報量とモデル適合度の尺度__
+__3. 情報量とモデル適合度の尺度__
 
 <iframe src="https://player.vimeo.com/video/678005847?h=6e7e6d3b92&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="情報量とモデル適合度の尺度"></iframe>
 
@@ -81,7 +81,7 @@ __情報量とモデル適合度の尺度__
 
 ---
 
-__再標本抽出法とモデル適合度の測定__
+__4. 再標本抽出法とモデル適合度の測定__
 
 <iframe src="https://player.vimeo.com/video/678006605?h=c3f8e11c50&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Resampling.mp4"></iframe>
 

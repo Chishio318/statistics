@@ -1,63 +1,118 @@
 # 非線形回帰モデル・分類モデル
 
-重回帰分析では、アウトカムが量的変数である線形回帰モデルを主に考えました。ここでは、アウトカムが量的変数で説明変数に対して非線形の関係を持つ場合、もしくは質的変数である場合のモデルを考えます。
+重回帰分析では、アウトカムが量的変数である線形回帰モデルを主に考えました。ここでは、アウトカムが量的変数で説明変数に対して非線形の関係を持つ回帰モデル、そして質的変数である分類モデルを考えます。これらの統計モデルはとてもたくさんありますが、主要なものを説明します。
 
+また、(少なくとも現時点で)経済学研究に用いられることは多くありませんが、人工ニューラルネットによる機械学習で、従来の統計モデルでは不可能だったデータの分析が可能となっています。これらによって直面しなければならない新しい社会的・哲学的な課題も考えます。
 
+> 1. 潜在変数モデル
+> 2. 多項式と縮小推定量
+> 3. スプラインと局所回帰による平滑化
+> 4. 決定木、ランダム・フォレストとブースティング
+> 5. 人工ニューラルネットと深層学習
+> 6. 機械学習の「思考」、「創造性」と「倫理的課題」
 
-__パラメトリックな非線形モデル__
+---
 
-- 潜在変数$Z_i = \beta_0 + \beta_1 X_i + \varepsilon_i$ が何らかの閾値$\mu$を越える確率として考えることができ、$\varepsilon_i$の分布を$F$と書くと、$Y_i \in \{0,1\}$に対して、
+__1. 潜在変数モデル__
+
+<iframe src="https://player.vimeo.com/video/682623687?h=bafa16d7d7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Latent Variables.mp4"></iframe>
+
+> 要約
+
+- $Y_i \in \{0,1\}$に対して、潜在変数$Y_i^\ast = \beta_0 + \sum_{j=1}^k\beta_j X_{ji} + \varepsilon_i$ が閾値$0$を越える確率として考えることができ、$\varepsilon_i$の分布を$F$と書くと、
   $$
-  \mathbb{E}Y_{i}=F\left(\beta_{0}+\beta_{1}X_{i}\right)
+  \mathbb{E}Y_{i}=F\left(\beta_0 + \sum_{j=1}^k\beta_j X_{ji}\right)
   $$
   などとして書ける。
 
   - プロビット(probit) ... $F(\varepsilon_i) = \Phi(\varepsilon_i)$、正規分布を仮定
   - ロジット(logit) ... $F(\varepsilon_i) = \exp(\varepsilon_i)/[1 + \exp(\varepsilon_i)]$ 、ロジスティック分布を仮定
+  - 線形確率モデル ... $F(\varepsilon_i) = \varepsilon_i + 1/2$ 、一様分布を仮定 (局所的近似として解釈)
 
-- 限界効果$\partial \mathbb{E}Y_{i}/ \partial X_i = \beta_i f\left(\beta_{0}+\beta_{1}X_{i}\right)$に着目して、係数を解釈する
+- 限界効果$\partial \mathbb{E}Y_{i}/ \partial X_{li} = \beta_l f\left(\beta_0 + \sum_{j=1}^k\beta_j X_{ji}\right)$に着目して、係数を解釈する
 
-- 被説明変数が離散的で2つ以上の値を取るとき、説明変数が一つ以上のときにも適用できる
+- 被説明変数が離散的で3つ以上の値を取るときにも適用できる
 
-- (確率のためには非線形モデルを用いることが多いが、線形モデルを使うこともある)
+---
 
+__2. 多項式と縮小推定量__
 
+<iframe src="https://player.vimeo.com/video/682624971?h=22edcdd0df&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Polynomials and Shrinkage.mp4"></iframe>
 
-__多項式と縮小推定量__
+>  要約
 
 - 経済学の実証研究で最もよく用いるフレクシブルな非線形モデルは、多項式(polynomial)モデルと交互作用(interaction effects)モデルである
 
   - 多項式モデル ... $Y_i = \beta_0 + \beta_1 X_{i} + \beta_2 X_{i}^2 +... + \beta_k X_{i}^k + \varepsilon_i$ 
   - 交互作用モデル ... $Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{1i}X_{2i} + \varepsilon_i$ 
 
-- テイラー近似 ... 十分な数の項を用いれば、(限定的な変域において)スムーズな関数を任意に近似できる
+- 十分な数の項を用いれば、(限定的な変域において)スムーズな関数を任意に近似できる
 
 - 変数の間の相関が強いとき(多項式の高次項など)、多重共線性によって推定値の分散がとても大きくなってしまう
 
-- 縮小推定量 ... 目的関数に罰則項を加え、推定値にバイアスを含めることでバリアンスを減らすことができる
+- 正則化 ... 目的関数に罰則項を加え、推定値にバイアスを含めることでバリアンスを減らすことができる
   $$
   \sum_i^N \varepsilon_i^2 + \lambda \sum_j^k[\alpha  \beta_j^2 + (1-\alpha) |\beta_j|]
   $$
 
-  - $\alpha = 1$ ... リッジ回帰、$\alpha = 0$ ... LASSO回帰、$\alpha \in (0,1)$ ... elastic net回帰
-  - 推定された係数にはバイアスがかかっているため、解釈には注意が必要
+  - リッジ回帰 ($\alpha = 1$) ... ベイズ的事前分布としての解釈
+  - LASSO回帰 ($\alpha = 0$) ... 変数の数が標本の数よりも大きいときの変数選択
+  - elastic net回帰 ($\alpha \in (0,1)$) ... リッジ回帰とLASSO回帰の組み合わせ
+  - 縮小推定量 ... 推定された係数にはバイアスがかかっているため、解釈には注意が必要
+  - 交差検証法によって$\lambda, \alpha$の値を選ぶことができる
 
-  
+---
 
-__決定木とランダム・フォレスト__
+__3. スプラインと局所回帰による平滑化__
 
-- 決定木 ... 説明変数に応じて条件分岐を繰り返すことで分類・回帰をするモデル
-- 決定木の「葉ノード」が十分にあれば、任意の関数に完全に適合できる
-- しかし、データについて「葉ノード」が多すぎるとき、過剰適合となってしまう
-- ランダム・フォレスト ... ブートストラップ法で標本サンプルを複製し、それぞれのデータで決定木を推定し、統合する推定方法
-  - バギング(bootstrap aggregating)とよばれるアンサンブル学習法(ensemble learning)
-  - それぞれの決定木における低いバイアスを活かしつつ、バリアンスを下げられる
+<iframe src="https://player.vimeo.com/video/682649578?h=a772c1e6cb&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Smoothing.mp4"></iframe>
 
+> 要約
 
+- テイラー近似 ... $x$の近傍においては、低次元の多項式によってスムーズな関数を近似できる
 
-__人工ニューラルネットと深層学習__
+- スプライン平滑化 (spline, piecewise polynomials) ... いくつかの変域に分割し、多項式を変域ごとに推定
 
-- 特に画像、音声、テキストなどの非構造データを分析するためにとても有効な手法
+  - 変域の境界でも$\hat{f}^{\prime \prime}(x)$が等しくなるという制約のもと、3次の多項式を推定することが多い (cubic spline)
+
+- 局所回帰 (local regression, LOWESS = locally weighted scatterplot smoothing) ... 近傍の観測値により重い比重$w_i(x)$を置いて、それぞれの値$x$ごとに回帰をすること
+  $$
+  \min_{\beta} \sum_{i=1}^n w_i(x) (Y_i - \beta_0 - \sum_{l=1}^k\beta_l X_{li})^2
+  $$
+
+  - $k = 0$ ... カーネル回帰 (kernel regression)
+  - $k = 1$ ... 局所線形回帰 (local linear regression)
+  - データ全てを記憶する推定方法である
+
+---
+
+__4. 決定木、ランダム・フォレストとブースティング__
+
+<iframe src="https://player.vimeo.com/video/682626442?h=7bec5725f6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Trees.mp4"></iframe>
+
+> 要約
+
+- 変数の次元が大きく、高次の交互効果が重要な状況に有効な手法
+
+- 決定木 ... 説明変数に応じて、不確実性を最小化するような条件分岐を繰り返すことで分類・回帰をするモデル
+
+- 決定木の「葉ノード」が十分にあれば、任意の関数に完全に適合できる。しかし、データについて「葉ノード」が多すぎるとき、過剰適合となってしまう
+
+- アンサンブル学習法(ensemble learning) ... 複数のモデルを組み合わせて、予測精度を改善する方法
+  1. バギング(<u>b</u>ootstrap <u>agg</u>regat<u>ing</u>)、ランダム・フォレスト ... ブートストラップ法で標本サンプルを複製し、それぞれのデータで深い決定木を推定し、統合する推定方法
+  2. ブースティング ... 浅い決定木を残差に基づいて繰り返し推定し、その結果に比重をつけて統合する方法
+
+- 適応的なカーネル法と捉えられる
+
+---
+
+__5. 人工ニューラルネットと深層学習__
+
+<iframe src="https://player.vimeo.com/video/682665245?h=9da94f912f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Neural Nets.mp4"></iframe>
+
+> 要約
+
+- 特に画像、音声、テキストなどの「非構造化データ」を分析するためにとても有効な手法
 
 - パーセプトロン ... 入力$X$に重み$w$をつけ、活性化関数$f()$を通じて出力$Y$を決定する関数である
   $$
@@ -66,56 +121,106 @@ __人工ニューラルネットと深層学習__
 
   - 例: $f(u) = \max(u, 0)$、$f(u) = \exp(u)/(1+\exp(u))$ 
 
-- 人工ニューラルネットとは、複数のパーセプトロンをつなぎあわせた「隠れ層」を持つ複合関数である
-  $$
-  Y_i = f(z_0 + \sum_j z_jf(w_{0j} + \sum_k w_{kj} X_{ik}))
-  $$
+- 人工ニューラルネットとは、複数のパーセプトロンをつなぎあわせた「隠れ層」を持つ合成関数である
 
 - パーセプトロンが十分に多くあり、活性化関数が非線形であれば、(たとえ「隠れ層」が浅くとも) あらゆる関数を任意に近似できる (万能近似定理)
 
-- 深層学習 ... 「隠れ層」が複数あり、ニューラルネットが深いとき、(比較的)少ないパラメータで複雑な関数を近似できる
+- 深層学習 ... 「隠れ層」が多くあるとき、非常に高い予測精度を持つ
 
-  - 2012年に画像認識で世界一だったAlexNet ... $6 \times 10^8$ のパーセプトロンのつながり
-  - 人間の脳 ... $10^{15}$の脳神経のつながり
+  - 畳み込みニューラルネット、再帰型ニューラルネットなど
+  - "complexity is a compounded simplicity."
 
-- 重要な技術革新を経て、いくつもの障壁を乗り越えてきた
+- 重要な技術革新を経て、いくつもの「冬の時代」を乗り越えてきた
 
-  1. 大量のデータ
-  2. 逆伝播法と確率的勾配法
-  3. 畳み込み層
-  4. ドロップアウト法
+  1. 逆伝播法
+  2. 確率的勾配降下、ドロップアウト法などによる最適化
+  3. 大量のデータ
+
+- パラメータの数が膨大なのに汎化能力も高いことから、「二重降下」などの理論的発展につながっている。特徴量空間におけるカーネル法の一種だと捉えられる。
+
+- [Neural network playground](https://playground.tensorflow.org/)でアルゴリズムを試すことができる
+
+---
+
+__6. 機械学習の「思考」、「創造性」と「倫理的課題」__
+
+<iframe src="https://player.vimeo.com/video/682649434?h=74dfc7eca1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="502" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Philosophy.mp4"></iframe>
+
+> 要約
+
+- 「人工知能」を人の知能に対してどのように位置づけるか、が社会的・哲学的問いとなっている
+
+- 機械学習 = 明確にプログラム化されずに、自動で学んでいく機械
+
+    1. 特徴量学習・パターン認識
+    2. 敵対的ゲームによる自動学習
+
+   $\Leftrightarrow$ 従来の考え方 = プログラムされたこと以上のことを機械はできない
+
+- 人間の脳を物質と化学反応として理解できるなら、機械は(i)その働きを近似でき、(ii)生物学的制約を克服できる
+
+- 機械は「思考」を持ちうるか
+  - 認知主義的アプローチ = 機械は「意識」を持っているか　
+  - 行動主義的アプローチ = チューリング・テスト ... 「人とコミュニケーションすることと分別をできなかったら、機械は思考しているとする」
+  
+- 機械は「創造性」を持ちうるか
+
+  - 創造性 = 既存のアイデアの新しい組み合わせ
+
+    $\Rightarrow$ 創造 = 潜在的に存在する組み合わせの中で有意義なものを発見するための探索
+
+    1. 広大な探索
+    2. 適切な評価
+
+- 機械に適切な「目的関数」を与えることが難しく、人間がつねに抱えていた倫理的課題をより強く突き付けている。例として...
+
+  1. コンテンツ推薦システムの中毒性
+  2. 人種・性別差別をする人材評価システム
+  3. 炎上発言をするチャットボット
+  4. 「トロッコ問題」を抱える自動運転システム
+  5. 覇権国家の監視システム
+  6. 自律型致死兵器システム (LAWS = Lethal Autonomous Weapons System)
 
 
 
 ---
 
-Mikhail Belkin, Daniel Hsu, Siyuan Ma,  Soumik Mandal "Reconciling modern machine-learning practice and the classical bias–variance trade-off" 2019, PNAS
-
-今泉允聡『深層学習の原理に迫る　数学の挑戦』岩波書店、2021年
-
-ショーン・ジェリッシュ 『スマートマシンはこうして思考する』(How Smart Machines Think) 依田光江訳、みすず書房、2020年
-
-梅津佑太、西井龍映、上田勇祐 『スパース回帰分析とパターン認識』講談社、2020年
+**参考文献.**
 
 西山慶彦・新谷元嗣・川口大司・奥井亮『計量経済学 Econometrics: Statistical Data Analysis for Empirical Economics』New Liberal Arts Selection、 有斐閣、2019年
 
-立山秀利 『日経ソフトウエアのディープラーニングAIはどのように学習し、推論しているのか』2021. 日経BP.
-
-Sendhil Mullainathan and Jann Spiess. 2017. ”Machine Learning: An Applied Econometric Approach." Journal of Economic Perspectives
-
-Hal Varian. 2014. "Big Data: New Tricks for Econometrics." Journal of Economic Perspectives.
-
-Stuart Geman, Elie Bienenstock, Rene Doursat "Neural Networks and the Bias/Variance Dilemma" 1992. Neural Computation.
+梅津佑太、西井龍映、上田勇祐 『スパース回帰分析とパターン認識』講談社、2020年
 
 Bradley Efron, Trevor Hastie 『大規模計算時代の統計推論―原理と発展― (Computer Age Statistical Inference: Algorithms, Evidence, and Data Science)』藤澤 洋徳・井手 剛監訳・井尻 善久・井手 剛・牛久 祥孝・梅津 佑太・大塚 琢馬・尾林 慶一・川野 秀一・田栗 正隆・竹内 孝・橋本 敦史・藤澤 洋徳・矢野 恵佑訳 2020. 共立出版
+
+Hal Varian. 2014. "Big Data: New Tricks for Econometrics." *Journal of Economic Perspectives.*
+
+Susan Athey and Guido Imbens. “Machine Learning Methods That Economists Should Know About” 2019. *Annual Review of Economics.*
+
+岩沢宏和、平松雄司 『入門 Rによる予測モデリング――機械学習を用いたリスク管理のために』2019. 東京図書
+
+今泉允聡『深層学習の原理に迫る　数学の挑戦』岩波書店、2021年
+
+立山秀利 『ディープラーニングAIはどのように学習し、推論しているのか』2021. 日経BP.
 
 Yann LeCun 『ディープラーニング 学習する機械 -- ヤン・ルカン、人工知能を語る』2021. 松尾豊監訳/ 小川浩一訳. 講談社
 
 富谷昭夫 『これならわかる機械学習入門』 2021. 講談社
 
-岩沢宏和、平松雄司 『入門 Rによる予測モデリング――機械学習を用いたリスク管理のために』2019. 東京図書
-
 岡野原大輔 『ディープラーニングを支える技術 ——「正解」を導くメカニズム[技術基礎] 』2022. 技術評論社
 
-加藤公一、秋庭伸也、杉山阿聖、寺田学 『機械学習図鑑　見て試してわかる機械学習アルゴリズムの仕組み』2019. 翔泳社
+岡谷貴之 『深層学習　機械学習プロフェッショナルシリーズ』2022. 講談社
 
+川村秀憲、山下倫央、横山想一郎 『人工知能が俳句を詠む　AI一茶くんの挑戦』2021.  オーム社 
+
+徳井直生 『創るためのAI　機械と創造性のはてしない物語』2021. ビー・エヌ・エヌ
+
+Stuart Russell 『AI新生　人間互換の知能をつくる』(Human Compatible: Artificial Intelligence and the Problem of Control) 松井信彦訳. 2021. みすず書房
+
+Sean Gerrish『スマートマシンはこうして思考する』(How Smart Machines Think) 依田光江訳. 2020. みすず書房
+
+松尾豊 『人工知能は人間を超えるか ディープラーニングの先にあるもの』2015. 角川EPUB選書
+
+https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/
+
+Brundage et al. "The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation" 2018.
