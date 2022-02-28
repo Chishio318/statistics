@@ -224,3 +224,5 @@ Sean Gerrish『スマートマシンはこうして思考する』(How Smart Mac
 https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/
 
 Brundage et al. "The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation" 2018.
+
+柴田正良『ロボットの心　７つの哲学物語』2001. 講談社現代新書
