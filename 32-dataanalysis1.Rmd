@@ -161,6 +161,8 @@ __5. データフレームの整理と変換__
 
 この講義は、主に[ホームページでの紹介](https://chishio318.github.io/statistics/r%E3%82%92%E5%AD%A6%E3%81%B6%E3%81%9F%E3%82%81%E3%81%AE%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9.html)している書籍やリソースをもとにしている。これらに追加して、以下の書籍を参考にした。
 
+Jonathan A. Schwabish "An Economist's Guide to Visualizing Data" 2014. *Journal of Economic Perspectives*
+
 Michael Friendly, Howard Wainer 『データ視覚化の人類史――グラフの発明から時間と空間の可視化まで』(A History of Data Visualization & Graphic Communication)飯嶋貴子訳、青土社、2021年
 
 John Chambers "Professional R"、 中村道宏訳、共立出版、2019年
