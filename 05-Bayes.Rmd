@@ -43,7 +43,7 @@ __2.　正規分布とベイズの定理__
 - 正規分布の事前分布 $\theta\sim{\cal N}\left(\theta_{0},1/\psi_{0}\right)$ と信号 $s\sim{\cal N}\left(\theta,1/\psi_{s}\right)$ を組み合わせるとき、事後分布は正規分布$\theta\sim{\cal N}\left(\theta_{1},1/\psi_{1}\right)$に従う。ただし、
   $$
   \begin{align*}
-  \theta_{1} & =\frac{\psi_{0}}{\psi_{0}+\psi_{s}}\theta_{0}+\frac{\psi_{s}}{\psi_{0}+\psi_{s}} s\\
+  \theta_{1} & =\frac{\psi_{0}}{\psi_{0}+\psi_{s}}\theta_{0}+\frac{\psi_{s}}{\psi_{0}+\psi_{s}}\theta_{s}\\
   \psi_{1} & =\psi_{0}+\psi_{s}
   \end{align*}
   $$
