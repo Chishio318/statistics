@@ -27,7 +27,8 @@ __1. 潜在変数モデル__
 
   - プロビット(probit) ... $F(\varepsilon_i) = \Phi(\varepsilon_i)$、正規分布を仮定
   - ロジット(logit) ... $F(\varepsilon_i) = \exp(\varepsilon_i)/[1 + \exp(\varepsilon_i)]$ 、ロジスティック分布を仮定
-  - 線形確率モデル ... $F(\varepsilon_i) = \varepsilon_i + 1/2$ 、一様分布を仮定 (局所的近似として解釈)
+
+*講義ビデオでは、「線形確率モデル」を一様分布を仮定していると説明した。($F(\varepsilon_i) = \varepsilon_i + 1/2$)　しかし、最小二乗法による推定と、一様分布を仮定した潜在確率モデルは合致しない。なので、一様分布と結びつける説明は誤りであった。(2024年2月更新)
 
 - 限界効果$\partial \mathbb{E}Y_{i}/ \partial X_{li} = \beta_l f\left(\beta_0 + \sum_{j=1}^k\beta_j X_{ji}\right)$に着目して、係数を解釈する
 
